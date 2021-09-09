@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/styles/vertorneo.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+        <script src="/js/bootstrap.bundle.js"></script>
+        <script src="/backend/assets/js/ErrorMessage.js"></script>
+    </head>
+ 
+    <body  id="listatorneos"  class="container">
+        <%- include('header') %>
+        <div class="row">
+        <div class="col-4"></div>
+        <div id="te" class="col-4">
+            <h3>TORNEO ELEGIDO</h3>
+            <form action='/verTorneo' method="POST">
+                <div><label class="form-label">ID: <%= torneo.id %> </label></div>
+                <div><label class="form-label">Nombre: <%= torneo.nombre %> </label></div>
+                <div><label class="form-label">Estado: <%= torneo.estado %> </label></div>
+                <div><label class="form-label">Fecha inicio: <%= torneo.f_ini %> </label></div>
+                <div><label class="form-label">Fecha fin: <%= torneo.f_fin %> </label></div>
+                <div><label class="form-label">Descripción: <%= torneo.descripcion %> </label></div>
+                <div><label class="form-label">Cantidad máxima de equipos: <%= torneo.cantMax %> </label></div>
+                <div><label class="form-label">Cantidad actual de equipos: <%= torneo.idJuego %> </label></div>
+                <div><label class="form-label">Juego: <%= torneo.idJuego %> </label></div>
+                <div><label class="form-label">Tipo de torneo: <%= torneo.tipoTorneo %> </label></div>
+            </form>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-2">
+            <% if(rol!="Administrador") { %>
+                <% if(torneo.tipoTorneo =="TCT" ){ %>
+                    <a href="/listaPosicionesTCT/Torneo<%= torneo.id %>" class="btn btn-warning mt-2">Ver Posiciones</a>
+                <% } else{ %> 
+                    <a href="/listaPosiciones/Torneo<%= torneo.id %>" class="btn btn-warning  mt-2"">Ver Posiciones</a>
+                <% } %>
+            <% } %>
+            </div>
+            <div  class="col-2">
+            <% if(torneo.tipoTorneo == 'TCT'){ %>
+                <a id="añadir_partido" href="/crearRondaTCT/Torneo<%= torneo.id %>" class="btn btn-info  mt-2"">Crear ronda</a>
+            <% } else{ %> 
+                <a id="añadir_partido" href="/crearRonda/Torneo<%= torneo.id %>" class="btn btn-info  mt-2"">Crear ronda</a>
+            <% } %>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <h3>RONDAS</h3>
+        <table class="table table-hover table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Número correlativo</th>
+                    <th>Fecha inicio</th>
+                    <th>Ordinal</th>
+                    <th>Ver fixture</th>
+                </tr>
+            </thead>
+            <tbody id="data_torneo">
+                <% rondas.forEach((r) => { %> 
+                    <tr>
+                        <td><%= r.nombre %> - <%= torneo.nombre %></td>
+                        <td><%= r.n_cor %></td>
+                        <td><%= r.f_ini %></td>
+                        <% ordinal.forEach((o) => { %> 
+                            <% if(r.id == o.id){ %>
+                                <td><%= o.pos %></td>
+                            <% } %> 
+                        <% }) %>
+                        <td>
+                            <% if(torneo.tipoTorneo == 'Directa'){ %>
+                                <a href="/verRonda/Torneo<%= torneo.id %>/Ronda<%= r.id %>">Ver fixture</a>
+                              <% } else{ %>  
+                                <a href="/verRondaTCT/Torneo<%= torneo.id %>/RondaTCT<%= r.id %>">Ver fixture</a>
+                             <% } %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+            <h3>EQUIPOS ADENTRO</h3>
+        <table class="table table-hover table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Fecha de creación</th>
+                    <th>ID del líder</th>
+                    <th>Estado</th>
+                    <th></th>
+                    <th>Ver equipo</th>
+                </tr>
+            </thead>
+            <tbody id="data_torneo">
+                <%var contador= 0 %>
+                <% Torneo_Equipo.forEach((te) => { %> 
+                    
+                    <tr>
+                        <td><%= te.id_e.id %></td>
+                        <td><%= te.id_e.nombre %></td>
+                        <td><%= te.id_e.createdAt %></td>
+                        <td><%= te.id_e.idParticipanteLider%></td>
+                        <td>Estado</td>
+                        <td  >
+                            <label  id="td_lista<%=contador%>" hidden="true" ><%= te.integrantes%></label>
+                        </td>
+                        <td id="verEquipo">
+                            <button class="VerE" id="but_verEquipo<%=contador%>" >Ver equipo</button>
+                        </td>
+                    </tr>
+                    <%contador+=1%>
+                <% }) %>
+            </tbody>
+        </table>
+        <p hidden="true" id="contador"><%=contador%></p>
+        <a id="h_verTorneos" href="/listaTorneos/1 %>" class="btn btn-info mb-3">Volver</a>
+            <% if(torneo.tipoTorneo == 'Directa'){ %>
+                <h1>EL TORNEO ES DIRECTO</h1>
+              <% } else{ %>  
+                <h1>EL TORNEO ES TODOS CONTRA TODOS</h1>
+             <% } %>
+    </body>
+    <script src="/js/verTorneo.js"></script>
+</html>

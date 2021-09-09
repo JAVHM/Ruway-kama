@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/styles/catalogo.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+        <script src="/js/bootstrap.bundle.js"></script>
+    </head>
+
+    <body class="container">
+        <%- include('header') %>
+        <h2>CREACION DE EQUIPO</h2>
+        <form action="/action_page.php">
+            <label for="fname">Nombre del equipo:</label>
+            <input type="text" id="fname" name="fname"><br><br>
+            <label for="lname">Lista de integrantes:</label>
+            <div>[supongo que el que lo crea es el líder]</div>
+        </form>
+        <div class="modal-footer">
+            <button id="modal_but_cancelar" class="btn btn-success" type="button">
+                Cancelar
+            </button>
+            <button id="modal_but_grabar" class="btn btn-success" type="submit">
+                Grabar
+            </button>
+        </div>
+    </body>
+</html>

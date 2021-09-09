@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="/styles/listaPosiciones.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+        <script src="/js/bootstrap.bundle.js"></script>
+    </head>
+
+    <body id="listatorneos">
+        <%- include('header') %>
+        <h2>POSICIONES: <%= torneo.nombre %></h2>
+            <!--Opción 1: http://jsfiddle.net/AcuPp/3/-->
+            <!--Opción 2: https://codepen.io/aronduby/pen/qliuj -->
+            <main id="tournament">
+                <ul class="round round-1">
+                    <% Torneo_Partida.forEach((tp) => { %>
+                        <% if(tp.ordenRonda == 1){ %>
+                            <li class="spacer">&nbsp;</li>
+                            
+                            <li class="game game-top winner"><%= tp.id_e1.nombre %></li>
+                            <li class="game game-spacer">&nbsp;</li>
+                            <li class="game game-bottom "><%= tp.id_e2.nombre %></li>
+                        <% }%>
+                    <% }) %>
+                    <li class="spacer">&nbsp;</li>
+                </ul>
+                    
+                <ul class="round round-2">
+                    <% Torneo_Partida.forEach((tp) => { %>
+                        <% if(tp.ordenRonda == 2){ %>
+                            <li class="spacer">&nbsp;</li>
+                            
+                            <li class="game game-top winner"><%= tp.id_e1.nombre %></li>
+                            <li class="game game-spacer">&nbsp;</li>
+                            <li class="game game-bottom "><%= tp.id_e2.nombre %></li>
+                        <% }%>
+                    <% }) %>
+                    <li class="spacer">&nbsp;</li>    
+                </ul>
+
+                <ul class="round round-3">
+                    <% Torneo_Partida.forEach((tp) => { %>
+                        <% if(tp.ordenRonda == 3){ %>
+                            <li class="spacer">&nbsp;</li>
+                                
+                            <li class="game game-top winner"><%= tp.id_e1.nombre %></li>
+                            <li class="game game-spacer">&nbsp;</li>
+                            <li class="game game-bottom "><%= tp.id_e2.nombre %></li>
+                        <% }%>
+                    <% }) %>
+                    <li class="spacer">&nbsp;</li>     
+                </ul>
+
+                <% Torneo_Partida.forEach((tp) => { %>
+                    <% if(tp.ordenRonda == 4){ %>
+                        <ul class="round round-4">
+                            <li class="spacer">&nbsp;</li>
+                                
+                            <li class="game game-top winner"><%= tp.id_e1.nombre %></li>
+                            <li class="game game-spacer">&nbsp;</li>
+                            <li class="game game-bottom "><%= tp.id_e2.nombre %></li>
+                            <li class="spacer">&nbsp;</li>
+                        </ul>
+                        
+                        <ul class="round round-5">
+                            <li class="spacer">&nbsp;</li>
+                            <% if(tp.id_p.ganador == tp.id_e1){ %>
+                                <li class="game game-top winner"><%= tp.id_e1.nombre %></li>
+                            <% }else{ %>
+                                <li class="game game-top winner"><%= tp.id_e2.nombre %></li>
+                            <% } %>
+                            <li class="spacer">&nbsp;</li>
+                        </ul>
+                    <% }%>
+                <% }) %>
+            </main>
+            <a id="h_verTorneos" href="/verTorneo/1" class="btn btn-info mb-3">Volver</a>
+    </body>
+
+</html>
+
+    
+    

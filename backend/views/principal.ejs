@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/styles/principal.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+        <script src="/js/bootstrap.bundle.js"></script>
+    </head>
+
+    <body id="principal" >
+        <%- include('header') %>
+        <div class="container">
+        <div class="grid-container">
+            <div class="tDest">
+                <h2>TORNEO DESTACADO</h2>
+                <img class="IMGtorneos" src="/media/torneo-1.jpg">
+            </div>
+            <div class="tRec">
+                <h2>TORNEO MAS RECIENTE</h2>
+                <img class="IMGtorneos" src="/media/torneo-2.jpg">
+            </div>
+        </div>
+        <div><%= rol %></div>
+    </div>
+    </body>
+</html>

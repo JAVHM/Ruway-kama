@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/styles/catalogo.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E
+    <link href=" https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <script src="/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container">
+    <%- include('header') %>
+        <h2>Actualizar Mi Perfil</h2>
+                <form name="formulario" action="#" method="POST" class="mx-2">
+                    <div>
+                        <label class="form-label">ID</label>
+                        <input readonly="true" value="<%= usuario.id %>" name="u_id" type="text" class="form-control" />
+                    </div>
+                    <div>
+                        <label class="form-label">Nombre</label>
+                        <input id="inputnombre" value="<%= usuario.nombre %>" name="u_nombre" type="text" class="form-control" />
+                    </div>
+                    <div>
+                        <label class="form-label">Correo</label>
+                        <input value="<%= usuario.correo %>" name="u_correo" type="text" class="form-control" />
+                    </div>
+                    <div>
+                        <label class="form-label">Clave</label>
+                        <input value="" name="u_clave" type="text" class="form-control" />
+                    </div>
+                    <div class="modal-footer">
+                        <a id="volver-btn" class="btn btn-success" type="button">
+                            Regresar
+                        </a>
+                        <button class="btn btn-success" type="submit">
+                            Confirmar
+                        </button>
+                    </div>
+                    <div id="rol"><%= usuario.rol %></div>
+                </form>                
+                <script src="\js\volverPagina.js"></script>
+</body>
+
+</html>

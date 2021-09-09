@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/styles/iniciarSesion.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+        <script src="/js/bootstrap.bundle.js"></script>
+    </head>
+
+    <body id="iniciarSesion" class="container">
+        <%- include('header') %>
+        <div class="grid-container">
+            <h2>INICIAR SESIÓN</h2>
+            <form action="/action_page.php">
+                <label for="fname">Nombre de usuario:</label>
+                <input type="text" id="fname" name="nombre"><br><br>
+                <label for="lname">Contraseña:</label>
+                <input type="text" id="lname" name="clave"><br><br>
+                <label for="lname">Capcha:</label>
+                <input type="text" id="lname" name="lname"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

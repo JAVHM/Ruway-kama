@@ -1,0 +1,38 @@
+body{
+    background-image: url(/media/b3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+#bp{
+    padding: 0;
+    padding-left: 0;
+    width: 30px;
+    height: 24px;
+}
+#tabla{
+    display: grid;
+    background-color: rgba(0, 0, 0, 0.877);
+    padding: 2%;
+    border-radius: 15px;
+    color: white;
+}
+th{
+    color: blueviolet ;
+    background-color: aqua;
+    text-align: center;
+}
+tr{
+    text-align: center;
+}
+td{
+    color: white;
+    text-align: center;
+}
+
+h2{
+    padding-bottom: 1%;
+    color:white;
+    
+}

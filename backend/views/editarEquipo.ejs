@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/styles/catalogo.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E
+    <link href=" https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <script src="/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container">
+    <%- include('header') %>
+        <h2>EDICION DEL EQUIPO</h2>
+        <div class="card">
+            <!-- Edicion hecha por el Lider de Equipo -->
+            <h6 class="card-title">EDICION DEL EQUIPO ACTUAL</h6>
+            <div class="card-text">
+                <form action="/editarEquipo" method="post">
+                    <label for="fname">ID del Equipo:</label>
+                    <input value="<%= equipo.id %>" type="text" id="eid" readonly name="id"><br><br>
+                    <label for="fname">Nombre del Equipo:</label>
+                    <input value="<%= equipo.nombre %>" type="text" id="enombre" name="nombre"><br><br>
+                    <label for="lname">Lista de Participantes:</label>
+                    <input value="<%= equipo.listaParticipantes  %>" type="text" id="elist" name="listaPar"><br><br>
+                    <label for="lname">ID del Lider de Equipo:</label>
+                    <input value="<%= equipo.idParticipanteLider %>" type="text" id="elid" readonly
+                        name="idLid"><br><br>
+                    <input type="submit" value="Editar">
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

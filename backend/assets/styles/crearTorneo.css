@@ -1,0 +1,29 @@
+h2{
+    padding-bottom: 2%;
+    background-color: rgba(36, 124, 184, 0.877);
+    color: white;
+    padding: 1%;
+}
+
+#crearTorneo{
+    background-image: url(/media/test2.jpg);
+}
+
+.grid-container{
+    display: grid;
+    background-color: rgba(0, 0, 0, 0.801);
+    color: white;
+    padding: 3%;
+    grid-template-columns: 40% 40%;
+    justify-content: space-evenly;
+}
+
+
+.grid-container div{
+    background-color: rgba(36, 124, 184, 0.877);
+    border-radius: 4%;
+    color: rgba(255, 255, 255, 0.788);
+    text-align: center;
+    padding: 4%;
+    font-size: 20px;
+}

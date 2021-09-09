@@ -1,0 +1,9 @@
+body{
+    background-image: url(/media/test2.jpg);
+}
+
+#box{
+    background-color:lightgray;
+    padding: 10px;
+    border-radius: 5px;
+}

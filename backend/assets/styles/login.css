@@ -1,0 +1,35 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("../media/b4.jpg") no-repeat center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.grid-container{
+    display: grid;
+    width: 30%;
+    height: 40%;
+    margin-bottom: 20%;
+    color: rgb(228, 226, 226);
+}
+
+form{
+    background-color: rgba(33, 33, 34, 0.959);
+    border-radius: 5%;
+}
+
+#btnIngresar{
+    margin-bottom: 3%;
+    margin-top: 10%;
+    margin-left: 33%;
+    margin-right: 33%;
+}
+
+#contraseñaOlvidada{
+    padding-left: 13%;
+    padding-right: 13%;
+}

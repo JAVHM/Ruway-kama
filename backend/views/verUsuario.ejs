@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/styles/jugador.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+        <script src="/js/bootstrap.bundle.js"></script>
+        <script src="/backend/assets/js/ErrorMessage.js"></script>
+    </head>
+ 
+    <body class="container">
+        <%- include('header') %>
+        <h3>USUARIO ELEGIDO</h3>
+        <form action='/verUsuario' method="POST">
+            <div><label class="form-label">ID: <%= usuario.id %> </label></div>
+            <div><label class="form-label">Nombre: <%= usuario.nombre %> </label></div>
+            <div><label class="form-label">Estado: <%= usuario.correo %> </label></div>
+            <div>[Fotos, imagenes, descripción del mismo, esas cosas podrían ir aquí]</div>
+        </form>
+    </body>
+</html>

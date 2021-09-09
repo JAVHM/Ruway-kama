@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/styles/catalogo.css" rel="stylesheet" type="text/css" />
+        <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+        <script src="/js/bootstrap.bundle.js"></script>
+    </head>
+
+    <body class="container">
+        <%- include('header') %>
+        <h1>Crear Partido - <%= torneo.nombre %> - <%= ronda.nombre %></h1>
+        <form action="/crearPartido/Torneo<%= torneo.id %>/Ronda<%= ronda.id %>" method="POST">
+            <div>
+                <label class="form-label">Equipo 1</label>
+                <select id="select_e1" name="p_e1" class="form-select">
+                    <option value="-1">Seleccione equipo 1</option>
+                    <% equipo.forEach((e) => { %>
+                        <option value="<%= e.id %>"><%= e.id_e.nombre %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <h4>VS</h4>
+            <div>
+                <label class="form-label">Equipo 2</label>
+                <select id="select_e2" name="p_e2" class="form-select">
+                    <option value="-1">Seleccione equipo 2</option>
+                    <% equipo.forEach((e) => { %>
+                        <option value="<%= e.id %>"><%= e.id_e.nombre %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div id="mensajes" class="mt-3">
+            </div>
+            <div class="modal-footer">
+                <button id="modal_but_cancelar" class="btn btn-success" type="button">
+                    Cancelar
+                </button>
+                <button id="modal_but_grabar" class="btn btn-success" type="submit">
+                    Grabar
+                </button>
+            </div>
+        </form>
+    </body>
+</html>

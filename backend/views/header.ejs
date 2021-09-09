@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/styles/header.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap" rel="stylesheet">     
+    <script src="/backend/assets/js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div>
+        <header class="p-2 text-white">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <h1 class="titulo">E-SPORTS ULIMA</h1>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li class="op"><a href="/" class="nav-link px-2 text-white l">Principal</a></li>
+                    <li class="op"><a id="h_verTorneos" href="/listaTorneos/1" class="nav-link px-2 text-white l">Ver Torneos</a></li>
+                    <li class="op"><a id="h_usuarios" href="/usuarios/1" class="nav-link px-2 text-white l">Ver Usuarios</a></li>
+                    <li class="op"><a id="h_nosotros" href="/nosotros" class="nav-link px-2 text-white l">Nosotros</a></li>
+                </ul>
+                <div class="text-end">
+                    <div id="h_rol"> <%= rol %> </div>
+                    <a id="h_login" href="/login" class="btn btn-outline-light me-2 l">Iniciar sesión</a>   
+                    <a id="h_perfil"href="/editarLider" class="btn btn-outline-light me-2 l">Mi Perfil</a>
+                    <a id="h_miEquipo"href="/editarEquipo" class="btn btn-outline-light me-2 l">Mi Equipo</a>
+                    <a id="h_logout" href="/logout" class="btn btn-danger l">Cerrar sesión</a>
+                    <a id="h_registro"href="/registro" class="btn  l">Registrarse</a>
+                </div>
+            </div>
+        </header>
+        </div>
+    </div>
+</body>
+<script src="/js/header.js"></script>
+</html>

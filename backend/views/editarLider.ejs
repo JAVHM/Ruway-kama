@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="/styles/catalogo.css" rel="stylesheet" type="text/css" />
+    <link href="/styles/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/%22%3E
+    <link href=" https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+    <script src="/js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="container">
+    <%- include('header') %>
+        <h2>EDICION DE LIDER</h2>
+        <div class="card">
+            <!-- Edicion de Participante Lider -->
+            <h6 class="card-title">EDICION DE PARTICIPANTE LIDER</h6>
+            <div class="card-text">
+                <form action="/editarLider" method="post">
+                    <label for="fname">ID del Lider:</label>
+                    <input value="<%= usuario.id %>" type="text" id="fid" readonly name="id"><br><br>
+                    <label for="fname">Nombre del Lider:</label>
+                    <input value="<%= usuario.nombre %>" type="text" id="fnombre" name="nombre"><br><br>
+                    <label for="lname">Correo:</label>
+                    <input value="<%= usuario.correo  %>" type="email" id="lmail" name="correo"><br><br>
+                    <label for="lname">Nueva contraseña:</label>
+                    <input type="text" id="lclave" name="clave"><br><br>
+                    <input type="submit" value="Editar">
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

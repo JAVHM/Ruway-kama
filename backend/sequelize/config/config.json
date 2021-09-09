@@ -1,0 +1,27 @@
+{
+  "development": {
+    "username": "ulecommerce",
+    "password": "ulecommerce",
+    "database": "Torneo_db",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging" : false
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "mkecxbvgcftymp",
+    "password": "af501760476df72f55f54cc02a26c491fd4343c61b07be5b60c037cf8b09003f",
+    "database": "d88cgi4dlne46f",
+    "host": "ec2-52-5-1-20.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": { "rejectUnauthorized": false }
+    }
+  }
+}
