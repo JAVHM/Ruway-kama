@@ -2,7 +2,7 @@
   "development": {
     "username": "ulecommerce",
     "password": "ulecommerce",
-    "database": "Torneo_db",
+    "database": "BD_RUWAYKAMA",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging" : false
