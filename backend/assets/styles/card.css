@@ -4,12 +4,15 @@ body {
     margin: 0;
     background-color: #252427;
     color: white;
+    color: white;
+    color: white;
     font-family: 'DM Mono', monospace;
     background: url("../media/b4.jpg") no-repeat center center fixed;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+
 }
 
 a {
