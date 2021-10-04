@@ -1,0 +1,133 @@
+#div_header{
+    height: 15%;
+    background-color: 	#ffeace;
+    margin-top: 0px;
+}
+#jo{
+    margin-bottom: 1%;
+    color:#ffeace;
+}
+
+ #INNOVARUWAYKAMA{
+    color:orange;
+    margin-left: 10%;
+   font-size: 25px;
+   font-weight: 600;
+ 
+}
+
+#nosotros{
+    color:orange;
+   
+    margin-left: 10%;
+}
+#contactos{
+    margin: center;
+    margin-left: 3%;
+}
+#help{
+    margin-left: 3%;
+}
+#iniciarsesion{
+    color:orange;
+    margin-left: 15%;
+}
+
+#boton_registrarse_header{
+    background-color: orange;
+    color: white;
+    margin-left: 2%;
+    border: none;
+    width: 7%;
+    height:30%;
+}
+
+#registrarse{
+    color:white;
+}
+#div_registrar{
+    background-color:white;
+    border:solid;
+    border-width: 1px;
+    margin-top: 1%;
+    margin-left: 33%;
+    margin-right: 33%;
+    border-color: gray;
+    border-radius: 7px;
+}
+
+#registrate{
+    font-size: 40px;
+    margin-left: 8%;
+    color:#73400d;
+    font-weight: 900;
+}
+
+#subtitulo{
+    color:gray;
+}
+#nombre{
+    color:gray;
+}
+#input_nombre{
+    color:gray;
+    border-radius: 7px;
+    height: 4%;
+    width: 65%;
+}
+#email{
+    color:gray;
+}
+#input_email{
+    color:gray;
+    border-radius: 7px;
+    height: 4%;
+    width: 65%;
+}
+#confirmar_email{
+    color:gray;
+}
+#input_confirmar_email{
+    color:gray;
+    border-radius: 7px;
+    height: 4%;
+    width: 65%;
+}
+#contrasena{
+    color:gray;
+}
+#input_contrasena{
+    color:gray;
+    border-radius: 7px;
+    height: 4%;
+    width: 65%;
+}
+#pregunta{
+    color:gray;
+    margin-top: 4%;
+}
+#inversor{
+   margin-top: 1%;
+    color:gray;
+    margin-right: 20%;
+}
+#creador{
+
+    color:gray;
+}
+
+#condiciones{
+    color:gray;
+}
+#boton_registrarse{
+   background-color: orange;
+   color: white;
+   border-radius: 7px;
+   border: none;
+   width: 30%;
+   height: 4%;
+   margin-left: 20%;
+}
+p{
+    margin-left: 28%;
+}

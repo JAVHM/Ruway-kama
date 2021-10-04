@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "ulecommerce",
+    "password": "ulecommerce",
+    "database": "ulecommerce_db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "qrfuphypgsglmc",
+    "password": "695dd2b6ef171d255e9661811b94e81f34ed8437ee3b7e24cb1832a0e37eb235",
+    "database": "d4c9mfqth6dm98",
+    "host": "ec2-52-23-40-80.compute-1.amazonaws.com:5432",
+    "dialect": "postgres"
+  }
+}
