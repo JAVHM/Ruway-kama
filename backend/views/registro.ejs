@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>Registrarse Usuario</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+
+<body>
+    <div id="div_header">
+        <div id="jo">
+            d
+        </div>
+        <label id="INNOVARUWAYKAMA">INNOVA RUWAYKAMA</label>
+
+        <a1 id="nosotros"> Nosotros</a1>
+        <a2 id="contactos">Contactos</a2>
+        <a3 id="help">Help</a3>
+        <a4 id="iniciarsesion">Iniciar Sesion</a4>
+
+        <input id="boton_registrarse_header" type="submit" value="Registrarse">
+
+
+    </div>
+    <div id=div_registrar>
+        <form action="/registro" method="POST">
+            <p>
+                <label id="registrate">Registrate</label>
+            </p>
+            <p>
+                <label id="subtitulo">Llena los datos para poder registrarte
+                </label>
+            </p>
+            <p>
+                <label id="nombre">Nombre Completo</label>
+            <p>
+                <input type="text" name="nombre" placeholder="Nombre" id="input_nombre">
+            </p>
+            </p>
+            <p>
+                <label id="email">Email</label>
+            <p>
+                <input type="email" name="email" placeholder="nombre@dominio.com" id="input_email">
+            </p>
+            </p>
+            <p>
+                <label id="confirmar_email">Confirmar email</label>
+            <p>
+                <input type="email" name="emailConf" placeholder="nombre@dominio.com" id="input_confirmar_email">
+            </p>
+            </p>
+            <p>
+                <label id="contrasena">Contraseña:</label>
+            <p>
+                <input type="password" name="contrasena" placeholder="••••••••••" id="input_contrasena">
+            </p>
+            </p>
+            <p>
+                <label id="pregunta">¿Cual es tu perfil?</label>
+            <p>
+                <input type="radio" id="inversor" name="tipo_cuenta" class="tipo_cuenta" value="inversor">
+                <label id="inversor">Inversor</label>
+                <input type="radio" id="creador" name="tipo_cuenta" class="tipo_cuenta" value="creador">
+                <label id="creador">Creador</label>
+
+            </p>
+            </p>
+            <p>
+                <input type="checkbox" id="condiciones" name="condiciones" value="condiciones" class="a">
+                <label id="condiciones"> Acepto los terminos y condiciones</label>
+            </p>
+            <p>
+                <input id="boton_registrarse" type="submit" value="Registrarse">
+            </p>
+        </form>
+    </div>
+
+</body>
+
+
+</html>
