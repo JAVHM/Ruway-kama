@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bcryptjs = require('bcryptjs');
+const { getUsuarios, createUsuario } = require('./models/dao_usuario')
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
@@ -53,6 +54,7 @@ app.post('/login', async (req, res) => {
     })
     //Si sale del forEach, no se encontro a un usuario con el mismo correo
     //Entones seria un caso de fallo.
+    res.redirect('/errorFormulario')
 })
 
 //REGISTRO
@@ -62,7 +64,7 @@ app.get('/registro', async (req, res) => {
 
 app.post('/registro', async (req, res) => {
     //El nuevo usuario
-    const partLider = {
+    const usuarioDatos = {
         nombre: req.body.nombre,
         correo: req.body.email,
         clave: await bcryptjs.hash(req.body.clave, 8), //Este es el encriptador.
