@@ -1,0 +1,15 @@
+.mensajeria{
+    height: 40em;
+    background-image: url("/images/fondo_mensajeria.jpg");
+    
+}
+.fixed_bot{
+    position: absolute;
+    top: 35em;
+    left: 0px;
+}
+
+body{
+    background-image: url("/images/fondo.png");
+    font-family: 'Dosis';
+}
