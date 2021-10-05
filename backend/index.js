@@ -69,4 +69,25 @@ app.post('/registro', async (req, res) => {
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
         rol: req.body.tipo_cuenta,
     }
+
+    //Verificando si el correo es unico
+    const listaUsuarios = await getUsuarios()
+    listaUsuarios.forEach(async (usuario) => {
+        if (req.body.correo == usuario.correo) {
+            //Se encontro un usuario con el mismo correo
+            res.redirect('/errorFormulario')
+        }
+    })
+    //No se encontro usuario con el mismo correo.
+
+    const usuario = {
+        nombre: nombre,
+        correo: correo,
+        clave: clave,
+        rol: rol
+    }
+    const usuarioNuevo = await createUsuario(usuario)
+
+    //Deberia mandar al main aqui
+    res.redirect('')
 })
