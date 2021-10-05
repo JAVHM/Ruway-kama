@@ -1,0 +1,14 @@
+nav{
+    
+    background: gray;
+    width: 150px;
+}
+nav label{
+    color: black;
+    font-size: 18px;
+    cursor: pointer;
+}
+.button span{
+    float: right;
+    line-height: 30px;
+}
