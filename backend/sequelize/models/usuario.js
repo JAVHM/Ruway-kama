@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Usuario.hasMany(models.Proyecto,{
         foreignKey: 'idProyecto'
+        
       })
     }
   };
