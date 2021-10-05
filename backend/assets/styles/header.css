@@ -107,7 +107,7 @@ body{
 }
 
 .fas:hover {
-  color: #d63031;
+  color: black;
 }
 
 .notBtn:hover > .box{
@@ -193,7 +193,7 @@ body{
 
 .new{
   border-style: none none solid none;
-  border-color: red;
+  border-color: black;
 }
 
 .sec:hover{
