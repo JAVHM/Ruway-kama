@@ -1,10 +1,10 @@
 a{
   text-decoration: none;
-  color: black;
+  color: gray;
 }
 
 a:visited{
-  color: black;
+  color: gray;
 }
 
 .box::-webkit-scrollbar-track
@@ -28,12 +28,12 @@ a:visited{
   border-radius: 5px
 }
 
-header{
+/* header{
   -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
   box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
   height: 110px;
   vertical-align: middle;
-}
+} */
 
 h1{
  float: left;
@@ -52,11 +52,15 @@ body{
 }
 
 .notification{
-  padding-top: 30px;
+  padding-top: 20%;
   position: relative;
   display: inline-block;
 }
-
+#nots{
+   background-color: #d63031;
+   width: 100px;
+   height: 100px;
+}
 .number{
   height: 24px;
   width:  24px;
@@ -78,7 +82,8 @@ body{
 
 .notBtn{
   transition: 0.5s;
-  cursor: pointer
+  cursor: pointer;
+
 }
 
 .fas{
