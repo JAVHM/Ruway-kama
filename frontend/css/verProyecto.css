@@ -73,3 +73,11 @@ nav ul li span{
 input{
     display: none;
 }
+
+.custom-control-input{
+    display:inline
+}
+
+.filtros{
+    background-color: rgba(243, 243, 243, 0.637);
+}
