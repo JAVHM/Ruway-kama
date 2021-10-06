@@ -70,7 +70,7 @@ app.post('/registro', async (req, res) => {
     //El nuevo usuario
     const usuarioDatos = {
         nombre: req.body.nombre,
-        clave: await bcryptjs.hash(req.body.contrasena, 8), //Este es el encriptador.
+        contraseña: await bcryptjs.hash(req.body.contrasena, 8), //Este es el encriptador.
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
         correo: req.body.email,
     }
