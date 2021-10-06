@@ -6,7 +6,7 @@ const { getUsuarios, createUsuario } = require('./models/dao_usuario')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
-    extended : true
+    extended: true
 }))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
@@ -70,9 +70,9 @@ app.post('/registro', async (req, res) => {
     //El nuevo usuario
     const usuarioDatos = {
         nombre: req.body.nombre,
-        correo: req.body.email,
         clave: await bcryptjs.hash(req.body.contrasena, 8), //Este es el encriptador.
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
+        correo: req.body.email,
     }
 
     //Verificando si el correo es unico
