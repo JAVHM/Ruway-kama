@@ -59,7 +59,7 @@ app.post('/login', async (req, res) => {
 
 //REGISTRO
 app.get('/registro', async (req, res) => {
-    res.render('registroLiderEquipo')
+    res.render('registro')
 })
 
 app.post('/registro', async (req, res) => {
