@@ -1,6 +1,6 @@
 .grid-container{
     display: grid;
-    grid-template-columns: 320px 280px auto;
+    grid-template-columns: 300px 280px auto;
     /*background-color: yellowgreen;*/
     justify-content:space-between;
     margin-top: 5%;
@@ -23,6 +23,17 @@
     color: rgb(109, 69, 69);
 }
 
-
+#wrapper
+{
+ text-align:center;
+ margin:0 auto;
+ padding:0px;
+ width:500px;
+}
+#output_image
+{
+ margin-bottom: 5px;
+ max-width:300px;
+}
 
 
