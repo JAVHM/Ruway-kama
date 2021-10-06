@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Player.hasMany(models.Proyecto, {
+      
+      Usuario.hasMany(models.Proyecto, {
         foreignKey : 'idUsuario'
       });
     }
@@ -23,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Usuario',
+    freezeTableName: true,
   });
   return Usuario;
 };

@@ -3,7 +3,11 @@ const app = express();
 const path = require('path');
 const bcryptjs = require('bcryptjs');
 const { getUsuarios, createUsuario } = require('./models/dao_usuario')
-
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'))
 app.use(express.static(path.join(__dirname, 'assets')))
@@ -67,17 +71,16 @@ app.post('/login', async (req, res) => {
 
 //REGISTRO
 app.get('/registro', async (req, res) => {
-    res.render('registroLiderEquipo')
+    res.render('registro')
 })
 
 app.post('/registro', async (req, res) => {
     //El nuevo usuario
     const usuarioDatos = {
         nombre: req.body.nombre,
-        correo: req.body.email,
-        clave: await bcryptjs.hash(req.body.clave, 8), //Este es el encriptador.
+        contraseña: await bcryptjs.hash(req.body.contrasena, 8), //Este es el encriptador.
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
-        rol: req.body.tipo_cuenta,
+        correo: req.body.email,
     }
 
     //Verificando si el correo es unico
@@ -90,13 +93,7 @@ app.post('/registro', async (req, res) => {
     })
     //No se encontro usuario con el mismo correo.
 
-    const usuario = {
-        nombre: nombre,
-        correo: correo,
-        clave: clave,
-        rol: rol
-    }
-    const usuarioNuevo = await createUsuario(usuario)
+    const usuarioNuevo = await createUsuario(usuarioDatos)
 
     //Deberia mandar al main aqui
     res.redirect('')
