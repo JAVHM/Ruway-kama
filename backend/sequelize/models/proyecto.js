@@ -11,15 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-    }
+      Proyecto.belongsTo(models.Usuario,{
+        foreignKey:'idUsuario'
+      })
+    };
   };
   Proyecto.init({
-    autor: DataTypes.STRING,
     categorias: DataTypes.STRING,
     descripcion: DataTypes.STRING,
     fechaCreacion: DataTypes.DATE,
     fechaLimite: DataTypes.DATE,
-    montoRecaudado: DataTypes.FLOAT
+    imagen: DataTypes.STRING,
+    montoRecaudado: DataTypes.FLOAT,
+    idUsuario: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Proyecto',
