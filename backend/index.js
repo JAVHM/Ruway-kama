@@ -69,7 +69,6 @@ app.post('/registro', async (req, res) => {
         correo: req.body.email,
         clave: await bcryptjs.hash(req.body.clave, 8), //Este es el encriptador.
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
-        rol: req.body.tipo_cuenta,
     }
 
     //Verificando si el correo es unico
@@ -86,7 +85,6 @@ app.post('/registro', async (req, res) => {
         nombre: nombre,
         correo: correo,
         clave: clave,
-        rol: rol
     }
     const usuarioNuevo = await createUsuario(usuario)
 
