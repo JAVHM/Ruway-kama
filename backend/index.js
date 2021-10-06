@@ -71,7 +71,7 @@ app.post('/registro', async (req, res) => {
     const usuarioDatos = {
         nombre: req.body.nombre,
         correo: req.body.email,
-        clave: await bcryptjs.hash(req.body.clave, 8), //Este es el encriptador.
+        clave: await bcryptjs.hash(req.body.contrasena, 8), //Este es el encriptador.
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
     }
 
