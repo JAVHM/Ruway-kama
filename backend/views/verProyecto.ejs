@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registro Proyecto</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="/frontend/css/verProyecto.css" type="text/css">
+        <script src="https://kit.fontawesome.com/2ea0428ee7.js" crossorigin="anonymous"></script>
+        
+    </head>
+    <body class="container">
+        <div class="row"> 
+            <div id="colFiltros" class="col-3">
+                <nav class="mb-5">
+                    <label for="btn" class="button">All Categories
+                        <span class="fas fa-caret-down"></span>
+                    </label>
+                    <input type="checkbox" id="btn">
+                    <ul class="menu">
+                        <li><a href="">Home</a></li>
+                        <li>
+                            <label for="btn-2" class="first">Electronics
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-2">
+                            <ul>
+                                <li><a href="">Cell Phone Accesories</a></li>
+                                <li><a href="">Cell Phone Gatgets</a></li>
+                                <li><a href="">Applications</a></li>
+                                <li><a href="">Smart Watches</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label for="btn-3" class="second">Business & Industrial
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-3">
+                            <ul>
+                                <li><a href="">Paginas 1</a></li>
+                                <li><a href="">Paginas 2</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label for="btn-4" class="third">Computers
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-4">
+                            <ul>
+                                <li><a href="">Paginas 1</a></li>
+                                <li><a href="">Paginas 2</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label for="btn-5" class="second">Consumer Electronics
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-5">
+                            <ul>
+                                <li><a href="">Paginas 1</a></li>
+                                <li><a href="">Paginas 2</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label for="btn-6" class="second">Home & Garden
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-6">
+                            <ul>
+                                <li><a href="">Paginas 1</a></li>
+                                <li><a href="">Paginas 2</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <label for="btn-7" class="second">Collectibles
+                                <span class="fas fa-caret-down"></span>
+                            </label>
+                            <input type="checkbox" id="btn-7">
+                            <ul>
+                                <li><a href="">Paginas 1</a></li>
+                                <li><a href="">Paginas 2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!--FILTROS-->
+                <div class="card mt-10 mb-3">
+                    <div class="card-body filtros">
+                      <h5 class="card-title">Filtros</h5>
+                      
+                        <!--h6 class="card-subtitle mb-2 text-muted">Recomendados</h6-->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-1">
+                            <label for="checkbox-1" class="custom-control-label mt-3">Recomendados</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-2">
+                            <label for="checkbox-2" class="custom-control-label mt-3">Recently Added</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-3">
+                            <label for="checkbox-3" class="custom-control-label mt-3">Expiring Soon</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-4">
+                            <label for="checkbox-4" class="custom-control-label mt-3">Most Rated</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-5">
+                            <label for="checkbox-5" class="custom-control-label mt-3">Price: Low -> High</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-6">
+                            <label for="checkbox-6" class="custom-control-label mt-3">Price: High -> Low</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body filtros">
+                      <h5 class="card-title">Año de Publicacion</h5>
+                      
+                        <!--h6 class="card-subtitle mb-2 text-muted">Recomendados</h6-->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-7">
+                            <label for="checkbox-7" class="custom-control-label mt-3">2018</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-8">
+                            <label for="checkbox-8" class="custom-control-label mt-3">2019</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-9">
+                            <label for="checkbox-9" class="custom-control-label mt-3">2020</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-10">
+                            <label for="checkbox-10" class="custom-control-label mt-3">2021</label>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="checkbox-11">
+                            <label for="checkbox-11" class="custom-control-label mt-3">2022</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>   
+
+            <div id="colCartas" class="col-9 mb-5">
+
+                <div class="row">
+                    <div class="col-4">
+                        <label for="sortBy" class="">Sort by</label>
+                        <select class="form-control" id="sortBy">
+                            <option value="0">Most Popular</option>
+                            <option value="1">Least Popular</option>
+                            <option value="2">Newest</option>
+                            <option value="3">Oldest</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <label for="condition" class=""></label>
+                        <select class="form-control" id="condition">
+                            <option value="0">Condition</option>
+                            <option value="1">Condition 1</option>
+                            <option value="2">Condition 2</option>
+                            <option value="3">Condition 3</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <label for="delivery" class=""></label>
+                        <select class="form-control" id="delivery">
+                            <option value="0">Delivery Options</option>
+                            <option value="1">Delivery 1</option>
+                            <option value="2">Delivery 2</option>
+                            <option value="3">Delivery 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="card mb-3 mt-4">
+                    <img src="" class="card-img-top" alt="PROYECTO 1 - IMG">
+                    <div class="card-body">
+                    <h2 class="card-title">PROYECTO 1</h2>
+                    <p class="card-text">INFORMACIÓN.....</p>
+                    <p class="card-text">$49.50&nbsp;&nbsp;&nbsp;<small class="text-muted">Inversión minima</small></p>
+                    </div>
+                </div>   
+                <div class="card mb-3 mt-3">
+                    <img src="" class="card-img-top" alt="PROYECTO 1 - IMG">
+                    <div class="card-body">
+                    <h2 class="card-title">PROYECTO 2</h2>
+                    <p class="card-text">INFORMACIÓN.....</p>
+                    <p class="card-text">$49.50&nbsp;&nbsp;&nbsp;<small class="text-muted">Inversión minima</small></p>
+                    </div>
+                </div>  
+                <div class="card mb-3 mt-3">
+                    <img src="" class="card-img-top" alt="PROYECTO 1 - IMG">
+                    <div class="card-body">
+                    <h2 class="card-title">PROYECTO 3</h2>
+                    <p class="card-text">INFORMACIÓN.....</p>
+                    <p class="card-text">$49.50&nbsp;&nbsp;&nbsp;<small class="text-muted">Inversión minima</small></p>
+                    </div>
+                </div>   
+            </div>
+        </div> 
+    </body>
+</html>
