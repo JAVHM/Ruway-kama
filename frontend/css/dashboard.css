@@ -9,6 +9,39 @@
     overflow: hidden;
     font-family: 'Muli', sans-serif;
   }
+  #bar1{
+    width: 70%;
+    margin-left: 15px;
+  }
+ #pro{
+    padding-right: 10px
+ }
+  .p1{
+    background-color: #d55a43
+    ;
+    padding: 3%;
+    margin-left:10px;
+    width: 100px;
+    margin-top: 10%;
+    border-radius: 7px;
+  }
+  .p2{
+    background-color: #158531    ;
+    padding: 3%;
+    margin-left:10px;
+    width: 100px;
+    margin-top: 10%;
+    border-radius: 7px;
+  }
+  .p3{
+    background-color: #24a4fb    ;
+    padding: 3%;
+    margin-left:10px;
+    width: 100px;
+    margin-top: 10%;
+    border-radius: 7px;
+  }
+
   .d1{
     padding: 2%;
     height: 250px;
@@ -93,12 +126,21 @@
   #content-wrapper.toggled #sidebar-container {
     margin-left: 0;
   }
-  
-  .circle {
-    width: 50px;
-    height: 50px;
+  #avatar {
+    max-width: 80px;
+   
   }
-  
+  #rowfotos{
+    margin-left:50px;
+  }
+  .principal{
+    padding: 1%;
+  }
+ .textM{
+   text-align: center;
+   font-size: 15px;
+    
+ }
   .badge {
     padding: .5rem 1rem;
   }
@@ -107,9 +149,7 @@
     background-color: rgba(0, 123, 255, .1) !important;
   }
   
-  .avatar {
-    max-width: 35px;
-  }
+
   
   .btn-primary {
     background-color: rgba(0, 123, 255, .1) !important;
