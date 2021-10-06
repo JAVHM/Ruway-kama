@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const mimeTypes = require('mime-types'); 
 
+//Cualquier tipo de archivo subido por el usuario va a la carpeta de assest/images
+//*Validacion de que sea tipo Imagen* (por hacer)
 const storage = multer.diskStorage({
     destination: './backend/assets/images/',
     filename: function(req,file,cb){

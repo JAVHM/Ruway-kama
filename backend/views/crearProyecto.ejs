@@ -12,17 +12,17 @@
             <p>Esta seccion esta diseñada para que puedas detallar tu proyecto</p>
         </div>
 
-        <form action="">
+        <form action="/crearProyecto">
             <div id="cuerpo" class="grid-container">
                 
                 <div id="formCol1">
                     <div class="form-group">
                         <label for="nomProy" class="form-label">Nombre de tu idea</label>
-                        <input type="text" class="form-control" id="nomProy" placeholder="Nombre">
+                        <input name="nombre" type="text" class="form-control" id="nomProy" placeholder="Nombre">
                     </div>
                     <div class="form-group">
                         <label for="URLProy" class="form-label">Project URL</label>
-                        <input type="text" class="form-control" id="URLProy" placeholder="http://tu-url.com/">
+                        <input name="" type="text" class="form-control" id="URLProy" placeholder="http://tu-url.com/">
                     </div>
                     <div class="form-group">
                         <label for="categoriaProy" class="form-label">Categoria</label>
@@ -41,11 +41,10 @@
                 </div>
                 <div id="formCol2">
                     <label for="descProy" class="form-label">Describenos tu idea</label>
-                    <textarea class="form-control" id="descProy" rows="3" placeholder="Descripción ..."></textarea>
+                    <textarea name="descripcion" class="form-control" id="descProy" rows="3" placeholder="Descripción ..."></textarea>
                 </div>
                 
                 <div id="multimedia">
-                    
                     <div id="wrapper">
                         <img id="output_image"/>
                         <input class="form-control" type="file" accept="image/*" onchange="preview_image(event)">
