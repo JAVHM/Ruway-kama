@@ -1,3 +1,15 @@
+.checked{
+    color: orange;
+}
+.stars{
+    font-size: 6px;
+}
+
+.price{
+    font-size: 20px;
+    font-weight: bold;
+}
+
 nav{
     position: relative;
     /*background: gray;*/

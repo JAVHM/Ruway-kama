@@ -21,6 +21,14 @@ app.get("/mensajeria", (req, res) => {
     res.render('mensajeria')
 })
 
+app.get("/verProyecto", (req, res) => {
+    res.render('verProyecto')
+})
+
+app.get("/crearProyecto", (req, res) => {
+    res.render('crearProyecto')
+})
+
 //LOGIN
 app.get('/login', async (req, res) => {
     res.render('login')
