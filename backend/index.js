@@ -81,12 +81,7 @@ app.post('/registro', async (req, res) => {
     })
     //No se encontro usuario con el mismo correo.
 
-    const usuario = {
-        nombre: nombre,
-        correo: correo,
-        clave: clave,
-    }
-    const usuarioNuevo = await createUsuario(usuario)
+    const usuarioNuevo = await createUsuario(usuarioDatos)
 
     //Deberia mandar al main aqui
     res.redirect('')
