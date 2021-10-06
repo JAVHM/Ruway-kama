@@ -3,7 +3,23 @@ const app = express();
 const path = require('path');
 const bcryptjs = require('bcryptjs');
 const { getUsuarios, createUsuario } = require('./models/dao_usuario')
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+//Para la subida de archivos.
+const multer = require('multer');
+const mimeTypes = require('mime-types'); 
+
+const storage = multer.diskStorage({
+    destination: './backend/assets/images/',
+    filename: function(req,file,cb){
+        cb("",Date.now()+"."+mimeTypes.extension(file.mimetype));
+    }
+})
+
+const upload= multer({
+    storage:storage
+})
+
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
@@ -19,6 +35,19 @@ app.listen(3000, () => {
 app.get("/", (req, res) => {
     res.render('index');
 })
+
+//----------Ejemplo de Subida de Imagenes/Archivos------------
+app.get('/pruebaEnvio',(req,res)=>{
+    res.render('pruebaEnvio');
+});
+
+app.post('/files',upload.single('imagen'),(req,res)=>{
+    //req.file.originalname --> te devuelve el nombre original del archivo
+    //req.file.filename --> te devuelve el nombre ya convertido
+    console.log(req.file.filename)
+    res.redirect('/');
+})
+//------------------------------------------------------------
 
 
 app.get("/mensajeria", (req, res) => {
