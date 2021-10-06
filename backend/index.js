@@ -39,8 +39,8 @@ app.get('/login', async (req, res) => {
 })
 
 app.post('/login', async (req, res) => {
-    const correoLogin = req.body.correo
-    const claveLogin = req.body.clave
+    const correoLogin = req.body.email
+    const claveLogin = req.body.contrasena
     const listaUsuarios = await getUsuarios()
 
     listaUsuarios.forEach((usuario) => {
@@ -48,13 +48,12 @@ app.post('/login', async (req, res) => {
         if (correoLogin == usuario.correo) {
             //Se encontro al usuario con el correo
             //Asi que se verifica la clave
-            let compare = bcryptjs.compareSync(claveLogin, usuario.clave)
+            let compare = bcryptjs.compareSync(claveLogin, usuario.contraseña)
             if (compare) { //Booleano
                 //La clave es correcta
                 //Finalmente se guarda el usuario completo en la session
-                req.session.rol = usuario.rol
                 req.session.u_id = usuario.id
-                console.log("req.session.rol: ", req.session.rol)
+                // console.log("req.session.rol: ", req.session.rol)
                 console.log("req.session.u_id: ", req.session.u_id)
                 res.redirect('/')
             } else {
@@ -86,7 +85,7 @@ app.post('/registro', async (req, res) => {
     //Verificando si el correo es unico
     const listaUsuarios = await getUsuarios()
     listaUsuarios.forEach(async (usuario) => {
-        if (req.body.correo == usuario.correo) {
+        if (req.body.email == usuario.correo) {
             //Se encontro un usuario con el mismo correo
             res.redirect('/errorFormulario')
         }
