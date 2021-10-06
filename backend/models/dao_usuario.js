@@ -11,3 +11,8 @@ const getUsuarios = async () => {
 const createUsuario = async (usuario) => {
     return await db.Usuario.create(usuario);
 }
+
+module.exports = {
+    getUsuarios: getUsuarios,
+    createUsuario: createUsuario
+}
