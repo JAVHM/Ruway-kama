@@ -1,29 +1,20 @@
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-    
-}
+
 body{
     margin-top: 70px;
 }
-header{
-    position: fixed;
-    height: 80px;
-    width: 100%;
-    background: #fef9f4;
-    top: 0;
-    left: 0;
-}
 body{
   background-image: url("/images/fondo.png");
-  margin-top: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  margin-top: 20%;
 }
-
+.contenido{
+    margin-top: 7%;
+}
 img{
-    position: absolute;
+  
     width: 670px;
     height: 450px;
     left: 15%;
@@ -32,14 +23,7 @@ img{
     
 }
 
-label.logo{
-    color: #f4a55e;
-    font-size: 30px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
-    font-family: 'Jost', sans-serif;
-}
+
 nav ul{
     float: right;
     margin-right: 20px;

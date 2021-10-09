@@ -55,6 +55,9 @@ app.post('/files',upload.single('imagen'),(req,res)=>{
 app.get("/mensajeria", (req, res) => {
     res.render('mensajeria')
 })
+app.get("/dashboard", (req, res) => {
+    res.render('dashboard')
+})
 
 app.get("/verProyecto", (req, res) => {
     res.render('verProyecto')

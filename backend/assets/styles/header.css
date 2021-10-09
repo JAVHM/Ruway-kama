@@ -1,3 +1,20 @@
+
+.HeaderPrincipal{
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  background: #fef9f4;
+  top: 0;
+  left: 0;
+}
+#header{
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  background: #fef9f4;
+  top: 0;
+  left: 0;
+}
 a{
   text-decoration: none;
   color: gray;
@@ -28,13 +45,6 @@ a:visited{
   border-radius: 5px
 }
 
-/* header{
-  -moz-box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
-  box-shadow: 10px 10px 23px 0px rgba(0,0,0,0.1);
-  height: 110px;
-  vertical-align: middle;
-} */
-
 h1{
  float: left;
   padding: 10px 30px
@@ -57,7 +67,6 @@ body{
   display: inline-block;
 }
 #nots{
-   background-color: #d63031;
    width: 100px;
    height: 100px;
 }
@@ -204,5 +213,12 @@ body{
 .sec:hover{
   background-color: #BFBFBF;
 }
-
+label.logo{
+  color: #f4a55e;
+  font-size: 30px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+  font-family: 'Jost', sans-serif;
+}
 
