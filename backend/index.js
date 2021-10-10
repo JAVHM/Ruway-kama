@@ -131,3 +131,8 @@ app.post('/registro', async (req, res) => {
     //Deberia mandar al main aqui
     res.redirect('')
 })
+//Nosotros
+app.get('/nosotros', async (req, res) => {
+    res.render('nosotros', {
+    })
+})
