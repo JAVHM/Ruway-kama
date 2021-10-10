@@ -3,6 +3,9 @@
     background-image: url("/images/fondo_mensajeria.jpg");
     
 }
+.divMensaje{
+    margin-top: 10%;
+}
 .fixed_bot{
     position: absolute;
     top: 35em;
@@ -10,6 +13,7 @@
 }
 
 body{
+    margin-top: 40%;
     background-image: url("/images/fondo.png");
     font-family: 'Dosis';
 }
