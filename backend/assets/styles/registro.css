@@ -48,7 +48,7 @@
 }
 #div_registrar{
     background-color:white;
-    border:solid;
+    padding: 10px;
     border-width: 1px;
     margin-top: 8%;
     margin-left: 33%;
@@ -62,6 +62,7 @@
     margin-left: 8%;
     color:#73400d;
     font-weight: 900;
+    font-family: 'Mulish', sans-serif;
 }
 
 #subtitulo{
@@ -69,6 +70,8 @@
 }
 #nombre{
     color:gray;
+    height: 1%;
+    width: 65%;
 }
 #input_nombre{
     color:gray;
@@ -78,6 +81,8 @@
 }
 #email{
     color:gray;
+    height: 1%;
+    width: 65%;
 }
 #input_email{
     color:gray;
@@ -93,9 +98,13 @@
     border-radius: 7px;
     height: 4%;
     width: 65%;
+    height: 4%;
+    width: 65%;
 }
 #contrasena{
     color:gray;
+    height: 1%;
+    width: 65%;
 }
 #input_contrasena{
     color:gray;
@@ -121,7 +130,7 @@
     color:gray;
 }
 #boton_registrarse{
-   background-color: orange;
+   background-color: #f4a55e;
    color: white;
    border-radius: 7px;
    border: none;

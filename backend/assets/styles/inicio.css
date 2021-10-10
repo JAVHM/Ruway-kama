@@ -15,11 +15,31 @@ body{
 }
 img{
   
-    width: 670px;
-    height: 450px;
+    width: 600px;
+    height: 410px;
     left: 15%;
     bottom: 15%;
     border-radius: 8px;
-    
+    margin-left: 40px;
 }
-
+#t2{
+    color: rgba(68, 37, 11, 0.979);
+    font-size: 50px;
+    font-family: 'Mulish', sans-serif;
+}
+#t1{
+    color: rgba(68, 37, 11, 0.979);
+    font-size: 15px;
+    font-family: 'Mulish', sans-serif;
+}
+#t3{
+    margin-top: 30px;
+    font-size: 18px;
+    text-align: justify;
+    font-family: 'Mulish', sans-serif;
+}
+#bloqueT{
+    background-color: rgba(255, 255, 255, 0.575);
+    padding: 2%;
+    border-radius: 8px;
+}

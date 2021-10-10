@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
     <title>Registrarse Usuario</title>
 </head>
 
@@ -21,6 +22,7 @@
     <%- include('header.ejs') %>
     <div id=div_registrar>
         <form action="/registro" method="POST">
+        <div class="container">
             <p>
                 <label id="registrate">Registrate</label>
             </p>
@@ -31,34 +33,35 @@
             <p>
                 <label id="nlombre">Nombre Completo</label>
             <p>
-                <input type="text" name="nombre" placeholder="Nombre" id="nombre">
+                <input class="form-control" type="text" name="nombre" placeholder="Nombre" id="nombre">
             </p>
             </p>
             <p>
                 <label id="lemail">Email</label>
             <p>
-                <input type="email" name="email" placeholder="nombre@dominio.com" id="email">
+                <input class="form-control"   type="email" name="email" placeholder="nombre@dominio.com" id="email">
             </p>
             </p>
             <p>
                 <label id="lconfirmar_email">Confirmar email</label>
             <p>
-                <input type="email" name="emailConf" placeholder="nombre@dominio.com" id="input_confirmar_email">
+                <input  class="form-control"  type="email" name="emailConf" placeholder="nombre@dominio.com" id="input_confirmar_email">
             </p>
             </p>
             <p>
                 <label id="lcontrasena">Contraseña:</label>
             <p>
-                <input type="password" name="contrasena" placeholder="••••••••••" id="contrasena">
+                <input class="form-control"  type="password" name="contrasena" placeholder="••••••••••" id="contrasena">
             </p>
             </p>
             <p>
-                <input type="checkbox" id="condiciones" name="condiciones" value="condiciones" class="a">
+                <input  type="checkbox" id="condiciones" name="condiciones" value="condiciones" class="a">
                 <label id="condiciones"> Acepto los terminos y condiciones</label>
             </p>
             <p>
-                <input id="boton_registrarse" type="submit" value="Registrarse">
+                <input class="form-control"  id="boton_registrarse" type="submit" value="Registrarse">
             </p>
+        </div>
         </form>
     </div>
 

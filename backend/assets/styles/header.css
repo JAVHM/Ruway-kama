@@ -25,7 +25,9 @@ header {
   font-weight: bold;
   font-family: 'Jost', sans-serif;
 }
-
+.logo:hover{
+  -webkit-text-stroke: 2px #f4a55e;
+}
 .nav__links a,
 .cta,.cta2,
 .overlay__content a {
