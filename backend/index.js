@@ -8,18 +8,31 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const mimeTypes = require('mime-types'); 
 
-//Cualquier tipo de archivo subido por el usuario va a la carpeta de assest/images
+//Cualquier tipo de archivo subido por el usuario va a la carpeta de assest/uploads
 //*Validacion de que sea tipo Imagen* (por hacer)
 const storage = multer.diskStorage({
     destination: './backend/assets/uploads/',
     filename: function(req,file,cb){
         cb("",Date.now()+"."+mimeTypes.extension(file.mimetype));
-    }
+    },
 })
 
+//Filtro en todo caso el usuario intente subir algun tipo de archivo diferente a una 'imagen'
+const fileFilter= (req,file,cb)=>{
+    const filetypes = /jpeg|jpg|jpe|png|gif/;
+    const mimetype = filetypes.test(file.mimetype);
+    const extname = filetypes.test(path.extname(file.originalname));
+    console.log(mimetype);
+    if(mimetype && extname){
+        return cb(null,true)
+    }
+    cb('null,false');
+}
+
 const upload= multer({
-    storage:storage
-})
+    fileFilter,
+    storage,
+});
 
 
 app.use(bodyParser.json())
@@ -44,10 +57,11 @@ app.get('/pruebaEnvio',(req,res)=>{
 });
 
 app.post('/files',upload.single('imagen'),(req,res)=>{
+    res.redirect('/')
     //req.file.originalname --> te devuelve el nombre original del archivo
     //req.file.filename --> te devuelve el nombre ya convertido
-    console.log(req.file.filename)
-    res.redirect('/');
+    //console.log(req.file.filename)
+    //console.log(req.file.mimetype)
 })
 //------------------------------------------------------------
 
