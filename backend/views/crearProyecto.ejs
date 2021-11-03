@@ -12,7 +12,7 @@
             <p>Esta seccion esta diseñada para que puedas detallar tu proyecto</p>
         </div>
 
-        <form action="/crearProyecto">
+        <form action="/crearProyecto" method="POST" enctype="multipart/form-data">
             <div id="cuerpo" class="grid-container">
                 
                 <div id="formCol1">
@@ -22,20 +22,20 @@
                     </div>
                     <div class="form-group">
                         <label for="URLProy" class="form-label">Project URL</label>
-                        <input name="" type="text" class="form-control" id="URLProy" placeholder="http://tu-url.com/">
+                        <input name="url" type="text" class="form-control" id="URLProy" placeholder="http://tu-url.com/">
                     </div>
                     <div class="form-group">
                         <label for="categoriaProy" class="form-label">Categoria</label>
-                        <select class="form-control" id="categoriaProy">
-                            <option value="0">Videojuego</option>
-                            <option value="1">Categoria 1</option>
-                            <option value="2">Categoria 2</option>
-                            <option value="3">Categoria 3</option>
-                            <option value="4">Categoria 4</option>
+                        <select name="categorias" class="form-control" id="categoriaProy">
+                            <option value="Videojuego">Videojuego</option>
+                            <option value="Categoria 1">Categoria 1</option>
+                            <option value="Categoria 2">Categoria 2</option>
+                            <option value="Categoria 3">Categoria 3</option>
+                            <option value="Categoria 4">Categoria 4</option>
                         </select>
                     </div>
                     <div class="form-check mt-5">
-                        <input type="checkbox" class="form-check-input" id="terminos">
+                        <input name="terminos" type="checkbox" class="form-check-input" id="terminos">
                         <label class="form-check-label" for="terminos">Acepto los terminos y condiciones</label>
                     </div>
                 </div>
@@ -47,14 +47,18 @@
                 <div id="multimedia">
                     <div id="wrapper">
                         <img id="output_image"/>
-                        <input class="form-control" type="file" accept="image/*" onchange="preview_image(event)">
+                        <input name="imagen_subida" class="form-control" type="file" accept="image/*" onchange="preview_image(event)">
                     </div>
                     <div class="form-group">
                         <label for="videoProy" class="form-label">Link de trailer o video promocional de tu proyecto</label>
-                        <input type="text" class="form-control" id="videoProy" placeholder="http://tu-video.com/">
+                        <input name="link_externo" type="text" class="form-control" id="videoProy" placeholder="http://tu-video.com/">
                     </div>
                 </div>
+                <button id="but_grabar" class="btn btn-success" type="submit">
+                    Grabar
+                </button>
             </div>
+
         </form>
     
     </body>

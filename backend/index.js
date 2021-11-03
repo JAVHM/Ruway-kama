@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const bcryptjs = require('bcryptjs');
 const { getUsuarios, createUsuario } = require('./models/dao_usuario')
+const { createProyecto } = require('./models/dao_proyecto')
 const bodyParser = require('body-parser');
 //Para la subida de archivos.
 const multer = require('multer');
@@ -79,6 +80,24 @@ app.get("/verProyecto", (req, res) => {
 
 app.get("/crearProyecto", (req, res) => {
     res.render('crearProyecto')
+})
+
+app.post('/crearProyecto',upload.single('imagen_subida'),async (req,res)=>{
+    //A averiguar el tema de un Array para links externos.
+    const proyecto ={
+        nombre:req.body.nombre,
+        categorias:req.body.categorias,
+        descripcion:req.body.descripcion,
+        fechaCreacion:new Date(),
+        fechaLimite:new Date(),
+        imagen:req.file.filename,
+        montoRecaudado:0,
+        links_externos:req.body.link_externo,
+        idUsuario:1
+    };
+    console.log(req.file.filename);
+    await createProyecto(proyecto);
+    res.redirect("/mensajeria");
 })
 
 //LOGIN
