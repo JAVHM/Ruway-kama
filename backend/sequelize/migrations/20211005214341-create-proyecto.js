@@ -8,6 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      nombre: {
+        type: Sequelize.STRING
+      },
       categorias: {
         type: Sequelize.STRING
       },
@@ -25,6 +28,9 @@ module.exports = {
       },
       montoRecaudado: {
         type: Sequelize.FLOAT
+      },
+      links_externos: {
+        type: Sequelize.STRING
       },
       idUsuario: {
         type: Sequelize.INTEGER

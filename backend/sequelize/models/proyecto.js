@@ -17,12 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     };
   };
   Proyecto.init({
+    nombre: DataTypes.STRING,
     categorias: DataTypes.STRING,
     descripcion: DataTypes.STRING,
     fechaCreacion: DataTypes.DATE,
     fechaLimite: DataTypes.DATE,
     imagen: DataTypes.STRING,
     montoRecaudado: DataTypes.FLOAT,
+    links_externos: DataTypes.STRING,
     idUsuario: DataTypes.INTEGER
   }, {
     sequelize,
