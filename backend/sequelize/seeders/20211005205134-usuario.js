@@ -11,19 +11,13 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-
-    await queryInterface.bulkInsert('Proyecto',[{
-      categorias: 'prueba prueba pruebas',
-      descripcion: 'prueba',
-      fechaCreacion: new Date(),
-      fechaLimite: new Date(),
-      imagen:'imagen.jpg',
-      montoRecaudado: 1000,
-      idUsuario: 1,
+     await queryInterface.bulkInsert('Usuario',[{
+      nombre:'prueba',
+      contraseña:'prueba',
+      correo:'prueba@prueba.com',
       createdAt : new Date(),
       updatedAt : new Date()
     }])
-
   },
 
   down: async (queryInterface, Sequelize) => {
@@ -33,6 +27,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-     await queryInterface.bulkDelete('Proyecto', null, {});
+     await queryInterface.bulkDelete('Usuario', null, {});
   }
 };
