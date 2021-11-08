@@ -48,5 +48,3 @@ app.use('/',loginRouter);
 app.use('/',indexRouter);
 app.use('/',registroRouter);
 app.use('/',nosotrosRouter);
-
-
