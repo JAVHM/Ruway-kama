@@ -14,8 +14,8 @@ module.exports = {
     */
      await queryInterface.bulkInsert('Usuario',[{
       nombre:'prueba',
-      contraseña:prueba,
-      correo:await bcryptjs.hash('prueba',8),
+      contraseña:await bcryptjs.hash('prueba',8),
+      correo:'prueba@prueba.com',
       createdAt : new Date(),
       updatedAt : new Date()
     }])
