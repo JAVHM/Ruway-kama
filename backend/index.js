@@ -8,7 +8,12 @@ const bodyParser = require('body-parser');
 //Para la subida de archivos.
 const multer = require('multer');
 const mimeTypes = require('mime-types'); 
-
+const session = require('express-session')
+app.use(session({
+    secret : "123456789",
+    resave : false,
+    saveUninitialized : false
+}))
 //Cualquier tipo de archivo subido por el usuario va a la carpeta de assest/uploads
 //*Validacion de que sea tipo Imagen* (por hacer)
 const storage = multer.diskStorage({
@@ -50,7 +55,7 @@ app.listen(3000, () => {
 
 app.get("/", (req, res) => {
     res.render('index', {
-        registrado : true
+        registrado : false
     });
 })
 
@@ -122,8 +127,8 @@ app.post('/login', async (req, res) => {
                 //La clave es correcta
                 //Finalmente se guarda el usuario completo en la session
                 req.session.u_id = usuario.id
-                // console.log("req.session.rol: ", req.session.rol)
                 console.log("req.session.u_id: ", req.session.u_id)
+                //console.log("req.session.u_id: ", req.session.u_id)
                 res.redirect('/')
             } else {
                 //La clave es incorrecta
