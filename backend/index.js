@@ -5,15 +5,9 @@ const bcryptjs = require('bcryptjs');
 const { getUsuarios, createUsuario } = require('./models/dao_usuario')
 const { createProyecto } = require('./models/dao_proyecto')
 const bodyParser = require('body-parser');
-//Para la subida de archivos.
 const multer = require('multer');
 const mimeTypes = require('mime-types'); 
-const session = require('express-session')
-app.use(session({
-    secret : "123456789",
-    resave : false,
-    saveUninitialized : false
-}))
+const session = require('express-session');
 //Cualquier tipo de archivo subido por el usuario va a la carpeta de assest/uploads
 //*Validacion de que sea tipo Imagen* (por hacer)
 const storage = multer.diskStorage({
@@ -25,39 +19,41 @@ const storage = multer.diskStorage({
 
 //Filtro en todo caso el usuario intente subir algun tipo de archivo diferente a una 'imagen'
 const fileFilter= (req,file,cb)=>{
-    const filetypes = /jpeg|jpg|jpe|png|gif/;
-    const mimetype = filetypes.test(file.mimetype);
-    const extname = filetypes.test(path.extname(file.originalname));
-    console.log(mimetype);
-    if(mimetype && extname){
-        return cb(null,true)
-    }
-    cb('null,false');
+        const filetypes = /jpeg|jpg|jpe|png|gif/;
+        const mimetype = filetypes.test(file.mimetype);
+        const extname = filetypes.test(path.extname(file.originalname));
+        console.log(mimetype);
+        if(mimetype && extname){
+            return cb(null,true)
+        }
+        cb('null,false');
 }
+
+app.use(session({
+    secret : "123456789",
+    resave : false,
+    saveUninitialized : false
+}))
 
 const upload= multer({
     fileFilter,
     storage,
 });
-
-
+app.set('views', path.join(__dirname, '/views'))
+app.set('view engine', 'ejs');
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/views'))
 app.use(express.static(path.join(__dirname, 'assets')))
-
 app.listen(3000, () => {
     console.log('Servidor funcional en http://localhost:3000')
 });
 
-app.get("/", (req, res) => {
-    res.render('index', {
-        registrado : false
-    });
-})
+//RUTAS
+const indexRouter=require('./routes/index');
+
+app.use('/',indexRouter);
 
 //----------Ejemplo de Subida de Imagenes/Archivos------------
 app.get('/pruebaEnvio',(req,res)=>{
