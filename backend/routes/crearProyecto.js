@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 const { createProyecto } = require('../models/dao_proyecto');
 const mimeTypes = require('mime-types'); 
 const multer = require('multer');
@@ -28,24 +29,33 @@ const upload= multer({
     storage,
 });
 router.get("/crearProyecto", (req, res) => {
-    res.render('crearProyecto')
+    console.log(req.session.login)
+    if(req.session.login){
+        res.render('crearProyecto')
+    }else{
+        res.redirect('/')
+    }
 })
 
 router.post('/crearProyecto',upload.single('imagen_subida'),async (req,res)=>{
-    //A averiguar el tema de un Array para links externos.
-    const proyecto ={
-        nombre:req.body.nombre,
-        categorias:req.body.categorias,
-        descripcion:req.body.descripcion,
-        fechaCreacion:new Date(),
-        fechaLimite:new Date(),
-        imagen:req.file.filename,
-        montoRecaudado:0,
-        links_externos:req.body.link_externo,
-        idUsuario:1
-    };
+    if(req.session.login){
+        console.log('Id del usuario con sesion: '+req.session.u_id)
+        const proyecto ={
+            nombre:req.body.nombre,
+            categorias:req.body.categorias,
+            descripcion:req.body.descripcion,
+            fechaCreacion:new Date(),
+            fechaLimite:new Date(),
+            imagen:req.file.filename,
+            montoRecaudado:0,
+            links_externos:req.body.link_externo,
+            idUsuario:req.session.u_id
+        };
     console.log(req.file.filename);
     await createProyecto(proyecto);
-    res.redirect("/mensajeria");
-})
+    res.redirect("/verProyecto");
+    }else{
+        res.redirect('/')
+    }    
+});
 module.exports = router;

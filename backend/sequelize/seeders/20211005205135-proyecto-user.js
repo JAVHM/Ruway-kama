@@ -11,7 +11,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-
+    /* POR MEJORAR EN SEEDERS!
     await queryInterface.bulkInsert('Proyecto',[{
       categorias: 'prueba prueba pruebas',
       descripcion: 'prueba',
@@ -22,7 +22,7 @@ module.exports = {
       idUsuario: 1,
       createdAt : new Date(),
       updatedAt : new Date()
-    }])
+    }])*/
 
   },
 

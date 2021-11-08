@@ -14,7 +14,6 @@ router.post('/registro', async (req, res) => {
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
         correo: req.body.email,
     }
-
     //Verificando si el correo es unico
     const listaUsuarios = await getUsuarios()
     listaUsuarios.forEach(async (usuario) => {
@@ -24,10 +23,8 @@ router.post('/registro', async (req, res) => {
         }
     })
     //No se encontro usuario con el mismo correo.
-
     const usuarioNuevo = await createUsuario(usuarioDatos)
-
     //Deberia mandar al main aqui
-    res.redirect('')
+    res.redirect('/')
 })
 module.exports = router;
