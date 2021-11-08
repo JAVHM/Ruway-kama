@@ -8,7 +8,7 @@ router.get('/',(req,res)=>{
         req.session.login= true;
     }
     res.render('index', {
-        registrado : false
+        registrado : req.session.login
     });
 })
 module.exports = router;

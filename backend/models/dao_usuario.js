@@ -12,7 +12,18 @@ const createUsuario = async (usuario) => {
     return await db.Usuario.create(usuario);
 }
 
+const getUsuario = async (uId) => {
+    const u = await db.Usuario.findOne({
+        where : {
+            id : uId
+        }
+    })
+    return u;
+}
+
 module.exports = {
     getUsuarios: getUsuarios,
-    createUsuario: createUsuario
+    createUsuario: createUsuario,
+    getUsuario : getUsuario
 }
+
