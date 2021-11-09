@@ -21,14 +21,13 @@ const getUsuario = async (uId) => {
     return u;
 }
 
-const updateUsuario = async (uId, nombreUpdate) => {
+const updateUsuario = async (uId, nombreUpdate, descriptionUpdate) => {
     const uEdit = await getUsuario(uId)
-    console.log("1")
-    uEdit.nombre = nombreUpdate//req.body
-    console.log("2")
+    uEdit.nombre = nombreUpdate
+    uEdit.descripcion = descriptionUpdate
+    console.log(descriptionUpdate)
     await uEdit.save()
-
-    console.log("A C T U A L Z A R")
+    console.log(uEdit)
     return true;
 }
 

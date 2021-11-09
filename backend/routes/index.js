@@ -21,8 +21,9 @@ router.get('/', async (req,res)=>{
 })
 router.post('/', async (req,res)=>{
     const nombreUpdate = req.body.nombre
+    const descripcionUpdate = req.body.descripcion
     console.log("post u_id: ", parseInt(req.session.u_id))
-    await updateUsuario(req.session.u_id, nombreUpdate)
+    await updateUsuario(req.session.u_id, nombreUpdate,descripcionUpdate)
     res.redirect('/')
 })
 module.exports = router;

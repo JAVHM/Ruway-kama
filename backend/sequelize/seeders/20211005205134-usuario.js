@@ -16,6 +16,7 @@ module.exports = {
       nombre:'prueba',
       contraseña:await bcryptjs.hash('prueba',8),
       correo:'prueba@prueba.com',
+      descripcion:'prueba prueba prueba prueba prueba prueba prueba prueba prueba ',
       createdAt : new Date(),
       updatedAt : new Date()
     }])

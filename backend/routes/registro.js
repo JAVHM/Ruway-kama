@@ -13,6 +13,7 @@ router.post('/registro', async (req, res) => {
         contraseña: await bcryptjs.hash(req.body.contrasena, 8), //Este es el encriptador.
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
         correo: req.body.email,
+        descripcion: 'Pon tu descripción',
     }
     //Verificando si el correo es unico
     const listaUsuarios = await getUsuarios()

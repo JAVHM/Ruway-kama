@@ -17,6 +17,9 @@ module.exports = {
       correo: {
         type: Sequelize.STRING
       },
+      descripcion: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
