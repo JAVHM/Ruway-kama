@@ -21,9 +21,21 @@ const getUsuario = async (uId) => {
     return u;
 }
 
+const updateUsuario = async (uId, nombreUpdate) => {
+    const uEdit = await getUsuario(uId)
+    console.log("1")
+    uEdit.nombre = nombreUpdate//req.body
+    console.log("2")
+    await uEdit.save()
+
+    console.log("A C T U A L Z A R")
+    return true;
+}
+
 module.exports = {
     getUsuarios: getUsuarios,
     createUsuario: createUsuario,
-    getUsuario : getUsuario
+    getUsuario : getUsuario,
+    updateUsuario : updateUsuario
 }
 
