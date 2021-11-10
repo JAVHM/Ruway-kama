@@ -153,9 +153,9 @@
 
             </div>   
 
-            <div id="colCartas" class="col-9 mb-5">
+            <div id="colCartas" class="col-9 mb-5 mt-5">
 
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col-4">
                         <label for="sortBy" class="">Sort by</label>
                         <select class="form-control" id="sortBy">
@@ -185,21 +185,25 @@
                     </div>
                 </div>
 
-                <div class="card mb-3 mt-4">
-                    <img src="/images/imgProy1.jpg" class="card-img-top" alt="PROYECTO 1 - IMG">
-                    <div class="card-body">
-                        <h2 class="card-title">PROYECTO 1</h2>
-                        <p class="card-text">INFORMACIÓN.....</p>
-                        <p class="card-text price">$49.50&nbsp;&nbsp;&nbsp;<small class="text-muted">Inversión minima</small></p>
-                        <div class="stars">
-                            <span class="fa fa-star fa-3x checked"></span>
-                            <span class="fa fa-star fa-3x checked"></span>
-                            <span class="fa fa-star fa-3x checked"></span>
-                            <span class="fa fa-star fa-3x checked"></span>
-                            <span class="fa fa-star fa-3x"></span>
+                <!--CARTAS PROYECTOS-->
+                <% lproy.forEach((p) => { %>
+                    <div class="card mb-3 mt-4">
+                        <img src="/images/imgProy1.jpg" class="card-img-top imagen" alt="PROYECTO 1 - IMG">
+                        <div class="card-body">
+                            <h2 class="card-title"><%= p.nombre %></h2>
+                            <p class="card-text"><%= p.descripcion %></p>
+                            <p class="card-text price">$<%= p.montoRecaudado %>&nbsp;&nbsp;&nbsp;<small class="text-muted">Inversión minima</small></p>
+                            <div class="stars">
+                                <span class="fa fa-star fa-3x checked"></span>
+                                <span class="fa fa-star fa-3x checked"></span>
+                                <span class="fa fa-star fa-3x checked"></span>
+                                <span class="fa fa-star fa-3x checked"></span>
+                                <span class="fa fa-star fa-3x"></span>
+                            </div>
                         </div>
-                    </div>
-                </div>   
+                    </div>   
+                <% }) %>
+<!--
                 <div class="card mb-3 mt-3">
                     <img src="/images/imgProy2.jpg" class="card-img-top" alt="PROYECTO 1 - IMG">
                     <div class="card-body">
@@ -229,7 +233,7 @@
                             <span class="fa fa-star fa-3x"></span>
                         </div>
                     </div>
-                </div>   
+                </div> -->  
             </div>
         </div> 
     </body>

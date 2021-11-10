@@ -11,18 +11,32 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    /* POR MEJORAR EN SEEDERS!
-    await queryInterface.bulkInsert('Proyecto',[{
-      categorias: 'prueba prueba pruebas',
-      descripcion: 'prueba',
-      fechaCreacion: new Date(),
-      fechaLimite: new Date(),
-      imagen:'imagen.jpg',
-      montoRecaudado: 1000,
-      idUsuario: 1,
-      createdAt : new Date(),
-      updatedAt : new Date()
-    }])*/
+    /* POR MEJORAR EN SEEDERS!*/
+    await queryInterface.bulkInsert('Proyecto',[
+      {
+        nombre: 'pruebita',
+        categorias: 'prueba prueba pruebas',
+        descripcion: 'prueba',
+        fechaCreacion: new Date(),
+        fechaLimite: new Date(),
+        imagen:'imgProy1.jpg',
+        montoRecaudado: 6969,
+        idUsuario: 1,
+        createdAt : new Date(),
+        updatedAt : new Date()
+      },{
+        nombre: 'Ruwaykama',
+        categorias: 'pagina web',
+        descripcion: 'PROYECTO ING SOFTWARE 2',
+        fechaCreacion: new Date(),
+        fechaLimite: new Date(),
+        imagen:'imgProy2.jpg',
+        montoRecaudado: 777,
+        idUsuario: 1,
+        createdAt : new Date(),
+        updatedAt : new Date()
+      }
+    ])
 
   },
 
