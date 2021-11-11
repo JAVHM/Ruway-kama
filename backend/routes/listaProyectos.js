@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getProyecto, getProyectos, getProyectosPorUsuario} = require('../models/dao_proyecto')
 
-router.get("/verProyecto", async (req, res) => {
+router.get("/listaProyectos", async (req, res) => {
     /*if(req.session.login){
         res.render('verProyecto');
     }else{
@@ -11,7 +11,7 @@ router.get("/verProyecto", async (req, res) => {
     //proyecto = await getProyecto();
     const listaProyectos = await getProyectos();
     
-    res.render('verProyecto',{
+    res.render('listaProyectos',{
         lproy : listaProyectos
     });
 });

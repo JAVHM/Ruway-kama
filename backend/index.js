@@ -31,7 +31,7 @@ app.listen(3000, () => {
 const indexRouter=require('./routes/index');
 const mensajeriaRouter=require('./routes/mensajeria');
 const dashboardRouter=require('./routes/dashboard');
-const verProyectoRouter=require('./routes/verProyecto');
+const listaProyectosRouter=require('./routes/listaProyectos');
 const crearProyectoRouter=require('./routes/crearProyecto');
 const loginRouter=require('./routes/login');
 const registroRouter=require('./routes/registro');
@@ -42,7 +42,7 @@ const nosotrosRouter=require('./routes/nosotros');
 app.use('/',indexRouter);
 app.use('/',mensajeriaRouter);
 app.use('/',dashboardRouter);
-app.use('/',verProyectoRouter);
+app.use('/',listaProyectosRouter);
 app.use('/',crearProyectoRouter);
 app.use('/',loginRouter);
 app.use('/',indexRouter);
