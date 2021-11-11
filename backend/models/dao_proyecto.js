@@ -12,6 +12,36 @@ const getProyectos = async () => {
     return listaProyectos
 }
 
+const getProyectosPorUsuario = async (uId) => {
+    //return data.usuarios;
+
+    const ps = await db.Proyecto.findAndCountAll({
+        where : {
+            idUsuario : uId
+        }
+    });
+    
+
+    const proyectos = []
+    for(let p of ps.rows) {
+        proyectos.push({
+            id : p.id,
+            nombre : p.nombre,
+            categorias : p.categorias,
+            descripcion : p.descripcion,
+            fechaCreacion : p.fechaCreacion,
+            fechaLimite : p.fechaLimite,
+            imagen : p.imagen,
+            montoRecaudado : p.montoRecaudado,
+            links_externos : p.links_externos,
+            idUsuario : p.idUsuario
+
+        })
+    }
+    
+    return proyectos;
+}
+
 const getProyecto = async (pId) => {
     const p = await db.Proyecto.findOne({
         where : {
@@ -24,5 +54,6 @@ const getProyecto = async (pId) => {
 module.exports = {
     getProyectos : getProyectos,
     getProyecto : getProyecto,
+    getProyectosPorUsuario : getProyectosPorUsuario,
     createProyecto : createProyecto
 }

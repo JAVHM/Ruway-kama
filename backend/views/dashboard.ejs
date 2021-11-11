@@ -117,7 +117,15 @@
                   
                     <div class="col-11">
                       <div> Tus Proyectos</div>
-                      <div class="row mt-2">
+                      <% proy.forEach((p) => { %>
+                        <div class="row mt-4">
+                          <div class="p1">
+                            <%= p.nombre %>
+                          </div>
+                        </div>
+                      <% }) %>
+                      
+                      <!--<div class="row mt-2">
                         <div class="p1">
                           Proyecto 1
                         </div>
@@ -132,7 +140,7 @@
                         <div class="p3">
                           Proyecto 3
                         </div>
-                      </div>                      
+                      </div>    -->                  
                       
                     </div>
                     

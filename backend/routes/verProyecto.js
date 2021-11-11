@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getProyecto, getProyectos} = require('../models/dao_proyecto')
+const { getProyecto, getProyectos, getProyectosPorUsuario} = require('../models/dao_proyecto')
 
 router.get("/verProyecto", async (req, res) => {
     /*if(req.session.login){
