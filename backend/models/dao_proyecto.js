@@ -42,6 +42,36 @@ const getProyectosPorUsuario = async (uId) => {
     return proyectos;
 }
 
+const getProyectosFiltroCategoria = async (filtro) => {
+    //return data.usuarios;
+
+    const ps = await db.Proyecto.findAndCountAll({
+        where : {
+            categorias : filtro
+        }
+    });
+    
+
+    const proyectos = []
+    for(let p of ps.rows) {
+        proyectos.push({
+            id : p.id,
+            nombre : p.nombre,
+            categorias : p.categorias,
+            descripcion : p.descripcion,
+            fechaCreacion : p.fechaCreacion,
+            fechaLimite : p.fechaLimite,
+            imagen : p.imagen,
+            montoRecaudado : p.montoRecaudado,
+            links_externos : p.links_externos,
+            idUsuario : p.idUsuario
+
+        })
+    }
+    
+    return proyectos;
+}
+
 const getProyecto = async (pId) => {
     const p = await db.Proyecto.findOne({
         where : {
@@ -50,6 +80,7 @@ const getProyecto = async (pId) => {
     })
     return p;
 }
+
 
 const eliminarProyecto = async (pId) => {
     const p = await db.Proyecto.destroy({
@@ -65,5 +96,6 @@ module.exports = {
     getProyecto : getProyecto,
     getProyectosPorUsuario : getProyectosPorUsuario,
     createProyecto : createProyecto,
-    eliminarProyecto : eliminarProyecto
+    eliminarProyecto : eliminarProyecto,
+    getProyectosFiltroCategoria : getProyectosFiltroCategoria
 }

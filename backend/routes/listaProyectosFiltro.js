@@ -2,21 +2,23 @@ const express = require('express');
 const router = express.Router();
 const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria} = require('../models/dao_proyecto')
 
-router.get("/listaProyectos", async (req, res) => {
+router.get("/listaProyectosFiltro/:filt", async (req, res) => {
     /*if(req.session.login){
         res.render('verProyecto');
     }else{
         res.redirect('/');
     }*/
     //proyecto = await getProyecto();
-    const listaProyectos = await getProyectos();
+    const f = req.params.filt;
+    console.log(f)
+    const listaProyectosF = await getProyectosFiltroCategoria(f);
     
-    res.render('listaProyectos',{
-        lproy : listaProyectos
+    res.render('listaProyectosFiltro',{
+        lproy : listaProyectosF
     });
 })
 let filtro="";
-router.post('/listaProyectosFiltro/:filt',async(req,res)=>{
+router.post('/listaProyectos/:filt',async(req,res)=>{
     const f = req.params.filt;
     filtro=f;
     console.log(f);

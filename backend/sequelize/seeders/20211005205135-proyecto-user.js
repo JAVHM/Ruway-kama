@@ -15,8 +15,8 @@ module.exports = {
     await queryInterface.bulkInsert('Proyecto',[
       {
         nombre: 'pruebita',
-        categorias: 'prueba prueba pruebas',
-        descripcion: 'prueba',
+        categorias: 'comics',
+        descripcion: 'prueba prueba pruebas',
         fechaCreacion: new Date(),
         fechaLimite: new Date(),
         imagen:'imgProy1.jpg',
@@ -26,12 +26,34 @@ module.exports = {
         updatedAt : new Date()
       },{
         nombre: 'Ruwaykama',
-        categorias: 'pagina web',
+        categorias: 'pagina_web',
         descripcion: 'PROYECTO ING SOFTWARE 2',
         fechaCreacion: new Date(),
         fechaLimite: new Date(),
         imagen:'imgProy2.jpg',
         montoRecaudado: 777,
+        idUsuario: 1,
+        createdAt : new Date(),
+        updatedAt : new Date()
+      },{
+        nombre: 'Ruwaykama2',
+        categorias: 'software',
+        descripcion: 'PROYECTO ING SOFTWARE 2',
+        fechaCreacion: new Date(),
+        fechaLimite: new Date(),
+        imagen:'imgProy3.jpg',
+        montoRecaudado: 666,
+        idUsuario: 1,
+        createdAt : new Date(),
+        updatedAt : new Date()
+      },{
+        nombre: 'Ruwaykama3',
+        categorias: 'pelicula',
+        descripcion: 'PROYECTO ING SOFTWARE 2',
+        fechaCreacion: new Date(),
+        fechaLimite: new Date(),
+        imagen:'imgProy4.jpg',
+        montoRecaudado: 555,
         idUsuario: 1,
         createdAt : new Date(),
         updatedAt : new Date()
