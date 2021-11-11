@@ -17,7 +17,7 @@ router.get("/dashboard/:uId/delete/:pId", async (req, res) => {
     const proy = req.params.pId;
     const u = req.params.uId;
     eliminarProyecto(parseInt(proy));
-    res.redirect('/dashboard/:uId')
+    res.redirect('/dashboard/'+u)
 })
 
 module.exports = router;
