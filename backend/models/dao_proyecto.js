@@ -51,9 +51,19 @@ const getProyecto = async (pId) => {
     return p;
 }
 
+const eliminarProyecto = async (pId) => {
+    const p = await db.Proyecto.destroy({
+        where : {
+            id : pId
+        }
+    })
+    return p;
+}
+
 module.exports = {
     getProyectos : getProyectos,
     getProyecto : getProyecto,
     getProyectosPorUsuario : getProyectosPorUsuario,
-    createProyecto : createProyecto
+    createProyecto : createProyecto,
+    eliminarProyecto : eliminarProyecto
 }

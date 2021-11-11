@@ -119,9 +119,10 @@
                       <div> Tus Proyectos</div>
                       <% proy.forEach((p) => { %>
                         <div class="row mt-4">
-                          <div class="p1">
+                          <div class="p1 col-8">
                             <%= p.nombre %>
                           </div>
+                          <a class="btn col-2" href="/dashboard/<%= p.idUsuario %>/delete/<%= p.id %>">Eliminar</a>
                         </div>
                       <% }) %>
                       

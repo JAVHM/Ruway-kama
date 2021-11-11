@@ -1,5 +1,5 @@
 const express = require('express');
-const { getProyectosPorUsuario } = require('../models/dao_proyecto');
+const { getProyectosPorUsuario, eliminarProyecto } = require('../models/dao_proyecto');
 const router = express.Router();
 const { getUsuario} = require('../models/dao_usuario')
 
@@ -12,4 +12,11 @@ router.get("/dashboard/:id", async (req, res) => {
         proy : proyUsuario
     })
 })
+
+router.get("/dashboard/:uId/delete/:pId", async (req, res) => {
+    const proy = req.params.pId;
+    eliminarProyecto(parseInt(proy));
+    res.redirect('/dashboard/1')
+})
+
 module.exports = router;
