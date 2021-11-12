@@ -11,12 +11,13 @@ router.get("/verProyecto/:ide", async (req, res) => {
     }*/
     
     const pId = req.params.ide;
-    console.log(pId)
-    const p = await getProyecto(parseInt(pId));
+    console.log("ID ===> " + pId)
+    const p = await getProyecto(pId);
     res.render('verProyecto', {
         proy: p
     })
-    
-    //error de mrd corre comando SQL 2 veces y bota 'mobile.js'
+
+    //error de mrd corre comando SQL 2 veces y bota 'mobile.js' FIXEAR
+    //FIXEADO B)
 });
 module.exports = router;

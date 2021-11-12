@@ -53,7 +53,7 @@ router.post('/crearProyecto',upload.single('imagen_subida'),async (req,res)=>{
         };
     console.log(req.file.filename);
     await createProyecto(proyecto);
-    res.redirect("/verProyecto");
+    res.redirect("/dashboard/"+proyecto.idUsuario);
     }else{
         res.redirect('/')
     }    
