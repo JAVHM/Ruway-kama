@@ -79,6 +79,7 @@ router.post('/addFav', async (req,res)=>{
 
     const listaProyectos = await getProyectos();
     res.render('listaProyectos',{
+        u : usuario,
         lproy : listaProyectos,
         registrado : req.session.login
     });
