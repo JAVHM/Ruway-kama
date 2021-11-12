@@ -9,6 +9,10 @@
     overflow: hidden;
     font-family: 'Muli', sans-serif;
   }
+  #active{
+    background-color: #0b254bce;
+    color: white;
+  }
   #bar1{
     width: 70%;
     margin-left: 15px;
@@ -196,4 +200,11 @@
       margin-left: -18rem;
     }
   }
-  
+#tab:hover{
+  background-color: #0b254bb9;
+  color: white;
+}
+#tab{
+  --bs-bg-opacity: 1; 
+    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity));
+}
