@@ -31,10 +31,27 @@ const updateUsuario = async (uId, nombreUpdate, descriptionUpdate) => {
     return true;
 }
 
+const getuserbyemail = async (correo) => {
+    const vj = await db.Usuario.findOne({
+        where : {
+            email : correo
+        }
+    })
+    return vj;
+}
+const updateContrasena=async(email,contrasena)=>{
+    const contrasenaedit=await getuserbyemail(email)
+     contrasenaedit.contrasena=contrasena
+     console.log(contrasena)
+     await  contrasenaedit.save()
+     return true;
+   }
 module.exports = {
     getUsuarios: getUsuarios,
     createUsuario: createUsuario,
     getUsuario : getUsuario,
-    updateUsuario : updateUsuario
+    updateUsuario : updateUsuario,
+    getuserbyemail: getuserbyemail,
+    updateContrasena:updateContrasena
 }
 
