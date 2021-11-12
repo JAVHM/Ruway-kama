@@ -210,6 +210,12 @@
                                 </div>
                             </div>
                             <div class="col-3">
+                                <% if(registrado==true) { %>
+                                    <form action="/addFav" method="POST">
+                                        <td><input type="hidden" name="pID" value="<%= p.id %>"><%= p.id %></td>
+                                        <button id="boton" class="btn btn-success" type="submit">Fav</button>
+                                    </form>
+                                <% }%>
                                 <a href="/verProyecto/<%= p.id %>" type="button" class="btn btn-success mb-3">Ver Proyecto</a>
                             </div>
                         </div>
