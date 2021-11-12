@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcryptjs = require('bcryptjs');
+const nodemailer = require('nodemailer')
 const { getUsuarios, createUsuario } = require('../models/dao_usuario')
 
 router.get('/registro', async (req, res) => {
@@ -25,6 +26,26 @@ router.post('/registro', async (req, res) => {
     })
     //No se encontro usuario con el mismo correo.
     const usuarioNuevo = await createUsuario(usuarioDatos)
+
+    //Enlaze a la cuenta Ruwaykama
+    const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'Ruwaykama@gmail.com',
+            pass: 'wvawtjhxpkndnpov',
+        },
+    });
+
+    //Envio de email de confirmacion
+    await transporter.sendMail({
+        from: '"Confirmacion de Registro" <Ruwaykama@gmail.com>',
+        to: req.body.email,
+        subject: "Confirmacion de Registro", // Subject line
+        html: "<b>Tu cuenta a sido creada con exito! Bienvenido a Ruwaykama!</b>", // html body
+    });
+
     //Deberia mandar al main aqui
     res.redirect('/')
 })

@@ -72,6 +72,54 @@ const getProyectosFiltroCategoria = async (filtro) => {
     return proyectos;
 }
 
+const getProyectosOrdenarPrecioMayor = async () => {
+    //return data.usuarios;
+
+    const ps = await db.Proyecto.findAll({
+        order: [
+            ['montoRecaudado', 'DESC']
+        ]
+    });
+        
+    return ps;
+}
+
+const getProyectosOrdenarPrecioMenor = async () => {
+    //return data.usuarios;
+
+    const ps = await db.Proyecto.findAll({
+        order: [
+            ['montoRecaudado', 'ASC']
+        ]
+    });
+        
+    return ps;
+}
+
+const getProyectosOrdenarNuevo = async () => {
+    //return data.usuarios;
+
+    const ps = await db.Proyecto.findAll({
+        order: [
+            ['fechaCreacion', 'DESC']
+        ]
+    });
+        
+    return ps;
+}
+
+const getProyectosOrdenarAntiguedad = async () => {
+    //return data.usuarios;
+
+    const ps = await db.Proyecto.findAll({
+        order: [
+            ['fechaCreacion', 'ASC']
+        ]
+    });
+        
+    return ps;
+}
+
 const getProyecto = async (pId) => {
     const p = await db.Proyecto.findOne({
         where : {
@@ -80,7 +128,6 @@ const getProyecto = async (pId) => {
     })
     return p;
 }
-
 
 const eliminarProyecto = async (pId) => {
     const p = await db.Proyecto.destroy({
@@ -97,5 +144,9 @@ module.exports = {
     getProyectosPorUsuario : getProyectosPorUsuario,
     createProyecto : createProyecto,
     eliminarProyecto : eliminarProyecto,
-    getProyectosFiltroCategoria : getProyectosFiltroCategoria
+    getProyectosFiltroCategoria : getProyectosFiltroCategoria,
+    getProyectosOrdenarPrecioMayor : getProyectosOrdenarPrecioMayor,
+    getProyectosOrdenarPrecioMenor : getProyectosOrdenarPrecioMenor,
+    getProyectosOrdenarNuevo : getProyectosOrdenarNuevo,
+    getProyectosOrdenarAntiguedad : getProyectosOrdenarAntiguedad
 }

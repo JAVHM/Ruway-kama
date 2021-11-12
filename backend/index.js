@@ -38,9 +38,10 @@ const crearProyectoRouter=require('./routes/crearProyecto');
 const loginRouter=require('./routes/login');
 const registroRouter=require('./routes/registro');
 const nosotrosRouter=require('./routes/nosotros');
+const correoRecRouter=require('./routes/correoRec');
 
 
-
+app.use('/',correoRecRouter)//recuperar contraseña*/
 app.use('/',indexRouter);
 app.use('/',mensajeriaRouter);
 app.use('/',dashboardRouter);
