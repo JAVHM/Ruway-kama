@@ -1,7 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const { getUsuario, updateUsuario} = require('../models/dao_usuario')
+//LOGOUT
 
+router.get('/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.redirect('/')
+    })
+})
 router.get('/', async (req,res)=>{
     if(req.session.u_id==null){
         req.session.login= false;
