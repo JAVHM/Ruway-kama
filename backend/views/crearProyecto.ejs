@@ -7,7 +7,9 @@
         <script src="/js/crearProyecto.js"></script>
     </head>
     <body class="container">
-        <div id="head">
+        <%- include('header.ejs') %>
+
+        <div id="head" class="mt-5">
             <h2>Cuentanos tu idea :)</h2>
             <p>Esta seccion esta diseñada para que puedas detallar tu proyecto</p>
         </div>
@@ -27,11 +29,22 @@
                     <div class="form-group">
                         <label for="categoriaProy" class="form-label">Categoria</label>
                         <select name="categorias" class="form-control" id="categoriaProy">
-                            <option value="Videojuego">Videojuego</option>
-                            <option value="Categoria 1">Categoria 1</option>
-                            <option value="Categoria 2">Categoria 2</option>
-                            <option value="Categoria 3">Categoria 3</option>
-                            <option value="Categoria 4">Categoria 4</option>
+                            <option value="videojuegos">Videojuegos</option>
+                            <option value="pelicula">Peliculas</option>
+                            <option value="animaciones">Animaciones</option>
+                            <option value="comics">Comics</option>
+                            <option value="articulos_artisticos">Articulos Artisticos</option>
+                            <option value="diseños">Diseños</option>
+                            <option value="pagina_web">Paginas Web</option>
+                            <option value="app_movil">App Movil</option>
+                            <option value="hardware">Hardware</option>
+                            <option value="software">Software</option>
+                            <option value="musica">Musica</option>
+                            <option value="comida">Comida</option>
+                            <option value="juegos_de_mesa">Juegos de Mesa</option>
+                            <option value="deporte">Deporte</option>
+                            <option value="hogar">Hogar</option>
+                            <option value="oficina">Oficina</option>
                         </select>
                     </div>
                     <div class="form-check mt-5">
