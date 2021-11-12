@@ -10,15 +10,24 @@ router.get("/listaProyectos", async (req, res) => {
     }else{
         res.redirect('/');
     }*/
-    //proyecto = await getProyecto();
-    const listaProyectos = await getProyectos();
-    usuario = await getUsuario(parseInt(req.session.u_id));
+    if(req.session.login){
+        const listaProyectos = await getProyectos();
+        usuario = await getUsuario(parseInt(req.session.u_id));
 
-    res.render('listaProyectos',{
-        u : usuario,
-        lproy : listaProyectos,
-        registrado : req.session.login
-    });
+        res.render('listaProyectos',{
+            u : usuario,
+            lproy : listaProyectos,
+            registrado : req.session.login
+        });
+    }else{
+        const listaProyectos = await getProyectos();
+
+        res.render('listaProyectos',{
+            lproy : listaProyectos,
+            registrado : req.session.login
+        });
+    }
+    
 })
 let filtro="";
 router.post('/listaProyectosFiltro/:filt',async(req,res)=>{
