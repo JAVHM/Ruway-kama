@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad} = require('../models/dao_proyecto')
+const { favAdd } = require('../models/dao_favoritos')
 
 router.get("/listaProyectos", async (req, res) => {
     /*if(req.session.login){
@@ -12,7 +13,8 @@ router.get("/listaProyectos", async (req, res) => {
     const listaProyectos = await getProyectos();
     
     res.render('listaProyectos',{
-        lproy : listaProyectos
+        lproy : listaProyectos,
+        registrado : req.session.login
     });
 })
 let filtro="";
@@ -55,5 +57,19 @@ router.post('/listaProyecto/filt',async(req,res)=>{
 
 })
 
+router.post('/addFav', async (req,res)=>{
+    const fav = {
+        u_id: parseInt(req.session.u_id),
+        p_id: parseInt(req.body.pID)
+    }
+    console.log("fav", fav)
+    await favAdd(fav)
+
+    const listaProyectos = await getProyectos();
+    res.render('listaProyectos',{
+        lproy : listaProyectos,
+        registrado : req.session.login
+    });
+})
 
 module.exports = router;

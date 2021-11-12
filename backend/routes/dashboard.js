@@ -12,6 +12,52 @@ router.get("/dashboard/:id", async (req, res) => {
         proy : proyUsuario
     })
 })
+router.get("/dashboard/ProyectosAceptados/:id", async (req, res) => {
+    const uId = req.params.id;
+    const u = await getUsuario(parseInt(uId));
+    const proyUsuario = await getProyectosPorUsuario(uId);
+    res.render('dashboard1', {
+        usuario: u,
+        proy : proyUsuario
+    })
+})
+router.get("/dashboard/ProyectosFinanciados/:id", async (req, res) => {
+    const uId = req.params.id;
+    const u = await getUsuario(parseInt(uId));
+    const proyUsuario = await getProyectosPorUsuario(uId);
+    res.render('dashboard2', {
+        usuario: u,
+        proy : proyUsuario
+    })
+})
+router.get("/dashboard/InformacionPersonal/:id", async (req, res) => {
+    const uId = req.params.id;
+    const u = await getUsuario(parseInt(uId));
+    const proyUsuario = await getProyectosPorUsuario(uId);
+    res.render('dashboard3',{
+        usuario: u,
+        proy : proyUsuario
+    })
+})
+router.get("/dashboard/UltimasActualizaciones/:id", async (req, res) => {
+    const uId = req.params.id;
+    const u = await getUsuario(parseInt(uId));
+    const proyUsuario = await getProyectosPorUsuario(uId);
+    res.render('dashboard4', {
+        
+        usuario: u,
+        proy : proyUsuario
+    })
+})
+router.get("/dashboard/Mensajeria/:id", async (req, res) => {
+    const uId = req.params.id;
+    const u = await getUsuario(parseInt(uId));
+    const proyUsuario = await getProyectosPorUsuario(uId);
+    res.render('dashboard5', {
+        usuario: u,
+        proy : proyUsuario
+    })
+})
 
 router.get("/dashboard/:uId/delete/:pId", async (req, res) => {
     const proy = req.params.pId;
