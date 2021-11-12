@@ -46,25 +46,73 @@ router.post('/listaProyecto/filt',async(req,res)=>{
     const f=req.body.filtro1;
     filtro1 = f;
     if(filtro1 == 'pMayor'){
-        const listaProy = await getProyectosOrdenarPrecioMayor();
-        res.render('listaProyectos',{
-            lproy : listaProy
-        })
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarPrecioMayor();
+            usuario = await getUsuario(parseInt(req.session.u_id));
+            res.render('listaProyectos',{
+                u : usuario,
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }else{
+            const listaProy = await getProyectosOrdenarPrecioMayor();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }
+
     }else if(filtro1 == 'pMenor'){
-        const listaProy = await getProyectosOrdenarPrecioMenor();
-        res.render('listaProyectos',{
-            lproy : listaProy
-        })
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarPrecioMenor();
+            usuario = await getUsuario(parseInt(req.session.u_id));
+            res.render('listaProyectos',{
+                u : usuario,
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }else{
+            const listaProy = await getProyectosOrdenarPrecioMenor();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }
+
     }else if(filtro1 == 'pNuevo'){
-        const listaProy = await getProyectosOrdenarNuevo();
-        res.render('listaProyectos',{
-            lproy : listaProy
-        })
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarNuevo();
+            usuario = await getUsuario(parseInt(req.session.u_id));
+            res.render('listaProyectos',{
+                u : usuario,
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }else{
+            const listaProy = await getProyectosOrdenarNuevo();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }
+
     }else if(filtro1 == 'pViejo'){
-        const listaProy = await getProyectosOrdenarAntiguedad();
-        res.render('listaProyectos',{
-            lproy : listaProy
-        })
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarAntiguedad();
+            usuario = await getUsuario(parseInt(req.session.u_id));
+            res.render('listaProyectos',{
+                u : usuario,
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }else{
+            const listaProy = await getProyectosOrdenarAntiguedad();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            });
+        }
+        
     }
 
 })
