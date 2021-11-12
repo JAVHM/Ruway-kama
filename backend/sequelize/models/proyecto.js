@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       Proyecto.belongsTo(models.Usuario,{
         foreignKey:'idUsuario'
       })
+      Proyecto.hasMany(models.Favoritos, {
+        foreignKey : 'id_p'
+      })
     };
   };
   Proyecto.init({

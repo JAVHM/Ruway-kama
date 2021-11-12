@@ -15,7 +15,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap" rel="stylesheet">
     </head>
     <body class="container">
-        <%- include('header.ejs') %>
+        <% if(registrado==true) { %>
+            <%- include('header-user.ejs') %>
+        <% } else {%>
+            <%- include('header.ejs') %>
+        <% }%>
         <div class="row"> 
             <div id="colFiltros" class="col-3 mb-5 mt-5">
                 
@@ -165,7 +169,7 @@
 
                 <!--CARTAS PROYECTOS-->
                 <% lproy.forEach((p) => { %>
-                    <div class="card mb-3 mt-5">
+                    <div class="card mb-3 mt-4 card-body">
                         <img src="/images/<%= p.imagen %>" class="card-img-top imagen" alt="PROYECTO - IMG">
                         <div class="card-body row">
                             <div class="col-9">
@@ -181,6 +185,12 @@
                                 </div>
                             </div>
                             <div class="col-3">
+                                <% if(registrado==true) { %>
+                                    <form action="/addFav" method="POST">
+                                        <td><input type="hidden" name="pID" value="<%= p.id %>"><%= p.id %></td>
+                                        <button id="boton" class="btn btn-success" type="submit">Fav</button>
+                                    </form>
+                                <% }%>
                                 <a href="/verProyecto/<%= p.id %>" type="button" class="btn btn-success mb-3">Ver Proyecto</a>
                             </div>
                         </div>
