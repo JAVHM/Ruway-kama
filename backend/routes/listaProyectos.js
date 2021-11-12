@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria} = require('../models/dao_proyecto')
+const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad} = require('../models/dao_proyecto')
 const { favAdd } = require('../models/dao_favoritos')
 
 router.get("/listaProyectos", async (req, res) => {
@@ -27,6 +27,34 @@ router.post('/listaProyectosFiltro/:filt',async(req,res)=>{
     res.render('listaProyectosFiltro',{
         lproy : listaProyectosF
     });
+})
+let filtro1="";
+router.post('/listaProyecto/filt',async(req,res)=>{
+    
+    const f=req.body.filtro1;
+    filtro1 = f;
+    if(filtro1 == 'pMayor'){
+        const listaProy = await getProyectosOrdenarPrecioMayor();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
+    }else if(filtro1 == 'pMenor'){
+        const listaProy = await getProyectosOrdenarPrecioMenor();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
+    }else if(filtro1 == 'pNuevo'){
+        const listaProy = await getProyectosOrdenarNuevo();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
+    }else if(filtro1 == 'pViejo'){
+        const listaProy = await getProyectosOrdenarAntiguedad();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
+    }
+
 })
 
 router.post('/addFav', async (req,res)=>{

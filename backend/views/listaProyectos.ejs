@@ -92,23 +92,50 @@
                             </div>
                         </div>
 
-                        <div class="card mb-3">
+                        <div class="mt-3">
+                            <form action="/listaProyecto/filt" method="POST">
+                                <div class="">
+                                    <label for="sortBy" class="">Filtros</label>
+                                    <select name="filtro1" class="form-control" id="sortBy">
+                                        <option value="0">Ordenar por</option>
+                                        <option value="pMayor">Más costoso</option>
+                                        <option value="pMenor">Menos costoso</option>
+                                        <option value="pNuevo">Más reciente</option>
+                                        <option value="pViejo">Más antiguo</option>
+                                        <!--option value="3">Más valorado</option-->
+                                    </select>
+                                </div>
+                                <div class="col-4 mt-2">
+                                    <button class="btn btn-secondary" type="submit">
+                                        Filtrar
+                                    </button>
+                                </div>
+                            </form>
+        
+                            <!--form action="" method="POST">
+                                <div class="">
+                                    <label for="condition" class=""></label>
+                                    <select class="form-control" id="condition">
+                                        <option value="0">Año de Publicación</option>
+                                        <option value="1">2019</option>
+                                        <option value="2">2020</option>
+                                        <option value="3">2021</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 mt-2">
+                                    <button class="btn btn-secondary" type="submit">
+                                        Filtrar
+                                    </button>
+                                </div>
+                            </form-->
+                        </div>
+
+                        <!--div class="card mb-3">
                             <div class="card-body filtros">
                                 <h5 class="card-title">Filtros</h5>
 
-                                <!--h6 class="card-subtitle mb-2 text-muted">Recomendados</h6-->
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-1">
-                                    <label for="checkbox-1" class="custom-control-label mt-3">Recomendados</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-2">
-                                    <label for="checkbox-2" class="custom-control-label mt-3">Recently Added</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-3">
-                                    <label for="checkbox-3" class="custom-control-label mt-3">Expiring Soon</label>
-                                </div>
+                                <--h6 class="card-subtitle mb-2 text-muted">Recomendados</h6>
+                            
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="checkbox-4">
                                     <label for="checkbox-4" class="custom-control-label mt-3">Most Rated</label>
@@ -123,36 +150,7 @@
                                 </div>
 
                             </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-body filtros">
-                              <h5 class="card-title">Año de Publicacion</h5>
-                              
-                                <!--h6 class="card-subtitle mb-2 text-muted">Recomendados</h6-->
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-7">
-                                    <label for="checkbox-7" class="custom-control-label mt-3">2018</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-8">
-                                    <label for="checkbox-8" class="custom-control-label mt-3">2019</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-9">
-                                    <label for="checkbox-9" class="custom-control-label mt-3">2020</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-10">
-                                    <label for="checkbox-10" class="custom-control-label mt-3">2021</label>
-                                </div>
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="checkbox-11">
-                                    <label for="checkbox-11" class="custom-control-label mt-3">2022</label>
-                                </div>
-                            </div>
-                        </div>
-        
+                        </div-->     
                         
 
                     </div>
@@ -162,39 +160,12 @@
 
             <div id="colCartas" class="col-9 mb-5 mt-5">
 
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <label for="sortBy" class="">Sort by</label>
-                        <select class="form-control" id="sortBy">
-                            <option value="0">Most Popular</option>
-                            <option value="1">Least Popular</option>
-                            <option value="2">Newest</option>
-                            <option value="3">Oldest</option>
-                        </select>
-                    </div>
-                    <div class="col-4">
-                        <label for="condition" class=""></label>
-                        <select class="form-control" id="condition">
-                            <option value="0">Condition</option>
-                            <option value="1">Condition 1</option>
-                            <option value="2">Condition 2</option>
-                            <option value="3">Condition 3</option>
-                        </select>
-                    </div>
-                    <div class="col-4">
-                        <label for="delivery" class=""></label>
-                        <select class="form-control" id="delivery">
-                            <option value="0">Delivery Options</option>
-                            <option value="1">Delivery 1</option>
-                            <option value="2">Delivery 2</option>
-                            <option value="3">Delivery 3</option>
-                        </select>
-                    </div>
-                </div>
+                
+                
 
                 <!--CARTAS PROYECTOS-->
                 <% lproy.forEach((p) => { %>
-                    <div class="card mb-3 mt-4">
+                    <div class="card mb-3 mt-4 card-body">
                         <img src="/images/<%= p.imagen %>" class="card-img-top imagen" alt="PROYECTO - IMG">
                         <div class="card-body row">
                             <div class="col-9">

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcryptjs = require('bcryptjs');
-const { getUsuarios} = require('../models/dao_usuario')
+const { getUsuarios } = require('../models/dao_usuario')
 
 router.get('/login', async (req, res) => {
     res.render('login')
@@ -11,7 +11,7 @@ router.post('/login', async (req, res) => {
     const claveLogin = req.body.contrasena
     const listaUsuarios = await getUsuarios()
 
-    listaUsuarios.forEach((usuario) => {
+    listaUsuarios.forEach(async (usuario) => {
         //Encontrar al usuario con el mismo correo
         if (correoLogin == usuario.correo) {
             //Se encontro al usuario con el correo
