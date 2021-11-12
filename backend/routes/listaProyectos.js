@@ -119,8 +119,8 @@ router.post('/listaProyecto/filt',async(req,res)=>{
 
 router.post('/addFav', async (req,res)=>{
     const fav = {
-        u_id: parseInt(req.session.u_id),
-        p_id: parseInt(req.body.pID)
+        id_u: parseInt(req.session.u_id),
+        id_p: parseInt(req.body.pID)
     }
     console.log("fav", fav)
     await favAdd(fav)
