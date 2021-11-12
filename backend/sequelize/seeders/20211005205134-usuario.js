@@ -1,6 +1,6 @@
 'use strict';
 const bcryptjs = require('bcryptjs');
-const prueba='prueba'
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     /**
@@ -12,9 +12,10 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+     const texto = await bcryptjs.hash('pruebaprueba',8)
      await queryInterface.bulkInsert('Usuario',[{
       nombre:'prueba',
-      contraseña:await bcryptjs.hash('prueba',8),
+      contraseña:texto,
       correo:'prueba@prueba.com',
       descripcion:'prueba prueba prueba prueba prueba prueba prueba prueba prueba ',
       createdAt : new Date(),

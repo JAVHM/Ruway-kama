@@ -7,7 +7,11 @@
         <script src="/js/crearProyecto.js"></script>
     </head>
     <body class="container">
-        <%- include('header.ejs') %>
+        <% if(registrado==true) { %>
+            <%- include('header-user.ejs') %>
+        <% } else {%>
+            <%- include('header.ejs') %>
+        <% }%>
 
         <div id="head" class="mt-5">
             <h2>Cuentanos tu idea :)</h2>

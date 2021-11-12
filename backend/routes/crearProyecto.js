@@ -31,7 +31,10 @@ const upload= multer({
 router.get("/crearProyecto", (req, res) => {
     console.log(req.session.login)
     if(req.session.login){
-        res.render('crearProyecto')
+        res.render('crearProyecto', {
+            registrado : req.session.login,
+            u : usuario
+        })
     }else{
         res.redirect('/')
     }
