@@ -10,6 +10,16 @@ const favAdd = async (favoritos) => {
 const favDelete = async (favoritos) => {
     return await db.Favoritos.delete(favoritos)
 }
+const getFav = async (usuario, proyecto) => {
+    const fav = await db.Usuario.findOne({
+        where : {
+            id_u : usuario.id,
+            id_p : proyecto.id
+        }
+    })
+    console.log("Fav referente: ", fav)
+    return true;
+}
 const getFavByUsuario = async (usuario) => {
     const favs = await db.Favoritos.findAll({
         where : {

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { getUsuario } = require('../models/dao_usuario')
 const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad} = require('../models/dao_proyecto')
 const { favAdd } = require('../models/dao_favoritos')
 
@@ -11,8 +12,10 @@ router.get("/listaProyectos", async (req, res) => {
     }*/
     //proyecto = await getProyecto();
     const listaProyectos = await getProyectos();
-    
+    usuario = await getUsuario(parseInt(req.session.u_id));
+
     res.render('listaProyectos',{
+        u : usuario,
         lproy : listaProyectos,
         registrado : req.session.login
     });

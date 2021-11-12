@@ -37,22 +37,8 @@
                     <div class="row" id="t2">FINANCIAMOS TU IDEA!</div>
                 <% }%>
                 <div class="row mt-3" id="t3"> Porque sabemos que tienes los mejores proyectos, Innova Ruwaykama es un portal que hace posible llevar a la realidad tu idea, emprendimiento o negocio. Somos intermediarios entre aquellos que necesiten financiar sus ideas y aquellos que estan dispuestos a invertir dinero en estas.</div>
-                <% if(registrado==true) { %>
-                    <form action="/" method="POST">
-                        <label>ID: <%=u.id%></label>
-                        <br><label>Nombre: </label>
-                        <input name="nombre" type="text" value="<%=u.nombre%>">
-                        <br><label>Correo: </label>
-                        <input  type="text" value="<%=u.correo%>">
-                        <br><label>Descripción: </label>
-                        <input name="descripcion" type="text" value="<%=u.descripcion%>">
-                        <button id="boton" class="btn btn-success" type="submit">Actualizar</button>
-                    </form>
-                <% }%>
            </div>
        </div>
-       
     </div>
-   
 </body>
 </html>

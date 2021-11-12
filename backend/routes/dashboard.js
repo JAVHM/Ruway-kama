@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getProyectosPorUsuario, eliminarProyecto } = require('../models/dao_proyecto');
-const { getUsuario} = require('../models/dao_usuario')
+const { getUsuario, updateUsuario} = require('../models/dao_usuario')
 
 router.get("/dashboard/:id", async (req, res) => {
     const uId = req.params.id;
@@ -64,6 +64,13 @@ router.get("/dashboard/:uId/delete/:pId", async (req, res) => {
     const u = req.params.uId;
     eliminarProyecto(parseInt(proy));
     res.redirect('/dashboard/'+u)
+})
+
+router.post('/ActualizarDatosUsuario', async (req,res)=>{
+    const nombreUpdate = req.body.nombre
+    const descripcionUpdate = req.body.descripcion
+    await updateUsuario(req.session.u_id, nombreUpdate,descripcionUpdate)
+    res.redirect('/')
 })
 
 module.exports = router;

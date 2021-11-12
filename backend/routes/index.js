@@ -11,19 +11,11 @@ router.get('/', async (req,res)=>{
     }else{
         req.session.login= true;
         usuario = await getUsuario(parseInt(req.session.u_id));
-        console.log("nombre: ", usuario.nombre)
         res.render('index', {
             registrado : req.session.login,
             u : usuario
         });
     }
     
-})
-router.post('/', async (req,res)=>{
-    const nombreUpdate = req.body.nombre
-    const descripcionUpdate = req.body.descripcion
-    console.log("post u_id: ", parseInt(req.session.u_id))
-    await updateUsuario(req.session.u_id, nombreUpdate,descripcionUpdate)
-    res.redirect('/')
 })
 module.exports = router;
