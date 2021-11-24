@@ -5,10 +5,16 @@ const { getUsuario } = require("./dao_usuario");
 const { text } = require('express');
 
 const favAdd = async (favoritos) => {
+    console.log("Se a añadido: ", favoritos)
     return await db.Favoritos.create(favoritos)
 }
 const favDelete = async (favoritos) => {
-    return await db.Favoritos.delete(favoritos)
+    console.log("Se ha borrado: ", favoritos)
+    return await db.Favoritos.destroy({
+        where: {
+            id_u : favoritos.id_u,
+            id_p : favoritos.id_p
+        }})
 }
 const getFav = async (usuario, proyecto) => {
     const fav = await db.Usuario.findOne({
@@ -42,11 +48,34 @@ const getFavByUsuario = async (usuario) => {
             })
         })
     }
-    console.log(arrayFav)
+    console.log(arrayFav.map(a => a.id))
     return arrayFav
+}
+const getProyFavByUsuario = async (usuario) => {
+    const favs = await db.Favoritos.findAll({
+        where : {
+            id_u : usuario.id
+        }
+    })
+    console.log("favs ID: ", favs.map(a => a.id))
+    console.log("favs ID_P: ", favs.map(a => a.id_p))
+    arrayProyFav = []
+
+    for(let p of favs){
+        console.log("p.id_p", p.id_p)
+        const ps = await db.Proyecto.findOne({
+            where : {
+                id: p.id_p
+            }
+        });
+        arrayProyFav.push(ps)
+    }
+
+    return arrayProyFav
 }
 module.exports = {
     favAdd : favAdd,
     favDelete : favDelete,
-    getFavByUsuario : getFavByUsuario
+    getFavByUsuario : getFavByUsuario,
+    getProyFavByUsuario : getProyFavByUsuario
 }

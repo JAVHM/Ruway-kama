@@ -1,2 +1,11 @@
-Testeo 2
-Testeo 3a
+<% if(lproy.every(elem => lfav.includes(elem))) { %>
+                                            <form action="/addFav" method="POST"></form>
+                                                <td><input type="hidden" name="pID" value="<%= p.id %>"><%= p.id %></td>
+                                                <button id="boton" class="btn btn-success" type="submit">Eliminar</button>
+                                            </form>
+                                        <% } else{ %>
+                                            <form action="/delFav" method="POST"></form>
+                                                <td><input type="hidden" name="pID" value="<%= p.id %>"><%= p.id %></td>
+                                                <button id="boton" class="btn btn-success" type="submit">Añadir</button>
+                                            </form>
+                                        <% } %>
