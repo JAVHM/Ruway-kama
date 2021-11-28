@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getUsuario } = require('../models/dao_usuario')
 const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad} = require('../models/dao_proyecto')
-const { favAdd } = require('../models/dao_favoritos')
+const { favAdd, favDelete, getFavByUsuario, getProyFavByUsuario} = require('../models/dao_favoritos')
 
 router.get("/listaProyectos", async (req, res) => {
     /*if(req.session.login){
@@ -13,10 +13,17 @@ router.get("/listaProyectos", async (req, res) => {
     if(req.session.login){
         const listaProyectos = await getProyectos();
         usuario = await getUsuario(parseInt(req.session.u_id));
+        const listaProyFavs = await getProyFavByUsuario(usuario);
+
+        console.log("listaProyecotsID: ", listaProyectos.map(a => a.id))
+        console.log("listaFavoritosID: ", listaProyFavs.map(a => a.id))
+        //console.log("Compare ", listaProyFavs.map(a => a.id).every(elem => listaProyectos.map(a => a.id).includes(elem)))
+        //https://www.designcise.com/web/tutorial/how-to-check-if-an-array-contains-all-elements-of-another-array-in-javascript
 
         res.render('listaProyectos',{
             u : usuario,
             lproy : listaProyectos,
+            lfav : listaProyFavs,
             registrado : req.session.login
         });
     }else{
@@ -46,73 +53,25 @@ router.post('/listaProyecto/filt',async(req,res)=>{
     const f=req.body.filtro1;
     filtro1 = f;
     if(filtro1 == 'pMayor'){
-        if(req.session.login){
-            const listaProy = await getProyectosOrdenarPrecioMayor();
-            usuario = await getUsuario(parseInt(req.session.u_id));
-            res.render('listaProyectos',{
-                u : usuario,
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }else{
-            const listaProy = await getProyectosOrdenarPrecioMayor();
-            res.render('listaProyectos',{
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }
-
+        const listaProy = await getProyectosOrdenarPrecioMayor();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
     }else if(filtro1 == 'pMenor'){
-        if(req.session.login){
-            const listaProy = await getProyectosOrdenarPrecioMenor();
-            usuario = await getUsuario(parseInt(req.session.u_id));
-            res.render('listaProyectos',{
-                u : usuario,
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }else{
-            const listaProy = await getProyectosOrdenarPrecioMenor();
-            res.render('listaProyectos',{
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }
-
+        const listaProy = await getProyectosOrdenarPrecioMenor();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
     }else if(filtro1 == 'pNuevo'){
-        if(req.session.login){
-            const listaProy = await getProyectosOrdenarNuevo();
-            usuario = await getUsuario(parseInt(req.session.u_id));
-            res.render('listaProyectos',{
-                u : usuario,
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }else{
-            const listaProy = await getProyectosOrdenarNuevo();
-            res.render('listaProyectos',{
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }
-
+        const listaProy = await getProyectosOrdenarNuevo();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
     }else if(filtro1 == 'pViejo'){
-        if(req.session.login){
-            const listaProy = await getProyectosOrdenarAntiguedad();
-            usuario = await getUsuario(parseInt(req.session.u_id));
-            res.render('listaProyectos',{
-                u : usuario,
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }else{
-            const listaProy = await getProyectosOrdenarAntiguedad();
-            res.render('listaProyectos',{
-                lproy : listaProy,
-                registrado : req.session.login
-            });
-        }
-        
+        const listaProy = await getProyectosOrdenarAntiguedad();
+        res.render('listaProyectos',{
+            lproy : listaProy
+        })
     }
 
 })
@@ -122,15 +81,17 @@ router.post('/addFav', async (req,res)=>{
         id_u: parseInt(req.session.u_id),
         id_p: parseInt(req.body.pID)
     }
-    console.log("fav", fav)
     await favAdd(fav)
 
-    const listaProyectos = await getProyectos();
-    res.render('listaProyectos',{
-        u : usuario,
-        lproy : listaProyectos,
-        registrado : req.session.login
-    });
+    res.redirect('listaProyectos');
 })
-
+router.post('/delFav', async (req,res)=>{
+    const fav = {
+        id_u: parseInt(req.session.u_id),
+        id_p: parseInt(req.body.pID)
+    }
+    await favDelete(fav)
+ 
+    res.redirect('listaProyectos');
+})
 module.exports = router;
