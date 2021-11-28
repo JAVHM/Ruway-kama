@@ -15,6 +15,7 @@ header {
   align-items: center;
   padding: 2px 10%;
   background: #fef9f4;
+  z-index: 1;
 }
 
 .logo {
