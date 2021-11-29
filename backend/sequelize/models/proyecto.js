@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     imagen: DataTypes.STRING,
     montoRecaudado: DataTypes.FLOAT,
     links_externos: DataTypes.STRING,
-    idUsuario: DataTypes.INTEGER
+    idUsuario: DataTypes.INTEGER,
+    validacion: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Proyecto',

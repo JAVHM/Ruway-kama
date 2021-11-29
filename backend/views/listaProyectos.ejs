@@ -42,9 +42,9 @@
                                                 </label>
                                                 <input type="checkbox" id="btn-2">
                                                 <ul>
-                                                    <li><a href="/listaProyectosFiltro/comics">Comics</a></li>
-                                                    <li><a href="/listaProyectosFiltro/articulos_artisticos">Articulos Artisticos</a></li>
-                                                    <li><a href="/listaProyectosFiltro/diseños">Diseños</a></li>
+                                                    <li><a href="/listaProyectos/f/comics">Comics</a></li>
+                                                    <li><a href="/listaProyectos/f/articulos_artisticos">Articulos Artisticos</a></li>
+                                                    <li><a href="/listaProyectos/f/diseños">Diseños</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -52,10 +52,10 @@
                                                 </label>
                                                 <input type="checkbox" id="btn-3">
                                                 <ul>
-                                                    <li><a href="/listaProyectosFiltro/pagina_web">Páginas Web</a></li>
-                                                    <li><a href="/listaProyectosFiltro/app_movil">App Movil</a></li>
-                                                    <li><a href="/listaProyectosFiltro/hardware">Hardware</a></li>
-                                                    <li><a href="/listaProyectosFiltro/software">Software</a></li>
+                                                    <li><a href="/listaProyectos/f/pagina_web">Páginas Web</a></li>
+                                                    <li><a href="/listaProyectos/f/app_movil">App Movil</a></li>
+                                                    <li><a href="/listaProyectos/f/hardware">Hardware</a></li>
+                                                    <li><a href="/listaProyectos/f/software">Software</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -63,9 +63,9 @@
                                                 </label>
                                                 <input type="checkbox" id="btn-4">
                                                 <ul>
-                                                    <li><a href="/listaProyectosFiltro/pelicula">Peliculas</a></li>
-                                                    <li><a href="/listaProyectosFiltro/animaciones">Animaciones</a></li>
-                                                    <li><a href="/listaProyectosFiltro/videojuegos">Videojuegos</a></li>
+                                                    <li><a href="/listaProyectos/f/pelicula">Peliculas</a></li>
+                                                    <li><a href="/listaProyectos/f/animaciones">Animaciones</a></li>
+                                                    <li><a href="/listaProyectos/f/videojuegos">Videojuegos</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -73,9 +73,9 @@
                                                 </label>
                                                 <input type="checkbox" id="btn-5">
                                                 <ul>
-                                                    <li><a href="/listaProyectosFiltro/deporte">Deporte</a></li>
-                                                    <li><a href="/listaProyectosFiltro/hogar">Hogar</a></li>
-                                                    <li><a href="/listaProyectosFiltro/oficina">Oficina</a></li>
+                                                    <li><a href="/listaProyectos/f/deporte">Deporte</a></li>
+                                                    <li><a href="/listaProyectos/f/hogar">Hogar</a></li>
+                                                    <li><a href="/listaProyectos/f/oficina">Oficina</a></li>
                                                 </ul>
                                             </li>
                                             <li>
@@ -83,9 +83,9 @@
                                                 </label>
                                                 <input type="checkbox" id="btn-6">
                                                 <ul>
-                                                    <li><a href="/listaProyectosFiltro/musica">Música</a></li>
-                                                    <li><a href="/listaProyectosFiltro/comida">Comida</a></li>
-                                                    <li><a href="/listaProyectosFiltro/juegos_de_mesa">Juegos de mesa</a></li>
+                                                    <li><a href="/listaProyectos/f/musica">Música</a></li>
+                                                    <li><a href="/listaProyectos/f/comida">Comida</a></li>
+                                                    <li><a href="/listaProyectos/f/juegos_de_mesa">Juegos de mesa</a></li>
                                                 </ul>
                                             </li>
                     
@@ -107,6 +107,23 @@
                                         <option value="pNuevo">Más reciente</option>
                                         <option value="pViejo">Más antiguo</option>
                                         <!--option value="3">Más valorado</option-->
+                                    </select>
+                                </div>
+                                <div class="col-4 mt-2">
+                                    <button class="btn btn-secondary" type="submit">
+                                        Filtrar
+                                    </button>
+                                </div>
+                            </form>
+
+                            <form action="/listaProyecto/moder" method="POST">
+                                <div class="mt-2">
+                                    <label for="moder" class="">Moderación</label>
+                                    <select name="filtro2" class="form-control" id="moder">
+                                        <option value="0">Validado</option>
+                                        <option value="aceptado">Aceptado</option>
+                                        <option value="pendiente">Pendiente</option>
+                                        <option value="rechazado">Rechazado</option>
                                     </select>
                                 </div>
                                 <div class="col-4 mt-2">
