@@ -13,9 +13,8 @@
 nav{
     position: relative;
     /*background: gray;*/
-    width: 300px;
-    top: 3%;
-    padding: 0 5px;
+    
+   
 }
 nav label{
     color: black;
@@ -38,49 +37,7 @@ nav ul{
 [id^=btn]:checked + ul{
     display: block;
 }
-nav .menu:before{
-    position: relative;
-    content: '';
-    height: 20px;
-    width: 20px;
-    /*background: black;*/
-    right: 20px;
-    top: -10px;
-    transform: rotate(45deg);
-    z-index: -1;
-}
-nav ul li{
-    line-height: 40px;
-    cursor: pointer;
-    padding: 1px 6px;
-}
-nav ul li label{
-    font-size: 18px;
-}
-nav ul li a{
-    color: black;
-    text-decoration: none;
-    font-size: 14px;
-    display: block;
-}
-nav ul li a:hover,
-nav ul li label:hover{
-    color: orange;
-}
-nav ul ul{
-    position: static;
-}
-nav ul ul li{
-    line-height: 30px;
-    padding-left: 5px;
-    border-bottom: none;
-}
-nav ul li span{
-    font-size: 18px;
-    float: right;
-    margin-top: 10px;
-    padding: 5px;
-}
+
 
 input{
     display: none;
@@ -103,4 +60,7 @@ input{
 
 #proyecto{
     top: 50px;
+}
+#content{
+    margin-top: 1em;
 }
