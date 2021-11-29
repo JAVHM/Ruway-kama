@@ -33,8 +33,8 @@
             class="icon ion-md-stats lead mr-2"></i> Proyectos financiados</a>
         <a id="tab" href="/dashboard/InformacionPersonal/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
             class="icon ion-md-calendar lead mr-2"></i> Mi informacion personal </a>
-        <a id="active" href="/dashboard/UltimasActualizaciones/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
-            class="icon ion-md-person lead mr-2"></i> Ultimas actualizaciones</a>
+        <a id="active" href="/dashboard/ProyectosFavoritos/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
+            class="icon ion-md-person lead mr-2"></i> Proyectos favoritos</a>
         <a id="tab" href="/dashboard/Mensajeria/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
                 class="icon ion-md-person lead mr-2"></i> Mensajeria</a>
         <a id="tab" href="#" class="list-group-item list-group-item-action p-3 border-0"> <i
@@ -81,8 +81,16 @@
       </nav>
 
       <div class="principal">
-        <p>ULT ACTUALIZACIONES</p>
-      </div>
+        <p>PROYECTOS FINANCIADOS</p>
+        <% proy.forEach((p) => { %>
+          <div class="row mt-4">
+            <a id="proyectoModal" type="button" class="btn btn-secondary col-8" href="/verProyecto/<%= p.id %>">
+              <%= p.nombre %>
+            </a>
+            <a class="btn col-2" href="/dashboard/<%= p.idUsuario %>/delete/<%= p.id %>">Eliminar</a>
+          </div>
+        <% }) %>
+    </div>
     </div>
     <!-- Fin Page Content -->
   </div>
