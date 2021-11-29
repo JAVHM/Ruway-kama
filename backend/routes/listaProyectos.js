@@ -22,6 +22,7 @@ router.get("/listaProyectos", async (req, res) => {
 
         res.render('listaProyectos',{
             u : usuario,
+            uid: req.session.u_id,
             lproy : listaProyectos,
             lfav : listaProyFavs,
             registrado : req.session.login
@@ -31,6 +32,7 @@ router.get("/listaProyectos", async (req, res) => {
 
         res.render('listaProyectos',{
             lproy : listaProyectos,
+            uid: req.session.u_id,
             registrado : req.session.login
         });
     }

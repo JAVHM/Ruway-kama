@@ -115,23 +115,24 @@
                                     </button>
                                 </div>
                             </form>
-
-                            <form action="/listaProyecto/moder" method="POST">
-                                <div class="mt-2">
-                                    <label for="moder" class="">Moderación</label>
-                                    <select name="filtro2" class="form-control" id="moder">
-                                        <option value="0">Validado</option>
-                                        <option value="aceptado">Aceptado</option>
-                                        <option value="pendiente">Pendiente</option>
-                                        <option value="rechazado">Rechazado</option>
-                                    </select>
-                                </div>
-                                <div class="col-4 mt-2">
-                                    <button class="btn btn-secondary" type="submit">
-                                        Filtrar
-                                    </button>
-                                </div>
-                            </form>
+                            <% if(uid==2) { %>
+                                <form action="/listaProyecto/moder" method="POST">
+                                    <div class="mt-2">
+                                        <label for="moder" class="">Moderación</label>
+                                        <select name="filtro2" class="form-control" id="moder">
+                                            <option value="0">Validado</option>
+                                            <option value="aceptado">Aceptado</option>
+                                            <option value="pendiente">Pendiente</option>
+                                            <option value="rechazado">Rechazado</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-4 mt-2">
+                                        <button class="btn btn-secondary" type="submit">
+                                            Filtrar
+                                        </button>
+                                    </div>
+                                </form>
+                            <% }%>
         
                             <!--form action="" method="POST">
                                 <div class="">
