@@ -22,6 +22,7 @@ module.exports = {
         imagen:'imgProy1.jpg',
         montoRecaudado: 6969,
         idUsuario: 1,
+        validacion: "pendiente",
         createdAt : new Date(),
         updatedAt : new Date()
       },{
@@ -33,6 +34,7 @@ module.exports = {
         imagen:'imgProy2.jpg',
         montoRecaudado: 777,
         idUsuario: 1,
+        validacion: "pendiente",
         createdAt : new Date(),
         updatedAt : new Date()
       },{
@@ -44,6 +46,7 @@ module.exports = {
         imagen:'imgProy3.jpg',
         montoRecaudado: 666,
         idUsuario: 1,
+        validacion: "pendiente",
         createdAt : new Date(),
         updatedAt : new Date()
       },{
@@ -55,6 +58,7 @@ module.exports = {
         imagen:'imgProy4.jpg',
         montoRecaudado: 555,
         idUsuario: 1,
+        validacion: "pendiente",
         createdAt : new Date(),
         updatedAt : new Date()
       }

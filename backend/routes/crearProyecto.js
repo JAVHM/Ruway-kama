@@ -52,7 +52,8 @@ router.post('/crearProyecto',upload.single('imagen_subida'),async (req,res)=>{
             imagen:req.file.filename,
             montoRecaudado:0,
             links_externos:req.body.link_externo,
-            idUsuario:req.session.u_id
+            idUsuario:req.session.u_id,
+            validacion:"pendiente"
         };
     console.log(req.file.filename);
     await createProyecto(proyecto);

@@ -34,7 +34,8 @@ const getProyectosPorUsuario = async (uId) => {
             imagen : p.imagen,
             montoRecaudado : p.montoRecaudado,
             links_externos : p.links_externos,
-            idUsuario : p.idUsuario
+            idUsuario : p.idUsuario,
+            validacion: p.validacion
 
         })
     }
@@ -64,7 +65,39 @@ const getProyectosFiltroCategoria = async (filtro) => {
             imagen : p.imagen,
             montoRecaudado : p.montoRecaudado,
             links_externos : p.links_externos,
-            idUsuario : p.idUsuario
+            idUsuario : p.idUsuario,
+            validacion: p.validacion
+
+        })
+    }
+    
+    return proyectos;
+}
+
+const getProyectosFiltroValidacion = async (v) => {
+    //return data.usuarios;
+
+    const ps = await db.Proyecto.findAndCountAll({
+        where : {
+            validacion : v
+        }
+    });
+    
+
+    const proyectos = []
+    for(let p of ps.rows) {
+        proyectos.push({
+            id : p.id,
+            nombre : p.nombre,
+            categorias : p.categorias,
+            descripcion : p.descripcion,
+            fechaCreacion : p.fechaCreacion,
+            fechaLimite : p.fechaLimite,
+            imagen : p.imagen,
+            montoRecaudado : p.montoRecaudado,
+            links_externos : p.links_externos,
+            idUsuario : p.idUsuario,
+            validacion: p.validacion
 
         })
     }
@@ -148,5 +181,6 @@ module.exports = {
     getProyectosOrdenarPrecioMayor : getProyectosOrdenarPrecioMayor,
     getProyectosOrdenarPrecioMenor : getProyectosOrdenarPrecioMenor,
     getProyectosOrdenarNuevo : getProyectosOrdenarNuevo,
-    getProyectosOrdenarAntiguedad : getProyectosOrdenarAntiguedad
+    getProyectosOrdenarAntiguedad : getProyectosOrdenarAntiguedad,
+    getProyectosFiltroValidacion : getProyectosFiltroValidacion
 }

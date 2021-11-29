@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getUsuario } = require('../models/dao_usuario')
-const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad} = require('../models/dao_proyecto')
+const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad, getProyectosFiltroValidacion} = require('../models/dao_proyecto')
 const { favAdd, favDelete, getFavByUsuario, getProyFavByUsuario} = require('../models/dao_favoritos')
 
 router.get("/listaProyectos", async (req, res) => {
@@ -36,7 +36,7 @@ router.get("/listaProyectos", async (req, res) => {
     }
     
 })
-let filtro="";
+/*let filtro="";
 router.post('/listaProyectosFiltro/:filt',async(req,res)=>{
     const f = req.params.filt;
     filtro=f;
@@ -45,6 +45,18 @@ router.post('/listaProyectosFiltro/:filt',async(req,res)=>{
     
     res.render('listaProyectosFiltro',{
         lproy : listaProyectosF
+    });
+})*/
+let filtro2="";
+router.post('/listaProyecto/moder',async(req,res)=>{
+    const f = req.body.filtro2;
+    filtro2=f;
+    console.log(f);
+    const listaProyectosFV = await getProyectosFiltroValidacion(f);
+    
+    res.render('listaProyectos',{
+        lproy : listaProyectosFV,
+        registrado : req.session.login
     });
 })
 let filtro1="";
@@ -55,22 +67,26 @@ router.post('/listaProyecto/filt',async(req,res)=>{
     if(filtro1 == 'pMayor'){
         const listaProy = await getProyectosOrdenarPrecioMayor();
         res.render('listaProyectos',{
-            lproy : listaProy
+            lproy : listaProy,
+            registrado : req.session.login
         })
     }else if(filtro1 == 'pMenor'){
         const listaProy = await getProyectosOrdenarPrecioMenor();
         res.render('listaProyectos',{
-            lproy : listaProy
+            lproy : listaProy,
+            registrado : req.session.login
         })
     }else if(filtro1 == 'pNuevo'){
         const listaProy = await getProyectosOrdenarNuevo();
         res.render('listaProyectos',{
-            lproy : listaProy
+            lproy : listaProy,
+            registrado : req.session.login
         })
     }else if(filtro1 == 'pViejo'){
         const listaProy = await getProyectosOrdenarAntiguedad();
         res.render('listaProyectos',{
-            lproy : listaProy
+            lproy : listaProy,
+            registrado : req.session.login
         })
     }
 
@@ -93,5 +109,40 @@ router.post('/delFav', async (req,res)=>{
     await favDelete(fav)
  
     res.redirect('listaProyectos');
+})
+
+router.get("/listaProyectos/f/:filt", async (req, res) => {
+    /*if(req.session.login){
+        res.render('verProyecto');
+    }else{
+        res.redirect('/');
+    }*/
+    const f = req.params.filt;
+
+    if(req.session.login){
+        const listaProyectos = await getProyectosFiltroCategoria(f);
+        usuario = await getUsuario(parseInt(req.session.u_id));
+        const listaProyFavs = await getProyFavByUsuario(usuario);
+
+        console.log("listaProyecotsID: ", listaProyectos.map(a => a.id))
+        console.log("listaFavoritosID: ", listaProyFavs.map(a => a.id))
+        //console.log("Compare ", listaProyFavs.map(a => a.id).every(elem => listaProyectos.map(a => a.id).includes(elem)))
+        //https://www.designcise.com/web/tutorial/how-to-check-if-an-array-contains-all-elements-of-another-array-in-javascript
+
+        res.render('listaProyectos',{
+            u : usuario,
+            lproy : listaProyectos,
+            lfav : listaProyFavs,
+            registrado : req.session.login
+        });
+    }else{
+        const listaProyectos = await getProyectosFiltroCategoria(f);
+
+        res.render('listaProyectos',{
+            lproy : listaProyectos,
+            registrado : req.session.login
+        });
+    }
+    
 })
 module.exports = router;

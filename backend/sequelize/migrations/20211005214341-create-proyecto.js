@@ -35,6 +35,9 @@ module.exports = {
       idUsuario: {
         type: Sequelize.INTEGER
       },
+      validacion: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
