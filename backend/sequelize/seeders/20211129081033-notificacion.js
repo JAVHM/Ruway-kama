@@ -16,12 +16,14 @@ module.exports = {
         id_u: 1,
         texto: "Mensaje para el usuario 3",
         link: "Mensaje para el usuario 3",
+        fecha: new Date(),
         createdAt : new Date(),
         updatedAt : new Date()
       },{
         id_u: 1,
         texto: "Mensaje para el usuario 3 de nuevo",
         link: "Mensaje para el usuario 3 de nuevo",
+        fecha: new Date(),
         createdAt : new Date(),
         updatedAt : new Date()
       }

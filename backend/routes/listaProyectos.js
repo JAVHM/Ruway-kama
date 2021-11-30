@@ -19,6 +19,7 @@ router.get("/listaProyectos", async (req, res) => {
         console.log("listaFavoritosID: ", listaProyFavs.map(a => a.id))
         //console.log("Compare ", listaProyFavs.map(a => a.id).every(elem => listaProyectos.map(a => a.id).includes(elem)))
         //https://www.designcise.com/web/tutorial/how-to-check-if-an-array-contains-all-elements-of-another-array-in-javascript
+        notif_n = await getNumbNotificacions(usuario)
 
         res.render('listaProyectos',{
             u : usuario,

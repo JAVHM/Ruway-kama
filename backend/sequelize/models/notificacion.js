@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   Notificacion.init({
     id_u: DataTypes.INTEGER,
     texto: DataTypes.STRING,
-    link: DataTypes.STRING
+    link: DataTypes.STRING,
+    fecha: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Notificacion',

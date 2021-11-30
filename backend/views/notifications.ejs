@@ -2,7 +2,7 @@
     <div class = "notification">
         <a class="nots" href = "#">
         <div class = "notBtn" href = "#">
-          <div class = "number">2</div>
+          <div class = "number"><%= n_notifs %></div>
           <i class="fas fa-bell"></i>
             <div class = "box">
               <div class = "display">
@@ -10,48 +10,17 @@
                   <div class = "cent">No hay ninguna notificación</div>
                 </div>
                 <div class = "cont">
-                <div class = "sec new">
-                    <a class="noti" href = "">
-                    <div class = "profCont"></div>
-                    <div class = "txt">Bienvenido a la plataforma </div>
-                    <div class = "txt sub">11/7 - 2:30 pm</div>
-                    </a>
-                </div>
-                <div class = "sec new">
-                    <a class="noti" href = "">
-                    <div class = "profCont"></div>
-                    <div class = "txt">Segunda notificación!"</div>
-                    <div class = "txt sub">11/7 - 2:13 pm</div>
-                    </a>
-                </div>
-                <div class = "sec new">
-                    <a class="noti" href = "">
-                    <div class = "profCont"></div>
-                    <div class = "txt">Tercera notificación!"</div>
-                    <div class = "txt sub">11/7 - 2:13 pm</div>
-                    </a>
-                </div>
-                <div class = "sec new">
-                    <a class="noti" href = "">
-                    <div class = "profCont"></div>
-                    <div class = "txt">Cuarta notificación!"</div>
-                    <div class = "txt sub">11/7 - 2:13 pm</div>
-                    </a>
-                </div>
-                <div class = "sec new">
-                    <a class="noti" href = "">
-                    <div class = "profCont"></div>
-                    <div class = "txt">Quinta notificación!"</div>
-                    <div class = "txt sub">11/7 - 2:13 pm</div>
-                    </a>
-                </div>
-                <div class = "sec new">
-                    <a class="noti"href = "">
-                    <div class = "profCont"></div>
-                    <div class = "txt">Sexta notificación!"</div>
-                    <div class = "txt sub">11/7 - 2:13 pm</div>
-                    </a>
-                </div>
+                <% notifs.forEach((n) => { %>
+                    <div class = "sec new">
+                        <div class = "profCont"></div>
+                        <div class = "txt"><%= n.texto %></div>
+                        <div class = "txt sub"><%= n.fecha%></div>
+                        <form action="/deleteNotif" method="POST">
+                          <td><input type="hidden" name="nID" value="<%= n.id %>"></td>
+                          <button id="boton" class="btn btn-success" type="submit">cerrar</button>
+                        </form>
+                    </div>
+                <% }) %>
                </div>
               </div>
            </div>

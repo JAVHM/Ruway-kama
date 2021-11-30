@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { getUsuario, updateUsuario} = require('../models/dao_usuario')
+const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion} = require('../models/dao_notificaciones')
 //LOGOUT
 
 router.get('/logout', (req, res) => {
@@ -17,11 +18,19 @@ router.get('/', async (req,res)=>{
     }else{
         req.session.login= true;
         usuario = await getUsuario(parseInt(req.session.u_id));
+        notificaciones = await getNotificacionsByUsuario(usuario)
+        notif_n = await getNumbNotificacions(usuario)
         res.render('index', {
             registrado : req.session.login,
-            u : usuario
+            u : usuario,
+            notifs : notificaciones,
+            n_notifs : notif_n
         });
     }
-    
+})
+router.post('/deleteNotif', (req, res) => {
+    let id_p = parseInt(req.body.nID);
+    deleteNotificacion(id_p)
+    res.redirect('/');
 })
 module.exports = router;
