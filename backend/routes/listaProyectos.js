@@ -3,6 +3,7 @@ const router = express.Router();
 const { getUsuario } = require('../models/dao_usuario')
 const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad, getProyectosFiltroValidacion} = require('../models/dao_proyecto')
 const { favAdd, favDelete, getFavByUsuario, getProyFavByUsuario} = require('../models/dao_favoritos')
+const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion} = require('../models/dao_notificaciones')
 
 router.get("/listaProyectos", async (req, res) => {
     /*if(req.session.login){
@@ -19,6 +20,7 @@ router.get("/listaProyectos", async (req, res) => {
         console.log("listaFavoritosID: ", listaProyFavs.map(a => a.id))
         //console.log("Compare ", listaProyFavs.map(a => a.id).every(elem => listaProyectos.map(a => a.id).includes(elem)))
         //https://www.designcise.com/web/tutorial/how-to-check-if-an-array-contains-all-elements-of-another-array-in-javascript
+        notificaciones = await getNotificacionsByUsuario(usuario)
         notif_n = await getNumbNotificacions(usuario)
 
         res.render('listaProyectos',{
@@ -26,6 +28,8 @@ router.get("/listaProyectos", async (req, res) => {
             uid: req.session.u_id,
             lproy : listaProyectos,
             lfav : listaProyFavs,
+            notifs : notificaciones,
+            n_notifs : notif_n,
             registrado : req.session.login
         });
     }else{
@@ -101,6 +105,13 @@ router.post('/addFav', async (req,res)=>{
         id_p: parseInt(req.body.pID)
     }
     await favAdd(fav)
+    const notif = {
+        u_id : parseInt(req.session.u_id),
+        texto : "Bienvenido",
+        link : "NONE",
+        fecha : new Date()
+    }
+    await createNotificacion(notif)
 
     res.redirect('listaProyectos');
 })

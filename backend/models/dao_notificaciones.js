@@ -3,8 +3,8 @@ var Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const { text } = require('express');
 
-const createNotificacion = async (proyecto)=>{
-    return await db.Notificacion.create(proyecto)
+const createNotificacion = async (notificacion)=>{
+    return await db.Notificacion.create(notificacion)
 }
 const deleteNotificacion = async (notificacionID) => {
     console.log("Se ha borrado: ", notificacionID)
