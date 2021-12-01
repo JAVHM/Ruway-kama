@@ -12,7 +12,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     const texto = await bcryptjs.hash('pruebaprueba12.12',8)
+     const texto = await bcryptjs.hash('123',8)
      await queryInterface.bulkInsert('Usuario',[{
       nombre:'prueba',
       contraseña:texto,
