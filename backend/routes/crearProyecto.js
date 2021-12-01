@@ -4,6 +4,7 @@ const path = require('path');
 const { createProyecto } = require('../models/dao_proyecto');
 const mimeTypes = require('mime-types'); 
 const multer = require('multer');
+const { getNotificacionsByUsuario, getNumbNotificacions} = require('../models/dao_notificaciones')
 
 const storage = multer.diskStorage({
     destination: './backend/assets/uploads/',
@@ -28,12 +29,16 @@ const upload= multer({
     fileFilter,
     storage,
 });
-router.get("/crearProyecto", (req, res) => {
+router.get("/crearProyecto", async (req, res) => {
     console.log(req.session.login)
+    notificaciones = await getNotificacionsByUsuario(usuario)
+    notif_n = await getNumbNotificacions(usuario)
     if(req.session.login){
         res.render('crearProyecto', {
             registrado : req.session.login,
-            u : usuario
+            u : usuario,
+            notifs : notificaciones,
+            n_notifs : notif_n
         })
     }else{
         res.redirect('/')
