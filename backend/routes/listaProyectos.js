@@ -160,4 +160,9 @@ router.get("/listaProyectos/f/:filt", async (req, res) => {
     }
     
 })
+router.post('/deleteNotif', (req, res) => {
+    let id_p = parseInt(req.body.nID);
+    deleteNotificacion(id_p)
+    res.redirect('/listaProyectos');
+})
 module.exports = router;
