@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/inicio.css">
+    <script src="https://kit.fontawesome.com/a6406a81fb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/inversion.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <% if(registrado==true) { %>
+        <%- include('header-user.ejs') %>
+    <% } else {%>
+        <%- include('header.ejs') %>
+    <% }%>
+    
+    <div class="container contenido">
+       <a> Estas apunto de inciar una nueva inversion :)</a>
+        <div class="row " id="h_proyecto">
+            <h1>Proyecto 1</h1>
+        </div>
+        <div class="row" id="proyecto">
+          <h1 id="h1_proyecto">Cuotas para invertir</h1>
+        </div>  
+        <div  class="row">
+            <div class="col" id="proyecto">
+                ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc  ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc  ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc  ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+                ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+            </div>
+            <div class="col" id="proyecto">
+                 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa   aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            </div>
+        </div>
+        <div>
+            <a href="/inversion3" type="button" id="boton_iniciarinversion" class="btn btn-success mb-3">Siguiente Paso</a>
+         
+        </div>
+       
+     
+        
+     </div>
+</body>

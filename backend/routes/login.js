@@ -32,6 +32,6 @@ router.post('/login', async (req, res) => {
     })
     //Si sale del forEach, no se encontro a un usuario con el mismo correo
     //Entones seria un caso de fallo.
-    res.redirect('/errorFormulario')
+    //res.redirect('/errorFormulario')
 })
 module.exports = router;

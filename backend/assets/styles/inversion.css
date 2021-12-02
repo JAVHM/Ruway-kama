@@ -1,0 +1,30 @@
+#imagen_inversion1{
+   
+width: 90%; 
+height: 200px;
+}
+#boton_iniciarinversion{
+    margin-top: 5%;
+    background-color:#f4a55e;
+    border-color: #f4a55e;
+
+    color: white;
+    border-radius: 7px;
+    border: none;
+    width: 15%;
+    height: 4%;
+    margin-left: 45%;
+    margin-bottom: 10%;
+}
+#proyecto{
+    margin-left: 3%;
+   margin-right: -3%;
+}
+#h_proyecto{
+    margin-left: 3%;
+    
+}
+#h1_proyecto{
+
+    font-size: 20px;
+}
