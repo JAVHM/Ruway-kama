@@ -3,7 +3,7 @@ const router = express.Router();
 const { getUsuario } = require('../models/dao_usuario')
 const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad, getProyectosFiltroValidacion} = require('../models/dao_proyecto')
 const { favAdd, favDelete, getFavByUsuario, getProyFavByUsuario} = require('../models/dao_favoritos')
-const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion} = require('../models/dao_notificaciones')
+const { getNotificacionsByUsuario, getNumbNotificacions, createNotificacion} = require('../models/dao_notificaciones')
 
 router.get("/listaProyectos", async (req, res) => {
     /*if(req.session.login){
@@ -105,9 +105,10 @@ router.post('/addFav', async (req,res)=>{
         id_p: parseInt(req.body.pID)
     }
     await favAdd(fav)
+    p = await getProyecto(parseInt(req.body.pID))
     const notif = {
-        u_id : parseInt(req.session.u_id),
-        texto : "Bienvenido",
+        id_u : parseInt(req.session.u_id),
+        texto : "Se ha agregado " + p.nombre + " a tu lista de favoritos",
         link : "NONE",
         fecha : new Date()
     }
@@ -158,5 +159,10 @@ router.get("/listaProyectos/f/:filt", async (req, res) => {
         });
     }
     
+})
+router.post('/deleteNotif', (req, res) => {
+    let id_p = parseInt(req.body.nID);
+    deleteNotificacion(id_p)
+    res.redirect('/listaProyectos');
 })
 module.exports = router;

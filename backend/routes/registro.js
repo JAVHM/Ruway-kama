@@ -3,6 +3,7 @@ const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const nodemailer = require('nodemailer')
 const { getUsuarios, createUsuario } = require('../models/dao_usuario')
+const { createNotificacion} = require('../models/dao_notificaciones')
 
 router.get('/registro', async (req, res) => {
     res.render('registro')
@@ -45,6 +46,15 @@ router.post('/registro', async (req, res) => {
         subject: "Confirmacion de Registro", // Subject line
         html: "<b>Tu cuenta a sido creada con exito! Bienvenido a Ruwaykama!</b>", // html body
     });
+
+    //Agregado de la notificación de BIenvenida
+    const notif = {
+        id_u : usuarioNuevo.id,
+        texto : "Bienvenido " + usuarioNuevo.nombre,
+        link : "NONE",
+        fecha : new Date()
+    }
+    await createNotificacion(notif)
 
     //Deberia mandar al main aqui
     res.redirect('/')
