@@ -4,7 +4,7 @@ const path = require('path');
 const { createProyecto } = require('../models/dao_proyecto');
 const mimeTypes = require('mime-types'); 
 const multer = require('multer');
-const { getNotificacionsByUsuario, getNumbNotificacions} = require('../models/dao_notificaciones')
+const { getNotificacionsByUsuario, getNumbNotificacions, createNotificacion} = require('../models/dao_notificaciones')
 
 const storage = multer.diskStorage({
     destination: './backend/assets/uploads/',
@@ -62,6 +62,14 @@ router.post('/crearProyecto',upload.single('imagen_subida'),async (req,res)=>{
         };
     console.log(req.file.filename);
     await createProyecto(proyecto);
+    //Notificación al crear proyecto.
+    const notif = {
+        id_u : parseInt(req.session.u_id),
+        texto : "Haz creado el proyecto " + proyecto.nombre + ". Espera la moderación",
+        link : "NONE",
+        fecha : new Date()
+    }
+    await createNotificacion(notif)
     res.redirect("/dashboard/"+proyecto.idUsuario);
     }else{
         res.redirect('/')
