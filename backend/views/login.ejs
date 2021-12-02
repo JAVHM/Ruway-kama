@@ -19,29 +19,29 @@
 <body>
     <%- include('header.ejs') %>
     <div id=div_sign>
-        <p>
+        <div>
             <label id="iniciarsesion">Iniciar Sesión</label>
-        </p>
+        </div>
         <form action="/login" method="POST">
-            <p>
+            <div class="mt-4">
                 <label id="lemail">Email</label>
-            <p>
+                <div>
                 <input class="form-control" type="email" placeholder="nombre@dominio.com" id="input_email" name="email">
-            </p>
-            </p>
+                </div>
+            </div>
 
-            <p>
+            <div>
                 <label id="lcontrasena">Contraseña:</label>
-            <p>
+            <div>
                 <input class="form-control" type="password" placeholder="••••••••••" id="input_contrasena" name="contrasena">
-            </p>
-            </p>
-            <p>
+            </div>
+            </div>
+            <div>
                 <a id="contraseñaOlvidada" href="/correoRec" >Cambiar contraseña</a>
-            </p>
-            <p id="btnIngresar">
-                <button id="boton" class="btn btn-success" type="submit">Ingresar</button>
-            </p>
+            </div>
+            <div id="btnIngresar">
+                <button class="form-control mt-4" id="boton" class="btn btn-success" type="submit" c>Ingresar</button>
+            </div>
         </form>
     </div>
 </body>

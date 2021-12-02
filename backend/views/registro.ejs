@@ -24,45 +24,47 @@
     <div id=div_registrar>
         <form action="/registro" method="POST">
         <div class="container">
-            <p>
-                <label id="registrate">Registrate</label>
-            </p>
-            <p>
-                <label id="subtitulo">Llena los datos para poder registrarte
+            <div class="mb-3">
+                <label id="registrate" class="dv2" >Registrate</label>
+            </div>
+
+            <div class="mb-3">
+                <label id="subtitulo" class="dv1">Llena los datos para poder registrarte
                 </label>
-            </p>
-            <p>
-                <label id="nlombre">Nombre Completo</label>
-            <p>
+            </div>
+
+            <div class="mb-3" >
+                <label id="lnombre" class="dv1">Nombre Completo</label>
+            <div class="mb-3">
                 <input class="form-control" type="text" name="nombre" placeholder="Nombre" id="nombre">
-            </p>
-            </p>
-            <p>
-                <label id="lemail">Email</label>
-            <p>
+            </div>
+            </div>
+            <div class="mb-3">
+                <label id="lemail" class="dv1">Email</label>
+            <div class="mb-3">
                 <input class="form-control"   type="email" name="email" placeholder="nombre@dominio.com" id="email">
-            </p>
-            </p>
-            <p>
-                <label id="lconfirmar_email">Confirmar email</label>
-            <p>
+            </div>
+            </div>
+            <div class="mb-3">
+                <label id="lconfirmar_email" class="dv1">Confirmar email</label>
+            <div class="mb-3">
                 <input  class="form-control"  type="email" name="emailConf" placeholder="nombre@dominio.com" id="input_confirmar_email">
-            </p>
-            </p>
-            <p>
-                <label id="lcontrasena">Contraseña:</label>
-            <p>
+            </div>
+            </div>
+            <div class="mb-3">
+                <label id="lcontrasena" class="dv1">Contraseña:</label>
+            <div class="mb-3">
                 <input class="form-control"  type="password" name="contrasena" placeholder="••••••••••" id="contrasena">
-            </p>
-            </p>
-            <p>
-                <label id="mensaje"></label>
-                <input  type="checkbox" id="condiciones" name="condiciones" value="condiciones" class="a">
-                <label id="condiciones"> Acepto los terminos y condiciones</label>
-            </p>
-            <p>
-                <button class="form-control" id="boton_registrarse" type="submit" value="Registrarse">Registrarse</button>
-            </p>
+            </div>
+            </div>
+           
+                <div id="mensaje" class="dv1"></div>
+                <input  type="checkbox" id="condiciones" name="condiciones" value="condiciones" class="dv1">
+                <label id="condiciones" > Acepto los terminos y condiciones</label>
+            
+            
+                <button class="form-control mt-4" id="boton_registrarse" type="submit" value="Registrarse">Registrarse</button>
+            
         </div>
         </form>
     </div>

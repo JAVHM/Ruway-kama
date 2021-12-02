@@ -9,7 +9,7 @@ window.onload = function() {
             
         } else {
             console.log("Checkbox is not checked..");
-            document.getElementById("mensaje").innerHTML = "ERRORRR";
+            document.getElementById("mensaje").innerHTML = "Debes aceptar los terminos y condiciones :(";
         }
     });
 
@@ -20,7 +20,7 @@ window.onload = function() {
             //document.getElementById("boton_registrarse").disabled = false;
         } else {
             console.log("Checkbox is not checked..");
-            document.getElementById("mensaje").innerHTML = "ERRORRR";
+            document.getElementById("mensaje").innerHTML = "Debes aceptar los terminos y condiciones :(";
             e.preventDefault();
             //document.getElementById("boton_registrarse").disabled = true;
 
