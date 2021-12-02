@@ -208,3 +208,6 @@
   --bs-bg-opacity: 1; 
     background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity));
 }
+#proyectoModal{
+  background-color:rgba(38, 116, 168, 0.712)
+}

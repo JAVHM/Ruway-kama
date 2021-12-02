@@ -3,14 +3,17 @@ const router = express.Router();
 const { getProyectosPorUsuario, eliminarProyecto } = require('../models/dao_proyecto');
 const { getUsuario, updateUsuario} = require('../models/dao_usuario')
 const { getProyFavByUsuario} = require('../models/dao_favoritos')
-
+const {getMejorProyecto}=require('../models/dao_dashboard')
 router.get("/dashboard/:id", async (req, res) => {
     const uId = req.params.id;
     const u = await getUsuario(parseInt(uId));
     const proyUsuario = await getProyectosPorUsuario(uId);
+    const mejorProyecto= await getMejorProyecto(uId);
+    console.log(mejorProyecto);
     res.render('dashboard', {
         usuario: u,
-        proy : proyUsuario
+        proy : proyUsuario,
+        mProy:mejorProyecto
     })
 })
 router.get("/dashboard/ProyectosAceptados/:id", async (req, res) => {

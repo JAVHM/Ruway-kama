@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       Proyecto.hasMany(models.Favoritos, {
         foreignKey : 'id_p'
       })
+      Proyecto.hasMany(models.Inversor,{
+        foreignKey:'id_p'
+      })
     };
   };
   Proyecto.init({

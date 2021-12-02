@@ -58,9 +58,7 @@
                 <li class="nav-item active">
                     <a class="nav-link text-dark" href="#">Bienvenido <%=usuario.nombre%> </a>
                   </li>
-              <li class="nav-item active">
-                <a class="nav-link text-dark" href="#">Inicio</a>
-              </li>
+           
              
             
             </ul>
@@ -68,7 +66,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link text-dark" href="#">Usuario </a>
+                    <a class="nav-link text-dark" href="#"> <%=usuario.nombre%>  </a>
                   </li>
                 <li class="nav-item active">
                     <a class="nav-link text-dark" href="#"><i class="fas fa-bell"></i></a>
@@ -92,15 +90,16 @@
                   
                     <div class="col-8 ">
                       <p>Tu proyecto mas financiado</p>
-                      <img class="d1" src="/images/fotod1.jpg">
+                      <img class="d1" src="/uploads/<%=mProy.imagen%>">
                     </div>
                     <div class="col-4 texts">
-                      <div class="row-1 mt-5">$2850.70</div>
-                      <div class="row-2">Ultimo pago</div>
-                      <div class="row-3">$150.50</div>
+                      <p>Inversion</p>
+                      <div class="row-1 mt-5">$ <%=mProy.montoRecaudado%></div>
+                      <div class="row-2">Monto recaudado</div>
+                      <!-- <div class="row-3">$150.50</div>
                       <div class="row-3">Cuota minima</div>
                       <div class="row-3">$3000.50</div>
-                      <div class="row-3">Maximo pago</div>
+                      <div class="row-3">Maximo pago</div> -->
                     </div>
                 </div>
                 <div class="row">
