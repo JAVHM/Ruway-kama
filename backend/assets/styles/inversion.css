@@ -28,3 +28,58 @@ height: 200px;
 
     font-size: 20px;
 }
+#label_cuota{
+    background-color:  #9b9b9b;
+    border-radius: 7px;
+    width: 20%;
+    margin-left: 18%;
+    height: 30px;
+    text-align: center;
+    color:#f4a55e;
+    font-weight: bold;
+}
+#label_minimacouta{
+  
+    margin-left: 20%;
+    
+}
+
+#input_monto{
+    background-color:  #9b9b9b;
+    border-radius: 7px;
+    border-color: white;
+    border-width: 0;
+    display: flex;
+    height: 30px;
+    text-align: center;
+    color:#f4a55e;
+    
+}
+input:focus{
+    outline: none;
+}
+#label_cuota_1{
+    float:left;
+    background-color:  #9b9b9b;
+    border-radius: 7px;
+    width: 20%;
+    margin-left: 25%;
+    margin-right: -10px;
+    height: 30px;
+    text-align: center;
+    color:#f4a55e;
+    font-weight: bold;margin-bottom: 1.9%;
+}
+#label_terminos{
+    margin-left: 4%;
+}
+#div_proyecto{
+    margin-left: 15%;
+}
+#label_metodo{
+    margin-left: 4%
+}
+#imagen_inversion2{
+    width: 100px;
+    height: 100px;
+}

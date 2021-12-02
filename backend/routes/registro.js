@@ -3,7 +3,7 @@ const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const nodemailer = require('nodemailer')
 const { getUsuarios, createUsuario } = require('../models/dao_usuario')
-const { createNotificacion} = require('../models/dao_notificaciones')
+const { createNotificacion } = require('../models/dao_notificaciones')
 
 router.get('/registro', async (req, res) => {
     res.render('registro')
@@ -28,7 +28,7 @@ router.post('/registro', async (req, res) => {
     //No se encontro usuario con el mismo correo.
     const usuarioNuevo = await createUsuario(usuarioDatos)
 
-    //Enlaze a la cuenta Ruwaykama
+    //Enlaze a la cuenta de email Ruwaykama
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
@@ -39,7 +39,7 @@ router.post('/registro', async (req, res) => {
         },
     });
 
-    //Envio de email de confirmacion
+    //Envio de email de confirmacion de creacion de cuenta
     await transporter.sendMail({
         from: '"Confirmacion de Registro" <Ruwaykama@gmail.com>',
         to: req.body.email,
@@ -49,10 +49,10 @@ router.post('/registro', async (req, res) => {
 
     //Agregado de la notificación de BIenvenida
     const notif = {
-        id_u : usuarioNuevo.id,
-        texto : "Bienvenido " + usuarioNuevo.nombre,
-        link : "NONE",
-        fecha : new Date()
+        id_u: usuarioNuevo.id,
+        texto: "Bienvenido " + usuarioNuevo.nombre,
+        link: "NONE",
+        fecha: new Date()
     }
     await createNotificacion(notif)
 
