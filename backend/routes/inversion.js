@@ -63,6 +63,18 @@ router.get('/inversion/5', async (req, res) => {
         n_notifs : notif_n
     });
 })
+router.get('/inversion/6', async (req, res) => {
+    usuario = await getUsuario(parseInt(req.session.u_id));
+    notificaciones = await getNotificacionsByUsuario(usuario)
+    notif_n = await getNumbNotificacions(usuario)
+    res.render('inversion6', {
+        registrado : req.session.login,
+        u : usuario,
+        notifs : notificaciones,
+        n_notifs : notif_n
+    });
+})
+
 
 router.get('/logout', (req, res) => {
     req.session.destroy(() => {

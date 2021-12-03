@@ -25,21 +25,30 @@
     <% }%>
     
     <div class="container contenido">
-       <a id="label_metodo">  Ingrese los datos:</a>
+       <a> Listo  :)</a>
+        <div class="row " id="h_proyecto">
+            <h1>Proyecto 1</h1>
+            <h2>Ahora eres un inversor del Proyecto 1</h2>
+        </div>
         <div class="row" id="proyecto">
-            <input type="text" name="" placeholder="Numero de Tarjeta" id="input_tarjeta" >
-            <input type="text" name="" placeholder="Nombre del titular" id="input_nombre" >
-            <div class="form-group">
-                <input type="date" name="" id="input_date" > 
-             <input type="password" placeholder="CVV" id="input_cvv" > 
-            </div>   
+          <h1 id="h1_proyecto">El comprobande de pago ha sido enviado a tu correo electronico.Para mas informacion haz click <a href="/listaProyectos">aqui</a></h1>
         </div>  
         <div  class="row">
-            
+            <div class="col" >    
+            <img src="/images/inicio.jpg" id=imagen_inversion1 >
+            <p><label id="nombre_proyecto">Proyecto 1</label></p>
             </div>
-        
+            <div class="col" id="proyecto">
+                <div class="form-group">
+                    <img src="/images/inicio.jpg" id=imagen_inversion1 >
+                    <p><label id="label_nombre">Jaime</label></p>
+                    <p><label id="label_titulo">Creador del proyecto</label></p>
+                </div>              
+                
+            </div>
+        </div>
         <div>
-            <a href="/inversion/6" type="button" id="boton_iniciarinversion" class="btn btn-success mb-3">Aceptar Pago</a>
+            <a href="/listaProyectos" type="button" id="boton_iniciarinversion" class="btn btn-success mb-3">Mas detalles</a>
          
         </div>
        
