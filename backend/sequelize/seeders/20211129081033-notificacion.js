@@ -14,15 +14,22 @@ module.exports = {
      await queryInterface.bulkInsert('Notificacion',[
       {
         id_u: 1,
-        texto: "Mensaje para el usuario 3",
-        link: "Mensaje para el usuario 3",
+        texto: "Mensaje para el usuario de prueba",
+        link: "NONE",
         fecha: new Date(),
         createdAt : new Date(),
         updatedAt : new Date()
       },{
         id_u: 1,
-        texto: "Mensaje para el usuario 3 de nuevo",
-        link: "Mensaje para el usuario 3 de nuevo",
+        texto: "Mensaje para el usuario de prueba de nuevo",
+        link: "https://www.youtube.com/watch?v=BIhhNoYNL40&t=9s",
+        fecha: new Date(),
+        createdAt : new Date(),
+        updatedAt : new Date()
+      },{
+        id_u: 1,
+        texto: "Mensaje para el usuario de prueba 3",
+        link: "/listaProyectos",
         fecha: new Date(),
         createdAt : new Date(),
         updatedAt : new Date()
