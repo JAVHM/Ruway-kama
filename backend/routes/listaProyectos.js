@@ -60,10 +60,16 @@ router.post('/listaProyecto/moder',async(req,res)=>{
     filtro2=f;
     console.log(f);
     const listaProyectosFV = await getProyectosFiltroValidacion(f);
-    
+    usuario = await getUsuario(parseInt(req.session.u_id));
+    notificaciones = await getNotificacionsByUsuario(usuario)
+    notif_n = await getNumbNotificacions(usuario)
+
     res.render('listaProyectos',{
         lproy : listaProyectosFV,
-        registrado : req.session.login
+        registrado : req.session.login,
+        u : usuario,
+        notifs : notificaciones,
+        n_notifs : notif_n
     });
 })
 let filtro1="";
@@ -143,11 +149,16 @@ router.get("/listaProyectos/f/:filt", async (req, res) => {
         console.log("listaFavoritosID: ", listaProyFavs.map(a => a.id))
         //console.log("Compare ", listaProyFavs.map(a => a.id).every(elem => listaProyectos.map(a => a.id).includes(elem)))
         //https://www.designcise.com/web/tutorial/how-to-check-if-an-array-contains-all-elements-of-another-array-in-javascript
+        notificaciones = await getNotificacionsByUsuario(usuario)
+        notif_n = await getNumbNotificacions(usuario)
 
         res.render('listaProyectos',{
             u : usuario,
+            uid: req.session.u_id,
             lproy : listaProyectos,
             lfav : listaProyFavs,
+            notifs : notificaciones,
+            n_notifs : notif_n,
             registrado : req.session.login
         });
     }else{
@@ -155,6 +166,7 @@ router.get("/listaProyectos/f/:filt", async (req, res) => {
 
         res.render('listaProyectos',{
             lproy : listaProyectos,
+            uid: req.session.u_id,
             registrado : req.session.login
         });
     }
