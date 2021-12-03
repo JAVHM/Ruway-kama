@@ -54,6 +54,16 @@ const deleteUsuario = async(id)=>{
     })
 }
 
+const getUsuariosSinAdmin = async () => {
+    //return data.usuarios;
+    const listaUsuarios = await db.Usuario.findAll({
+        where:{
+            rol:'usuario'
+        }
+    });
+    return listaUsuarios
+}
+
 
 module.exports = {
     getUsuarios: getUsuarios,
@@ -62,6 +72,7 @@ module.exports = {
     updateUsuario: updateUsuario,
     getUsuariobyEmail: getUsuariobyEmail,
     updateContrasena: updateContrasena,
-    deleteUsuario
+    deleteUsuario,
+    getUsuariosSinAdmin
 }
 
