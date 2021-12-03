@@ -41,6 +41,7 @@ const nosotrosRouter=require('./routes/nosotros');
 const correoRecRouter=require('./routes/correoRec');
 const inversionRouter=require('./routes/inversion');
 const adminUsuario=require('./routes/adminUsuario');
+const editarProyecto=require('./routes/editarProyecto');
 app.use('/',correoRecRouter);//recuperar contraseña*/
 app.use('/',indexRouter);
 app.use('/',mensajeriaRouter);
@@ -54,6 +55,7 @@ app.use('/',registroRouter);
 app.use('/',nosotrosRouter);
 app.use('/',inversionRouter);
 app.use('/',adminUsuario);
+app.use('/',editarProyecto);
 router.post('/deleteNotif', (req, res) => {
     let id_p = parseInt(req.body.nID);
     deleteNotificacion(id_p)

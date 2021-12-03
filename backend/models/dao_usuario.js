@@ -64,7 +64,6 @@ const getUsuariosSinAdmin = async () => {
     return listaUsuarios
 }
 
-
 module.exports = {
     getUsuarios: getUsuarios,
     createUsuario: createUsuario,
