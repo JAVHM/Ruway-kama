@@ -1,24 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const { getUsuario} = require('../models/dao_usuario')
-const { getProyecto} = require('../models/dao_proyecto');
-const {createInversor,getInversorConUsuario,updateInversion}=require('../models/dao_inversor');
-const {createInversion}=require('../models/dao_inversion')
-const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion, createNotificacion} = require('../models/dao_notificaciones')
+const nodemailer = require('nodemailer');
+const { getUsuario } = require('../models/dao_usuario');
+const { getProyecto } = require('../models/dao_proyecto');
+const { createInversor, getInversorConUsuario, updateInversion } = require('../models/dao_inversor');
+const { createInversion } = require('../models/dao_inversion')
+const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion, createNotificacion } = require('../models/dao_notificaciones')
 
 router.get('/inversion/1/:ide', async (req, res) => {
     const pId = req.params.ide;
-    console.log("ID PROYECTO",pId)
+    console.log("ID PROYECTO", pId)
     req.session.pid = pId
     const p = await getProyecto(pId)
     usuario = await getUsuario(parseInt(req.session.u_id));
     notificaciones = await getNotificacionsByUsuario(usuario)
     notif_n = await getNumbNotificacions(usuario)
     res.render('inversion1', {
-        registrado : req.session.login,
-        u : usuario,
-        notifs : notificaciones,
-        n_notifs : notif_n,
+        registrado: req.session.login,
+        u: usuario,
+        notifs: notificaciones,
+        n_notifs: notif_n,
         proy: p
     });
 
@@ -29,10 +30,10 @@ router.get('/inversion/2', async (req, res) => {
     notif_n = await getNumbNotificacions(usuario)
     const p = await getProyecto(req.session.pid)
     res.render('inversion2', {
-        registrado : req.session.login,
-        u : usuario,
-        notifs : notificaciones,
-        n_notifs : notif_n,
+        registrado: req.session.login,
+        u: usuario,
+        notifs: notificaciones,
+        n_notifs: notif_n,
         proy: p
     });
 })
@@ -43,10 +44,10 @@ router.get('/inversion/3', async (req, res) => {
     const p = await getProyecto(req.session.pid)
 
     res.render('inversion3', {
-        registrado : req.session.login,
-        u : usuario,
-        notifs : notificaciones,
-        n_notifs : notif_n,
+        registrado: req.session.login,
+        u: usuario,
+        notifs: notificaciones,
+        n_notifs: notif_n,
         proy: p
     });
 })
@@ -55,10 +56,10 @@ router.get('/inversion/4', async (req, res) => {
     notificaciones = await getNotificacionsByUsuario(usuario)
     notif_n = await getNumbNotificacions(usuario)
     res.render('inversion4', {
-        registrado : req.session.login,
-        u : usuario,
-        notifs : notificaciones,
-        n_notifs : notif_n
+        registrado: req.session.login,
+        u: usuario,
+        notifs: notificaciones,
+        n_notifs: notif_n
     });
 })
 
@@ -67,10 +68,10 @@ router.get('/inversion/5', async (req, res) => {
     notificaciones = await getNotificacionsByUsuario(usuario)
     notif_n = await getNumbNotificacions(usuario)
     res.render('inversion5', {
-        registrado : req.session.login,
-        u : usuario,
-        notifs : notificaciones,
-        n_notifs : notif_n
+        registrado: req.session.login,
+        u: usuario,
+        notifs: notificaciones,
+        n_notifs: notif_n
     });
 })
 router.get('/inversion/6', async (req, res) => {
@@ -78,10 +79,10 @@ router.get('/inversion/6', async (req, res) => {
     notificaciones = await getNotificacionsByUsuario(usuario)
     notif_n = await getNumbNotificacions(usuario)
     res.render('inversion6', {
-        registrado : req.session.login,
-        u : usuario,
-        notifs : notificaciones,
-        n_notifs : notif_n
+        registrado: req.session.login,
+        u: usuario,
+        notifs: notificaciones,
+        n_notifs: notif_n
     });
 })
 
@@ -91,31 +92,31 @@ router.get('/logout', (req, res) => {
         res.redirect('/')
     })
 })
-router.get('/', async (req,res)=>{
-    if(req.session.u_id==null){
-        req.session.login= false;   
+router.get('/', async (req, res) => {
+    if (req.session.u_id == null) {
+        req.session.login = false;
         res.render('inversion1', {
-            registrado : req.session.login,
+            registrado: req.session.login,
         });
-    }else{
-        req.session.login= true;
+    } else {
+        req.session.login = true;
         usuario = await getUsuario(parseInt(req.session.u_id));
         notificaciones = await getNotificacionsByUsuario(usuario)
         notif_n = await getNumbNotificacions(usuario)
         res.render('inversion1', {
-            registrado : req.session.login,
-            u : usuario,
-            notifs : notificaciones,
-            n_notifs : notif_n
+            registrado: req.session.login,
+            u: usuario,
+            notifs: notificaciones,
+            n_notifs: notif_n
         });
     }
 })
-router.post('/Inve', async (req,res)=>{
-    const id_u= parseInt(req.session.u_id);
-    const id_p= parseInt(req.session.pid);
-    monto=req.body.valor
- //Buscar y tomar inversion con valores de usuario y proyecto
-    const elemInversor = await getInversorConUsuario(id_u,id_p)
+router.post('/Inve', async (req, res) => {
+    const id_u = parseInt(req.session.u_id);
+    const id_p = parseInt(req.session.pid);
+    monto = req.body.valor
+    //Buscar y tomar inversion con valores de usuario y proyecto
+    const elemInversor = await getInversorConUsuario(id_u, id_p)
     //Revisar si el usuario ya es inversor
     if (elemInversor == null) {
         //Si no lo es, se crea un nuevo inversor
@@ -125,35 +126,58 @@ router.post('/Inve', async (req,res)=>{
             id_p: parseInt(id_p),
             InverAcum: 0
         }
-        console.log("NUEVO INVERSOR",invNuevo)
+        console.log("NUEVO INVERSOR", invNuevo)
         await createInversor(invNuevo)
         //Fin de creacion
-        }
-    
+    }
+
     //Crear nueva inversion
-    const inversor = await getInversorConUsuario(id_u,id_p)
-    console.log("INVERSOR ya creado",inversor)
+    const inversor = await getInversorConUsuario(id_u, id_p)
+    console.log("INVERSOR ya creado", inversor)
     const inverNueva = {
         id_inv: parseInt(inversor.id),
         monto: monto
     }
-    console.log("INVERSION",inverNueva)
+    console.log("INVERSION", inverNueva)
     await createInversion(inverNueva)
 
     //Actualiza la InverAcum
     await updateInversion(inversor.id, monto)
 
+    //Recuperacion del email del usuario inversor
+    const usuarioInversor = await getUsuario(req.session.u_id)
+    console.log("USUARIO EMAIL USUARIO EMAIL", usuarioInversor)
+    const usuarioEmail = usuarioInversor.correo
+    console.log("CORREO EMAIL CORREO EMAIL", usuarioEmail)
+    //Enlaze a la cuenta de email Ruwaykama
+    const transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'Ruwaykama@gmail.com',
+            pass: 'wvawtjhxpkndnpov',
+        },
+    });
+
+    //Envio de email de confirmacion de transaccion al usuario
+    await transporter.sendMail({
+        from: '"Confirmacion de Transaccion" <Ruwaykama@gmail.com>',
+        to: usuarioEmail,
+        subject: "Confirmacion de Transaccion", // Subject line
+        html: "<b>Su transaccion ha sido exitosa! Gracias por apoyar a uno de nuestros proyectos!</b>", // html body
+    });
 
     //Implementación de la notificación
     const p = await getProyecto(req.session.pid)
     const notif = {
-        id_u : parseInt(req.session.u_id),
-        texto : "Haz invertido " + monto + " en el proyecto: " + p.nombre,
-        link : "NONE",
-        fecha : new Date()
+        id_u: parseInt(req.session.u_id),
+        texto: "Haz invertido " + monto + " en el proyecto: " + p.nombre,
+        link: "NONE",
+        fecha: new Date()
     }
     await createNotificacion(notif)
-    
+
     res.redirect('/inversion/4');
 })
 router.post('/deleteNotif', (req, res) => {
