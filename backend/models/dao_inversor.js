@@ -28,8 +28,8 @@ const getInversorConUsuario = async (uId, pId) => {
 }
 
 const updateInversion = async (iId, valor) => {
-    const invEdit = await getInversorConId
-    invEdit.InverAcum = invEdit.InverAcum
+    const invEdit = await getInversorConId(iId)
+    invEdit.InverAcum = invEdit.InverAcum + valor
     await invEdit.save()
     return true
 

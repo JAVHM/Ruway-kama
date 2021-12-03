@@ -142,8 +142,9 @@ router.post('/Inve', async (req,res)=>{
     await createInversion(inverNueva)
 
     //Actualiza la InverAcum
-    await updateInversion(idInv, valorInvertido)
-
+    await updateInversion(inversor.id, monto)
+    
+    res.redirect('/inversion/4');
 })
 router.post('/deleteNotif', (req, res) => {
     let id_p = parseInt(req.body.nID);
