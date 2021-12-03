@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
+const router = express.Router();
 
 
 const session = require('express-session');
@@ -51,3 +52,9 @@ app.use('/',indexRouter);
 app.use('/',registroRouter);
 app.use('/',nosotrosRouter);
 app.use('/',inversionRouter);
+
+router.post('/deleteNotif', (req, res) => {
+    let id_p = parseInt(req.body.nID);
+    deleteNotificacion(id_p)
+    res.redirect('/');
+})

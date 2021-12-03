@@ -28,9 +28,5 @@ router.get('/', async (req,res)=>{
         });
     }
 })
-router.post('/deleteNotif', (req, res) => {
-    let id_p = parseInt(req.body.nID);
-    deleteNotificacion(id_p)
-    res.redirect('/');
-})
+
 module.exports = router;

@@ -15,7 +15,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap" rel="stylesheet">
     </head>
     <body class="container">
-        <%- include('header.ejs') %>
+        <% if(registrado==true) { %>
+            <%- include('header-user.ejs') %>
+        <% } else {%>
+            <%- include('header.ejs') %>
+        <% }%>
 
         
         <div class="card mb-3 mt-5" id="proyecto">
