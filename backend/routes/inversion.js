@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const { getUsuario, updateUsuario} = require('../models/dao_usuario')
+const { getUsuario} = require('../models/dao_usuario')
+const { getProyecto} = require('../models/dao_proyecto');
 const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion} = require('../models/dao_notificaciones')
 
-router.get('/inversion/1', async (req, res) => {
+router.get('/inversion/1/:ide', async (req, res) => {
+    const pId = req.params.ide;
+    const p = await getProyecto(pId)
     usuario = await getUsuario(parseInt(req.session.u_id));
     notificaciones = await getNotificacionsByUsuario(usuario)
     notif_n = await getNumbNotificacions(usuario)
@@ -11,7 +14,8 @@ router.get('/inversion/1', async (req, res) => {
         registrado : req.session.login,
         u : usuario,
         notifs : notificaciones,
-        n_notifs : notif_n
+        n_notifs : notif_n,
+        proy: p
     });
 })
 router.get('/inversion/2', async (req, res) => {

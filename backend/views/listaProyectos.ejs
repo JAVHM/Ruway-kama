@@ -219,7 +219,9 @@
                                         <% } %>                                        
                                 <% }%>
                                 <a href="/verProyecto/<%= p.id %>" type="button" class="btn btn-success mb-3">Ver Proyecto</a>
-                                <a href="/inversion/1" type="button" class="btn btn-success mb-3">Invertir</a>
+                                <% if(registrado==true) { %>
+                                    <a href="/inversion/1/<%= p.id %>" type="button" class="btn btn-success mb-3">Invertir</a>
+                                    <% }%>
                             </div>
                         </div>
                     </div>   
