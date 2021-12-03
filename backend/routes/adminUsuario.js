@@ -3,6 +3,7 @@ const router = express.Router();
 const { deleteUsuario,getUsuarios} = require('../models/dao_usuario');
 
 router.get('/usuarios', async (req, res) => {
+    console.log('req.session.rol:'+req.session.rol)
     if(req.session.rol=='admin'){
         const usuarios = await getUsuarios();
         res.render('adminUsuario',{
