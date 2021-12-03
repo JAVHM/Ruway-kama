@@ -33,6 +33,16 @@ router.get('/inversion/3', async (req, res) => {
     usuario = await getUsuario(parseInt(req.session.u_id));
     notificaciones = await getNotificacionsByUsuario(usuario)
     notif_n = await getNumbNotificacions(usuario)
+
+    //Implementación de la notificación
+    proyecto = await getProyecto(parseInt(req.session.pId,))
+    const notif = {
+        id_u : parseInt(req.session.u_id),
+        texto : "Haz invertido " + monto + " en el proyecto: " + proyecto.nombre,
+        link : "NONE",
+        fecha : new Date()
+    }
+    await createNotificacion(notif)
     res.render('inversion3', {
         registrado : req.session.login,
         u : usuario,
