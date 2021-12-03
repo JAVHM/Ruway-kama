@@ -3,7 +3,8 @@ var Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const createInversor = async (inversor) => {
-    return await db.Inversion.create(inversor);
+    console.log("Se ha creado inversor ", inversor)
+    return await db.Inversor.create(inversor);
 }
 
 const getInversorConId = async (iId) => {
@@ -16,18 +17,19 @@ const getInversorConId = async (iId) => {
 }
 
 const getInversorConUsuario = async (uId, pId) => {
-    const inv = await db.Inversion.findOne({
+    const inv = await db.Inversor.findOne({
         where: {
-            id_u: usuario.id,
-            id_p: proyecto.id
+            id_u: uId,
+            id_p: pId
         }
     })
+    console.log("el inversor es",inv)
     return inv
 }
 
 const updateInversion = async (iId, valor) => {
-    const invEdit = await getInversorConId
-    invEdit.InverAcum = invEdit.InverAcum
+    const invEdit = await getInversorConId(iId)
+    invEdit.InverAcum = invEdit.InverAcum + valor
     await invEdit.save()
     return true
 
