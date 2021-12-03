@@ -42,10 +42,11 @@ margin-bottom: -1%;
 
 #div_sign{
     background-color:white;
-    padding: 10px;
+    padding: 30px;
     margin-top: 10%;
-    margin-left: 33%;
-    margin-right: 33%;
+    margin-left: 35%;
+    width: 400px;
+    height: 350px;
     border-color: gray;
     border-radius: 10px;
 
@@ -61,29 +62,33 @@ margin-bottom: -1%;
     background-color:#f4a55e;
     border-color: #f4a55e;
 }
-#email{
+#lemail{
     color:gray;
+    margin-left: 18%;
 }
 #input_email{
     color:gray;
     border-radius: 5px;
     height: 4%;
     width: 65%;
+    margin: auto;
 }
 
-#contrasena{
+#lcontrasena{
     color:gray;
+    margin-left: 18%;
 }
 #input_contrasena{
     color:gray;
     border-radius: 5px;
     height: 4%;
     width: 65%;
+    margin: auto;
 }
 
-#olvidecontrasena{
-    color: gray;
-    margin-left: 14%;
+#contraseñaOlvidada{
+
+    margin-left: 18%;
 }
 
 #boton_iniciarsesion{
@@ -96,6 +101,15 @@ margin-bottom: -1%;
    height: 4%;
    margin-left: 20%;
    margin-bottom: 10%;
+}
+#boton{
+    background-color: #f4a55e;
+    color: white;
+    border-radius: 7px;
+    border: none;
+    width: 30%;
+    height: 4%;
+    margin:auto
 }
 p{
     margin-top: 4%;

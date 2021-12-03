@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/inicio.css">
+    <script src="https://kit.fontawesome.com/a6406a81fb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/inversion.css">
+    <title>Inicio</title>
+</head>
+<body>
+    <% if(registrado==true) { %>
+        <%- include('header-user.ejs') %>
+    <% } else {%>
+        <%- include('header.ejs') %>
+    <% }%>
+    
+    <div class="container contenido">
+       <a id="label_metodo">  Elige el metodo de pago</a>
+        <div class="row " id="h_proyecto">
+            <h1>Proyecto 1</h1>
+        </div>
+        <div class="row" id="proyecto">
+          <h1 id="h1_proyecto">Metodos de pago</h1>
+        </div>  
+        <div  class="row">
+            <form>
+                <input class="form-check-input"type="radio" id="americanexpress"  name="flexRadioDefault">
+                <label class="form-check-label" for="americanexpress"><img src="/images/americanexpress.jpeg" id=imagen_inversion2 ></label>
+                <input class="form-check-input" type="radio" id="dinersclub"  name="flexRadioDefault">
+               <label class="form-check-label" for="dinersclub"> <img src="/images/dinersclub.jpg" id=imagen_inversion2 ></label>
+                <input class="form-check-input"type="radio" id="discovernetwork"   name="flexRadioDefault">
+               <label class="form-check-label" for="discovernetwork"> <img src="/images/discovernetwork.png" id=imagen_inversion2 ></label>
+                <input class="form-check-input"type="radio" id="jcb"   name="flexRadioDefault">
+               <label class="form-check-label" for="jcb"> <img src="/images/jcb.png" id=imagen_inversion2 ></label>
+                <input class="form-check-input"type="radio" id="mastercard"  name="flexRadioDefault">
+                <label class="form-check-label" for="mastercard"><img src="/images/mastercard.png" id=imagen_inversion2 ></label>
+                <input class="form-check-input"type="radio" id="paypal"   name="flexRadioDefault">
+                <label class="form-check-label" for="paypal" ><img src="/images/paypal.png" id=imagen_inversion2 ></label>
+                <input class="form-check-input"type="radio" id="visa"   name="flexRadioDefault">
+                <label class="form-check-label" for="visa"><img src="/images/visa.png" id=imagen_inversion2 ></label>
+                </form>
+            </div>
+        
+        <div>
+            <a href="/inversion/5" type="button" id="boton_iniciarinversion" class="btn btn-success mb-3">Aceptar Pago</a>
+         
+        </div>
+       
+     
+        
+     </div>
+</body>

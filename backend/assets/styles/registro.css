@@ -47,71 +47,71 @@
     color:white;
 }
 #div_registrar{
+    
     background-color:white;
-    padding: 10px;
+    padding: 20px;
     border-width: 1px;
-    margin-top: 8%;
-    margin-left: 33%;
-    margin-right: 33%;
+    margin-top: 100px;
+    width: 500px;
+    margin-left: 30%;
     border-color: gray;
-    border-radius: 7px;
+    border-radius: 10px;
+   
 }
 
+.container{
+  justify-content: center;
+  align-items: center;
+}
 #registrate{
     font-size: 40px;
-    margin-left: 8%;
+    margin-left: 30%;
     color:#73400d;
     font-weight: 900;
     font-family: 'Mulish', sans-serif;
+    
 }
+.centro{
 
+    margin:auto;
+}
 #subtitulo{
     color:gray;
 }
+.dv1{
+    
+    margin-left: 10%;
+}
+
 #nombre{
     color:gray;
     height: 1%;
-    width: 65%;
+    width: 80%;
+    margin:auto
+    
 }
-#input_nombre{
-    color:gray;
-    border-radius: 7px;
-    height: 4%;
-    width: 65%;
-}
+
 #email{
     color:gray;
     height: 1%;
-    width: 65%;
+    width: 80%;
+    margin:auto
+    
 }
-#input_email{
-    color:gray;
-    border-radius: 7px;
-    height: 4%;
-    width: 65%;
-}
-#confirmar_email{
-    color:gray;
-}
+
 #input_confirmar_email{
     color:gray;
-    border-radius: 7px;
-    height: 4%;
-    width: 65%;
-    height: 4%;
-    width: 65%;
+    width: 80%;
+    margin:auto
 }
+
 #contrasena{
     color:gray;
     height: 1%;
-    width: 65%;
+    width: 80%;
+    margin:auto
 }
-#input_contrasena{
-    color:gray;
-    border-radius: 7px;
-    height: 4%;
-    width: 65%;
-}
+
 #pregunta{
     color:gray;
     margin-top: 4%;
@@ -136,15 +136,14 @@
    border: none;
    width: 30%;
    height: 4%;
-   margin-left: 20%;
+   margin:auto
+   
 }
-p{
-    margin-left: 28%;
-}
+
 
 
 #mensaje{
     width: 100%;
     padding: 5px;
-    color:red;
+    color:rgb(168, 56, 5);
 }
