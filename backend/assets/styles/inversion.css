@@ -4,7 +4,6 @@ width: 90%;
 height: 200px;
 }
 #boton_iniciarinversion{
-    margin-top: 5%;
     background-color:#f4a55e;
     border-color: #f4a55e;
 
@@ -82,4 +81,26 @@ input:focus{
 #imagen_inversion2{
     width: 100px;
     height: 100px;
+}
+body{
+    margin-top: 70px;
+}
+body{
+  background-image: url("/images/fondo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  margin-top: 20%;
+}
+.contenido{
+    margin-top: 7%;
+}
+#imagen{
+  
+    width: 900px;
+    height: 450px;
+    border-radius: 3%;
+    margin:auto
+   
 }
