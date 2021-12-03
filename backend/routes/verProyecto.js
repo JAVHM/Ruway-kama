@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { getProyecto, getProyectos, getProyectosPorUsuario} = require('../models/dao_proyecto');
 const { getUsuario } = require('../models/dao_usuario');
+const { getNotificacionsByUsuario, getNumbNotificacions} = require('../models/dao_notificaciones')
 
 router.get("/verProyecto/:ide", async (req, res) => {
     /*if(req.session.login){
@@ -11,11 +12,25 @@ router.get("/verProyecto/:ide", async (req, res) => {
     }*/
     
     const pId = req.params.ide;
-    console.log("ID ===> " + pId)
     const p = await getProyecto(pId);
-    res.render('verProyecto', {
-        proy: p
-    })
+    if(req.session.u_id==null){
+        res.render('verProyecto', {
+            registrado : req.session.login,
+            proy: p
+        });
+    }else{
+        req.session.login= true;
+        usuario = await getUsuario(parseInt(req.session.u_id));
+        notificaciones = await getNotificacionsByUsuario(usuario)
+        notif_n = await getNumbNotificacions(usuario)
+        res.render('verProyecto', {
+            proy: p,
+            registrado : req.session.login,
+            u : usuario,
+            notifs : notificaciones,
+            n_notifs : notif_n
+        });
+    }
 
     //error de mrd corre comando SQL 2 veces y bota 'mobile.js' FIXEAR
     //FIXEADO B)

@@ -60,10 +60,19 @@ router.post('/listaProyecto/moder',async(req,res)=>{
     filtro2=f;
     console.log(f);
     const listaProyectosFV = await getProyectosFiltroValidacion(f);
-    
+    const usuario = await getUsuario(parseInt(req.session.u_id));
+    const listaProyFavs = await getProyFavByUsuario(usuario);
+    const notificaciones = await getNotificacionsByUsuario(usuario)
+    const notif_n = await getNumbNotificacions(usuario)
+
     res.render('listaProyectos',{
         lproy : listaProyectosFV,
-        registrado : req.session.login
+        lfav : listaProyFavs,
+        registrado : req.session.login,
+        u : usuario,
+        uid: req.session.u_id,
+        notifs : notificaciones,
+        n_notifs : notif_n
     });
 })
 let filtro1="";
@@ -71,30 +80,102 @@ router.post('/listaProyecto/filt',async(req,res)=>{
     
     const f=req.body.filtro1;
     filtro1 = f;
+
     if(filtro1 == 'pMayor'){
-        const listaProy = await getProyectosOrdenarPrecioMayor();
-        res.render('listaProyectos',{
-            lproy : listaProy,
-            registrado : req.session.login
-        })
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarPrecioMayor();
+            const usuario = await getUsuario(parseInt(req.session.u_id));
+            const listaProyFavs = await getProyFavByUsuario(usuario);
+            const notificaciones = await getNotificacionsByUsuario(usuario);
+            const notif_n = await getNumbNotificacions(usuario);
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                lfav : listaProyFavs,
+                registrado : req.session.login,
+                u : usuario,
+                uid: req.session.u_id,
+                notifs : notificaciones,
+                n_notifs : notif_n
+            })
+        }else{
+            const listaProy = await getProyectosOrdenarPrecioMayor();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            })
+        }
     }else if(filtro1 == 'pMenor'){
-        const listaProy = await getProyectosOrdenarPrecioMenor();
-        res.render('listaProyectos',{
-            lproy : listaProy,
-            registrado : req.session.login
-        })
+        
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarPrecioMenor();
+            const usuario = await getUsuario(parseInt(req.session.u_id));
+            const listaProyFavs = await getProyFavByUsuario(usuario);
+            const notificaciones = await getNotificacionsByUsuario(usuario);
+            const notif_n = await getNumbNotificacions(usuario);
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                lfav : listaProyFavs,
+                registrado : req.session.login,
+                u : usuario,
+                uid: req.session.u_id,
+                notifs : notificaciones,
+                n_notifs : notif_n
+            })
+        }else{
+            const listaProy = await getProyectosOrdenarPrecioMenor();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            })
+        }
     }else if(filtro1 == 'pNuevo'){
-        const listaProy = await getProyectosOrdenarNuevo();
-        res.render('listaProyectos',{
-            lproy : listaProy,
-            registrado : req.session.login
-        })
+        
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarNuevo();
+            const usuario = await getUsuario(parseInt(req.session.u_id));
+            const listaProyFavs = await getProyFavByUsuario(usuario);
+            const notificaciones = await getNotificacionsByUsuario(usuario);
+            const notif_n = await getNumbNotificacions(usuario);
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                lfav : listaProyFavs,
+                registrado : req.session.login,
+                u : usuario,
+                uid: req.session.u_id,
+                notifs : notificaciones,
+                n_notifs : notif_n
+            })
+        }else{
+            const listaProy = await getProyectosOrdenarNuevo();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            })
+        }
     }else if(filtro1 == 'pViejo'){
-        const listaProy = await getProyectosOrdenarAntiguedad();
-        res.render('listaProyectos',{
-            lproy : listaProy,
-            registrado : req.session.login
-        })
+        
+        if(req.session.login){
+            const listaProy = await getProyectosOrdenarAntiguedad();
+            const usuario = await getUsuario(parseInt(req.session.u_id));
+            const listaProyFavs = await getProyFavByUsuario(usuario);
+            const notificaciones = await getNotificacionsByUsuario(usuario);
+            const notif_n = await getNumbNotificacions(usuario);
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                lfav : listaProyFavs,
+                registrado : req.session.login,
+                u : usuario,
+                uid: req.session.u_id,
+                notifs : notificaciones,
+                n_notifs : notif_n
+            })
+        }else{
+            const listaProy = await getProyectosOrdenarAntiguedad();
+            res.render('listaProyectos',{
+                lproy : listaProy,
+                registrado : req.session.login
+            })
+        }
     }
 
 })
@@ -143,11 +224,16 @@ router.get("/listaProyectos/f/:filt", async (req, res) => {
         console.log("listaFavoritosID: ", listaProyFavs.map(a => a.id))
         //console.log("Compare ", listaProyFavs.map(a => a.id).every(elem => listaProyectos.map(a => a.id).includes(elem)))
         //https://www.designcise.com/web/tutorial/how-to-check-if-an-array-contains-all-elements-of-another-array-in-javascript
+        notificaciones = await getNotificacionsByUsuario(usuario)
+        notif_n = await getNumbNotificacions(usuario)
 
         res.render('listaProyectos',{
             u : usuario,
+            uid: req.session.u_id,
             lproy : listaProyectos,
             lfav : listaProyFavs,
+            notifs : notificaciones,
+            n_notifs : notif_n,
             registrado : req.session.login
         });
     }else{
@@ -155,14 +241,10 @@ router.get("/listaProyectos/f/:filt", async (req, res) => {
 
         res.render('listaProyectos',{
             lproy : listaProyectos,
+            uid: req.session.u_id,
             registrado : req.session.login
         });
     }
     
-})
-router.post('/deleteNotif', (req, res) => {
-    let id_p = parseInt(req.body.nID);
-    deleteNotificacion(id_p)
-    res.redirect('/listaProyectos');
 })
 module.exports = router;
