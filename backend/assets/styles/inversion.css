@@ -78,10 +78,25 @@ input:focus{
     margin-left: 4%
 }
 #imagen_inversion2{
+<<<<<<< HEAD
     width: 150px;
     height: 80px; 
     border-radius: 5%;
+=======
+    width: 100px;
+    height: 100px;
+ 
+    margin-bottom: 50%;
+>>>>>>> a2aa171c8401ce5f82e5e067ecbde8eec33fd1fa
 }
+
+#americanexpress{margin-left: 4%;}
+#dinersclub{margin-left: 4%;}
+#discovernetwork{margin-left: 4%;}
+#jcb{margin-left: 4%;}
+#mastercard{margin-left: 4%;}
+#paypal{margin-left: 4%;}
+#visa{margin-left: 4%;}
 body{
     margin-top: 70px;
 }

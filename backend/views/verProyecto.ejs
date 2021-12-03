@@ -25,7 +25,16 @@
         <div class="card mb-3 mt-5" id="proyecto">
             <img src="/uploads/<%=proy.imagen%>" class="card-img-top imagen" alt="PROYECTO - IMG">
             <div class="card-body">
-                <h2 class="card-title"><%= proy.nombre %></h2>
+                <div class="row">
+                    <div class="col">
+                        <h2 class="card-title"><%= proy.nombre %></h2>
+                    </div>
+                    <div class="col">
+                        <div class="text-end">
+                            <a class="btn btn-success text-right" href="/editar/<%=proy.id%>">Editar</a>
+                        </div>
+                    </div>
+                </div>
                 <p class="card-text"><%= proy.descripcion %></p>
                 <p class="card-text price">$<%= proy.montoRecaudado%>&nbsp;&nbsp;&nbsp;<small class="text-muted">Monto Recuadado</small></p>
                 <div class="stars">

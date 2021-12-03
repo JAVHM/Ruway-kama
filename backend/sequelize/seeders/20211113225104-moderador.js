@@ -20,6 +20,7 @@ module.exports = {
       contraseña: bcrypt.hashSync("admin", salt),
       correo: 'administrador@example.com',
       descripcion: "Este es la cuenta del moderador",
+      rol:'admin',
       createdAt: new Date(),
       updatedAt: new Date()
     }])

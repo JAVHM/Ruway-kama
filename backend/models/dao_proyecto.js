@@ -171,6 +171,21 @@ const eliminarProyecto = async (pId) => {
     return p;
 }
 
+const updateProyecto = async (pl)=>{
+    const plAEditar = await getProyecto(pl.id)
+    plAEditar.nombre = pl.nombre
+    plAEditar.descripcion = pl.descripcion
+    plAEditar.categoria = pl.categoria
+    plAEditar.imagen = pl.imagen
+    plAEditar.validacion = pl.validacion
+    plAEditar.montoRecaudado = plAEditar.montoRecaudado
+    plAEditar.links_externos = pl.links_externos
+    plAEditar.fechaLimite = plAEditar.fechaLimite
+    await plAEditar.save()
+    return true
+}
+
+
 module.exports = {
     getProyectos : getProyectos,
     getProyecto : getProyecto,
@@ -182,5 +197,6 @@ module.exports = {
     getProyectosOrdenarPrecioMenor : getProyectosOrdenarPrecioMenor,
     getProyectosOrdenarNuevo : getProyectosOrdenarNuevo,
     getProyectosOrdenarAntiguedad : getProyectosOrdenarAntiguedad,
-    getProyectosFiltroValidacion : getProyectosFiltroValidacion
+    getProyectosFiltroValidacion : getProyectosFiltroValidacion,
+    updateProyecto
 }

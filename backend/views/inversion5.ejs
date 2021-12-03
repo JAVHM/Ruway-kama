@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=
     , initial-scale=1.0">
- 
+
     <script src="https://kit.fontawesome.com/a6406a81fb.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,34 +25,22 @@
     <% }%>
     
     <div class="container contenido">
-       <a> Estas apunto de inciar una nueva inversion :)</a>
-        <div class="row " id="h_proyecto">
-            <h1><%= proy.nombre %></h1>
-        </div>
+       <a id="label_metodo">  Ingrese los datos:</a>
         <div class="row" id="proyecto">
-          <h1 id="h1_proyecto">Cuotas para invertir</h1>
+            <input type="text" name="" placeholder="Numero de Tarjeta" id="input_tarjeta" >
+            <input type="text" name="" placeholder="Nombre del titular" id="input_nombre" >
+            <div class="form-group">
+                <input type="date" name="" id="input_date" > 
+             <input type="password" placeholder="CVV" id="input_cvv" > 
+            </div>   
         </div>  
         <div  class="row">
-            <div class="col" >
-                <label id="label_minimacouta">Minima couta</label>
-                 <p><label id="label_cuota">S/28050.75</label></p>
-                 <img src="/images/inicio.jpg" id=imagen_inversion1 >
-            </div>
-            <div class="col" id="proyecto">
-                <label id="label_minimacouta">Elige una couta mayor a la minima que deseas invertir</label>
-                <div class="form-group">
-                    <label id="label_cuota_1"> S/28050.75 ></label>
-                </div>              
-                     
-                  <img src="/images/inicio.jpg" id=imagen_inversion1 >
-            </div>
-        </div>
-        <div>
             
-            <form action="/Inve" method="POST">
-                <input type="valor" id="valor" name="valor" >
-                <button id="boton" class="btn btn-success" type="submit">invertir Ahora</button>
-            </form> 
+            </div>
+        
+        <div>
+            <a href="/inversion/6" type="button" id="boton_iniciarinversion" class="btn btn-success mb-3">Aceptar Pago</a>
+         
         </div>
        
      

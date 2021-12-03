@@ -46,6 +46,23 @@ const updateContrasena = async (email, contrasena) => {
     await usuario.save()
     return true;
 }
+const deleteUsuario = async(id)=>{
+    await db.Usuario.destroy({
+        where:{
+            id:id
+        }
+    })
+}
+
+const getUsuariosSinAdmin = async () => {
+    //return data.usuarios;
+    const listaUsuarios = await db.Usuario.findAll({
+        where:{
+            rol:'usuario'
+        }
+    });
+    return listaUsuarios
+}
 
 module.exports = {
     getUsuarios: getUsuarios,
@@ -53,6 +70,8 @@ module.exports = {
     getUsuario: getUsuario,
     updateUsuario: updateUsuario,
     getUsuariobyEmail: getUsuariobyEmail,
-    updateContrasena: updateContrasena
+    updateContrasena: updateContrasena,
+    deleteUsuario,
+    getUsuariosSinAdmin
 }
 
