@@ -14,6 +14,9 @@
                     <div class = "sec new">
                         <div class = "profCont"></div>
                         <div class = "txt"><%= n.texto %></div>
+                        <% if(n.link!="NONE") { %>
+                          <a href = "<%= n.link %>">Enlace</a>
+                        <% }%>
                         <div class = "txt sub"><%= n.fecha.getHours().toString() +":"+ n.fecha.getMinutes().toString()+" | "+ n.fecha.getDate().toString()+"/"+ n.fecha.getMonth().toString() +"/"+ n.fecha.getFullYear().toString()%></div>
                         <form action="/deleteNotif" method="POST">
                           <td><input type="hidden" name="nID" value="<%= n.id %>"></td>
