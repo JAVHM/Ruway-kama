@@ -18,6 +18,7 @@ module.exports = {
       contraseña:texto,
       correo:'prueba@prueba.com',
       descripcion:'prueba prueba prueba prueba prueba prueba prueba prueba prueba ',
+      rol:'usuario',
       createdAt : new Date(),
       updatedAt : new Date()
     }])

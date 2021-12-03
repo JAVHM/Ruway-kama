@@ -46,6 +46,14 @@ const updateContrasena = async (email, contrasena) => {
     await usuario.save()
     return true;
 }
+const deleteUsuario = async(id)=>{
+    await db.Usuario.destroy({
+        where:{
+            id:id
+        }
+    })
+}
+
 
 module.exports = {
     getUsuarios: getUsuarios,
@@ -53,6 +61,7 @@ module.exports = {
     getUsuario: getUsuario,
     updateUsuario: updateUsuario,
     getUsuariobyEmail: getUsuariobyEmail,
-    updateContrasena: updateContrasena
+    updateContrasena: updateContrasena,
+    deleteUsuario
 }
 

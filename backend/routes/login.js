@@ -21,6 +21,7 @@ router.post('/login', async (req, res) => {
                 //La clave es correcta
                 //Finalmente se guarda el usuario completo en la session
                 req.session.u_id = usuario.id
+                req.session.rol = usuario.rol
                 //console.log("req.session.u_id: ", req.session.u_id)
                 res.redirect('/')
             } else {

@@ -40,6 +40,7 @@ const registroRouter=require('./routes/registro');
 const nosotrosRouter=require('./routes/nosotros');
 const correoRecRouter=require('./routes/correoRec');
 const inversionRouter=require('./routes/inversion');
+const adminUsuario=require('./routes/adminUsuario');
 app.use('/',correoRecRouter);//recuperar contraseña*/
 app.use('/',indexRouter);
 app.use('/',mensajeriaRouter);
@@ -52,7 +53,7 @@ app.use('/',indexRouter);
 app.use('/',registroRouter);
 app.use('/',nosotrosRouter);
 app.use('/',inversionRouter);
-
+app.use('/',adminUsuario);
 router.post('/deleteNotif', (req, res) => {
     let id_p = parseInt(req.body.nID);
     deleteNotificacion(id_p)

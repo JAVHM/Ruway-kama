@@ -16,6 +16,7 @@ router.post('/registro', async (req, res) => {
         // El numero 8 es las veces que se realiza, mientras mas, mas seguro pero mas demora.
         correo: req.body.email,
         descripcion: 'Pon tu descripción',
+        rol:'usuario'
     }
     //Verificando si el correo es unico
     const listaUsuarios = await getUsuarios()
