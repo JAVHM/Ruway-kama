@@ -81,7 +81,17 @@ input:focus{
 #imagen_inversion2{
     width: 100px;
     height: 100px;
+ 
+    margin-bottom: 50%;
 }
+
+#americanexpress{margin-left: 4%;}
+#dinersclub{margin-left: 4%;}
+#discovernetwork{margin-left: 4%;}
+#jcb{margin-left: 4%;}
+#mastercard{margin-left: 4%;}
+#paypal{margin-left: 4%;}
+#visa{margin-left: 4%;}
 body{
     margin-top: 70px;
 }
@@ -126,6 +136,7 @@ body{
     text-align: center;
     color:#f4a55e;
    margin-left: 10%;
+   margin-bottom: 4%;
 
 }
 #input_tarjeta{
