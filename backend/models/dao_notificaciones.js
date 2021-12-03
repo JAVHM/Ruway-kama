@@ -7,7 +7,7 @@ const createNotificacion = async (notificacion)=>{
     return await db.Notificacion.create(notificacion)
 }
 const deleteNotificacion = async (notificacionID) => {
-    console.log("Se ha borrado: ", notificacionID)
+    //console.log("Se ha borrado: ", notificacionID)
     return await db.Notificacion.destroy({
         where: {
             id : notificacionID
@@ -29,7 +29,7 @@ const getNotificacionsByUsuario = async (usuario) => {
             fecha : n.fecha
         })
     }
-    console.log("Notificaciones de usuario: ", notificaciones)
+    //console.log("Notificaciones de usuario: ", notificaciones)
     return notificaciones
 }
 const getNumbNotificacions = async (usuario) => {
@@ -42,7 +42,7 @@ const getNumbNotificacions = async (usuario) => {
     for(let not of notifs.rows) {
         n++
     }
-    console.log("n: ", n)
+    //console.log("n: ", n)
     return n
 }
 module.exports = {

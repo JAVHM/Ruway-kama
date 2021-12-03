@@ -4,7 +4,7 @@ const { getUsuario} = require('../models/dao_usuario')
 const { getProyecto} = require('../models/dao_proyecto');
 const {createInversor,getInversorConUsuario,updateInversion}=require('../models/dao_inversor');
 const {createInversion}=require('../models/dao_inversion')
-const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion} = require('../models/dao_notificaciones')
+const { getNotificacionsByUsuario, getNumbNotificacions, deleteNotificacion, createNotificacion} = require('../models/dao_notificaciones')
 
 router.get('/inversion/1/:ide', async (req, res) => {
     const pId = req.params.ide;
@@ -41,6 +41,7 @@ router.get('/inversion/3', async (req, res) => {
     notificaciones = await getNotificacionsByUsuario(usuario)
     notif_n = await getNumbNotificacions(usuario)
     const p = await getProyecto(req.session.pid)
+
     res.render('inversion3', {
         registrado : req.session.login,
         u : usuario,
@@ -110,10 +111,8 @@ router.get('/', async (req,res)=>{
     }
 })
 router.post('/Inve', async (req,res)=>{
-    console.log("HOLA")
     const id_u= parseInt(req.session.u_id);
     const id_p= parseInt(req.session.pid);
-    console.log(id_u+" "+id_p)
     monto=req.body.valor
  //Buscar y tomar inversion con valores de usuario y proyecto
     const elemInversor = await getInversorConUsuario(id_u,id_p)
@@ -143,6 +142,17 @@ router.post('/Inve', async (req,res)=>{
 
     //Actualiza la InverAcum
     await updateInversion(inversor.id, monto)
+
+
+    //Implementación de la notificación
+    const p = await getProyecto(req.session.pid)
+    const notif = {
+        id_u : parseInt(req.session.u_id),
+        texto : "Haz invertido " + monto + " en el proyecto: " + p.nombre,
+        link : "NONE",
+        fecha : new Date()
+    }
+    await createNotificacion(notif)
     
     res.redirect('/inversion/4');
 })
