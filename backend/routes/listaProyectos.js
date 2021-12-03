@@ -4,7 +4,7 @@ const { getUsuario } = require('../models/dao_usuario')
 const { getProyecto, getProyectos, getProyectosPorUsuario, getProyectosFiltroCategoria, getProyectosOrdenarPrecioMayor, getProyectosOrdenarPrecioMenor, getProyectosOrdenarNuevo, getProyectosOrdenarAntiguedad, getProyectosFiltroValidacion} = require('../models/dao_proyecto')
 const { favAdd, favDelete, getFavByUsuario, getProyFavByUsuario} = require('../models/dao_favoritos')
 const { getNotificacionsByUsuario, getNumbNotificacions, createNotificacion} = require('../models/dao_notificaciones')
-
+const {createInversor}=require('../models/dao_inversor')
 router.get("/listaProyectos", async (req, res) => {
     /*if(req.session.login){
         res.render('verProyecto');
@@ -197,6 +197,7 @@ router.post('/addFav', async (req,res)=>{
 
     res.redirect('listaProyectos');
 })
+
 router.post('/delFav', async (req,res)=>{
     const fav = {
         id_u: parseInt(req.session.u_id),

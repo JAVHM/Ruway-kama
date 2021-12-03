@@ -147,3 +147,8 @@
     padding: 5px;
     color:rgb(168, 56, 5);
 }
+.divScroll {
+            overflow:scroll;
+            height:150px;
+           
+    }

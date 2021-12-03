@@ -12,8 +12,7 @@ height: 200px;
     border: none;
     width: 15%;
     height: 4%;
-    margin-left: 45%;
-    margin-bottom: 10%;
+    margin-left: 44%;
 }
 #proyecto{
     margin-left: 3%;
@@ -79,8 +78,9 @@ input:focus{
     margin-left: 4%
 }
 #imagen_inversion2{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 80px; 
+    border-radius: 5%;
 }
 body{
     margin-top: 70px;
@@ -103,4 +103,16 @@ body{
     border-radius: 3%;
     margin:auto
    
+}
+.divScroll {
+    overflow:scroll;
+    height:350px;
+    margin-left: 5%;
+   
+}
+.DivPrincipal{
+    margin-left: 30%;
+}
+.paypal{
+    margin-left: 20%;
 }
