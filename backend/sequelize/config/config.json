@@ -12,7 +12,7 @@
         "rejectUnauthorized" : false
       }
     },
-    "connectionString": "postgres://ruwaykama_user:hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH@dpg-ciifr9lph6erq6ggi0hg-a/ruwaykama"
+    "connectionString": "postgres://ruwaykama_user:hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH@dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com/ruwaykama"
   },
   "test": {
     "username": "root",
