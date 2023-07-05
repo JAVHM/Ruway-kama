@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'assets')))
 app.listen(3000, () => {
     console.log('Servidor funcional en http://localhost:3000')
+    testConnection()
 });
 
 //RUTAS
@@ -61,3 +62,32 @@ router.post('/deleteNotif', (req, res) => {
     deleteNotificacion(id_p)
     res.redirect('/');
 })
+
+const { Sequelize } = require('sequelize');
+
+const sequelize = new Sequelize({
+  dialect: 'postgres',
+  host: 'dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com',
+  port: 5432,
+  database: 'ruwaykama',
+  username: 'ruwaykama_user',
+  password: 'hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
+});
+
+// Prueba de conexión
+async function testConnection() {
+  try {
+    await sequelize.authenticate();
+    console.log('Conexión establecida correctamente.');
+  } catch (error) {
+    console.error('Error al conectar a la base de datos:', error);
+  }
+}
+
+testConnection();
