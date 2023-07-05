@@ -63,21 +63,22 @@ router.post('/deleteNotif', (req, res) => {
     res.redirect('/');
 })
 
+const db = require('./sequelize/models');
 const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize({
-  dialect: 'postgres',
-  host: 'dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com',
-  port: 5432,
-  database: 'ruwaykama',
-  username: 'ruwaykama_user',
-  password: 'hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH',
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false
+const sequelize = new Sequelize("postgres://ruwaykama_user:hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH@dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com/ruwaykama", {
+    dialect: 'postgres',
+    host: 'dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com',
+    port: 5432,
+    database: 'ruwaykama',
+    username: 'ruwaykama_user',
+    password: 'hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
     }
-  }
 });
 
 // Prueba de conexión
@@ -85,9 +86,20 @@ async function testConnection() {
   try {
     await sequelize.authenticate();
     console.log('Conexión establecida correctamente.');
+
+    getUsuario(1);
+
+    console.log('Esas son todas');
   } catch (error) {
     console.error('Error al conectar a la base de datos:', error);
   }
 }
 
-testConnection();
+const getUsuario = async (uId) => {
+    const u = await db.Usuario.findOne({
+        where: {
+            id: uId
+        }
+    })
+    return u;
+}
