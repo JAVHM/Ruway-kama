@@ -1,10 +1,18 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "postgres",
-    "database": "Ruwaykama",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "host": "dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com",
+    "port": 5432,
+    "database": "ruwaykama",
+    "username": "ruwaykama_user",
+    "password": "hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH",
+    "dialectOptions" : {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized" : false
+      }
+    },
+    "connectionString": "postgres://ruwaykama_user:hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH@dpg-ciifr9lph6erq6ggi0hg-a/ruwaykama"
   },
   "test": {
     "username": "root",
