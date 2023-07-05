@@ -24,9 +24,9 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 app.use(express.static(path.join(__dirname, 'assets')))
-app.listen(3000, () => {
+app.listen(3000, async () => {
     console.log('Servidor funcional en http://localhost:3000')
-    
+    console.log( await getTables())
 });
 
 //RUTAS
@@ -72,14 +72,14 @@ const {config} = require('dotenv');
 config()
 
 const pool = new pg.Pool({
-    connectionString: process.env.DARABASE_URL,
-    ssl: true,
     dialect: "postgres",
     host: "dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com",
     port: 5432,
     database: "ruwaykama",
     user: "ruwaykama_user",
     password: "hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH",
+    connectionString: process.env.DARABASE_URL,
+    ssl: true,
 })
 
 async function getTables() {

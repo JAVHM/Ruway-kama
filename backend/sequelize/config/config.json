@@ -6,13 +6,10 @@
     "database": "ruwaykama",
     "username": "ruwaykama_user",
     "password": "hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH",
+    "connectionString": "postgres://ruwaykama_user:hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH@dpg-ciifr9lph6erq6ggi0hg-a/ruwaykama",
     "dialectOptions" : {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized" : false
-      }
-    },
-    "connectionString": "postgres://ruwaykama_user:hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH@dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com/ruwaykama"
+      "ssl": true
+    }
   },
   "test": {
     "username": "root",
