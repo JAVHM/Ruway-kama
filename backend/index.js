@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'assets')))
 app.listen(3000, () => {
     console.log('Servidor funcional en http://localhost:3000')
-    testConnection()
+    
 });
 
 //RUTAS
@@ -57,49 +57,47 @@ app.use('/',nosotrosRouter);
 app.use('/',inversionRouter);
 app.use('/',adminUsuario);
 app.use('/',editarProyecto);
+app.get('/ping', async (req, res) =>{
+    const result = await pool.query('SELECT NOW()')
+    return res.json(result.rows[0])
+});
 router.post('/deleteNotif', (req, res) => {
     let id_p = parseInt(req.body.nID);
     deleteNotificacion(id_p)
     res.redirect('/');
 })
+const pg = require('pg');
+const {config} = require('dotenv');
 
-const db = require('./sequelize/models');
-const { Sequelize } = require('sequelize');
+config()
 
-const sequelize = new Sequelize("postgres://ruwaykama_user:hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH@dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com/ruwaykama", {
-    dialect: 'postgres',
-    host: 'dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com',
+const pool = new pg.Pool({
+    connectionString: process.env.DARABASE_URL,
+    ssl: true,
+    dialect: "postgres",
+    host: "dpg-ciifr9lph6erq6ggi0hg-a.oregon-postgres.render.com",
     port: 5432,
-    database: 'ruwaykama',
-    username: 'ruwaykama_user',
-    password: 'hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
+    database: "ruwaykama",
+    user: "ruwaykama_user",
+    password: "hgAvcqBDWkcCPrTGz4h7yg6VntAq0rfH",
+})
+
+async function getTables() {
+    try {
+      const client = await pool.connect();
+      const result = await client.query(
+        "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public';"
+      );
+      const tables = result.rows.map((row) => row.table_name);
+      client.release();
+      return tables;
+    } catch (error) {
+      console.error('Error al obtener las tablas:', error);
+      return [];
     }
-});
-
-// Prueba de conexión
-async function testConnection() {
-  try {
-    await sequelize.authenticate();
-    console.log('Conexión establecida correctamente.');
-
-    getUsuario(1);
-
-    console.log('Esas son todas');
-  } catch (error) {
-    console.error('Error al conectar a la base de datos:', error);
   }
-}
-
-const getUsuario = async (uId) => {
-    const u = await db.Usuario.findOne({
-        where: {
-            id: uId
-        }
-    })
-    return u;
-}
+  
+  app.get('/tables', async (req, res) => {
+    const tables = await getTables();
+    return res.json(tables);
+  });
