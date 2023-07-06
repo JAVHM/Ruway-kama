@@ -10,7 +10,9 @@ router.get("/dashboard/:id", async (req, res) => {
     const u = await getUsuario(parseInt(uId));
     const proyUsuario = await getProyectosPorUsuario(uId);
     const mejorProyecto= await getMejorProyecto(uId);
-    console.log(mejorProyecto);
+    console.log("u",u);
+    console.log("proyUsuariou",proyUsuario);
+    console.log("mejorProyecto",mejorProyecto);
     res.render('dashboard', {
         usuario: u,
         proy : proyUsuario,
