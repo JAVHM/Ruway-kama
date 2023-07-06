@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcryptjs = require('bcryptjs');
 const { getUsuarios } = require('../models/dao_usuario')
+const nodemailer = require('nodemailer')
 
 router.get('/login', async (req, res) => {
     res.render('login')
@@ -25,6 +26,25 @@ router.post('/login', async (req, res) => {
                 console.log('USUARIOOOOO'+usuario.id);
                 req.session.rol = usuario.rol
                 //console.log("req.session.u_id: ", req.session.u_id)
+
+                //Enlaze a la cuenta de email Ruwaykama
+                const transporter = nodemailer.createTransport({
+                    host: "smtp.gmail.com",
+                    port: 465,
+                    secure: true,
+                    auth: {
+                        user: 'javanhmalpro@gmail.com',
+                        pass: 'rqffmhlmroeijxzz',
+                    },
+                });
+
+                await transporter.sendMail({
+                    from: "Confirmacion de Registro",
+                    to: "javanhmalpro@gmail.com",//req.body.email,
+                    subject: "Confirmacion de Registro", // Subject line
+                    html: "<b>Se ha ingresado a tu cuenta</b>", // html body
+                });
+
                 res.redirect('/')
             } else {
                 //La clave es incorrecta

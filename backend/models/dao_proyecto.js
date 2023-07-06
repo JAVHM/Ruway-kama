@@ -162,6 +162,23 @@ const getProyecto = async (pId) => {
     return p;
 }
 
+const getProyectoxInversor = async(pId)=>{
+    const proys = await db.Proyecto.findAll({
+        where : {
+            id : pId
+        }
+    }) 
+    const proyectos = []
+    for(let p of proys) {
+        const ps = await db.Inversor.findOne({
+            where : {
+                id: p.id_p
+            }
+        });
+        proyectos.push(ps)
+    }
+    }
+
 const eliminarProyecto = async (pId) => {
     const p = await db.Proyecto.destroy({
         where : {
@@ -189,6 +206,7 @@ const updateProyecto = async (pl)=>{
 module.exports = {
     getProyectos : getProyectos,
     getProyecto : getProyecto,
+    getProtectoxInversor : getProyectoxInversor,
     getProyectosPorUsuario : getProyectosPorUsuario,
     createProyecto : createProyecto,
     eliminarProyecto : eliminarProyecto,
