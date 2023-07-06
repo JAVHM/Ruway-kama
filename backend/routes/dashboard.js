@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { getProyectosPorUsuario, eliminarProyecto } = require('../models/dao_proyecto');
+const { getProyectosPorUsuario, eliminarProyecto, getProtectoxInversor } = require('../models/dao_proyecto');
 const { getUsuario, updateUsuario} = require('../models/dao_usuario')
 const { getProyFavByUsuario} = require('../models/dao_favoritos')
-const {getMejorProyecto}=require('../models/dao_dashboard')
+const {getMejorProyecto}=require('../models/dao_dashboard');
+const { GetInversionxUsuario } = require('../models/dao_inversion');
 router.get("/dashboard/:id", async (req, res) => {
     const uId = req.params.id;
     const u = await getUsuario(parseInt(uId));
@@ -62,7 +63,17 @@ router.get("/dashboard/Mensajeria/:id", async (req, res) => {
         proy : proyUsuario
     })
 })
-
+router.get("/dashboard/Historial/:id", async (req, res) => {
+    const uId = req.params.id;
+    const u = await getUsuario(parseInt(uId));
+    const proyUsuario = await getProyectosPorUsuario(uId);
+    const transUsuario = await GetInversionxUsuario(uId);
+    res.render('dashboard6', {
+        usuario: u,
+        proy : proyUsuario,
+        invs : transUsuario
+    })
+})
 router.get("/dashboard/:uId/delete/:pId", async (req, res) => {
     const proy = req.params.pId;
     const u = req.params.uId;
