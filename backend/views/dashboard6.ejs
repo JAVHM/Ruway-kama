@@ -31,18 +31,18 @@
             class="icon ion-md-people lead mr-2"></i> Proyectos aceptados</a>
         <a id="tab" href="/dashboard/ProyectosFinanciados/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
             class="icon ion-md-stats lead mr-2"></i> Proyectos financiados</a>
-        <a id="active" href="/dashboard/InformacionPersonal/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
+        <a id="tab" href="/dashboard/InformacionPersonal/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
             class="icon ion-md-calendar lead mr-2"></i> Mi informacion personal </a>
         <a id="tab" href="/dashboard/ProyectosFavoritos/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
             class="icon ion-md-person lead mr-2"></i> Proyectos favoritos</a>
         <a id="tab" href="/dashboard/Mensajeria/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
             class="icon ion-md-person lead mr-2"></i> Mensajeria</a>
-        <a id="tab"  href="/dashboard/Historial/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
-            class="icon ion-md-person lead mr-2"></i> Historial</a>
+        <a id="active"  href="/dashboard/Historial/<%=usuario.id%>" class="list-group-item list-group-item-action p-3 border-0"><i
+             class="icon ion-md-person lead mr-2"></i> Historial</a>
         <a id="tab" href="#" class="list-group-item list-group-item-action p-3 border-0"> <i
             class="icon ion-md-settings lead mr-2"></i> Configuración</a>
         <a id="tab"  href="/" class="list-group-item list-group-item-action p-3 border-0 mt-5">
-             <i class="fas fa-arrow-alt-circle-left"></i> Volver</a>
+          <i class="fas fa-arrow-alt-circle-left"></i> Volver</a>
       </div>
     </div>
     <!-- Fin sidebar -->
@@ -69,7 +69,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link text-dark" href="#">Usuario </a>
+                    <a class="nav-link text-dark" href="#">HISTORIAL </a>
                   </li>
                 <li class="nav-item active">
                     <a class="nav-link text-dark" href="#"><i class="fas fa-bell"></i></a>
@@ -85,20 +85,35 @@
       </nav>
 
       <div class="principal">
-        <p>INFORMACION PERSONAL</p>
-        
-              <p>ID: <%=usuario.id%></p>
-              <p>Nombre:  <%=usuario.nombre%> </p>
-              <p>Correo: <%=usuario.correo%></p>
-              <p>Descripción: <%=usuario.descripcion%></p>
+        <p>HISTORIAL DE TRANSACCIONES</p>
 
-              <form action="/ActualizarDatosUsuario" method="POST">
-                <br><label>Nombre: </label>
-                <input name="nombre" type="text" value="<%=usuario.nombre%>">
-                <br><label>Descripción: </label>
-                <input name="descripcion" type="text" value="<%=usuario.descripcion%>">
-                <button id="boton" class="btn btn-success" type="submit">Actualizar</button>
-              </form>
+        <div> 
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="ID de Inversor" aria-label="Id de Inversor" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Filtrar</button>
+          </div>
+        </div>
+
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre del proyecto</th>
+                <th scope="col">Número de inversión</th>
+                <th scope="col">Monto de la inversión</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% proy.forEach((q) => { %>
+                <% invs.forEach((p) => { %>
+                  <th scope="row"><%= q.nombre %></td>
+                  <td><%= p.id_inv %></td>
+                  <td><%= p.monto %></td>
+                <% }) %>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <!-- Fin Page Content -->
