@@ -35,8 +35,8 @@ router.post('/registro', async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-            user: 'Ruwaykama@gmail.com',
-            pass: 'wvawtjhxpkndnpov',
+            user: 'javanhmalpro@gmail.com',
+            pass: 'rqffmhlmroeijxzz',
         },
     });
 
