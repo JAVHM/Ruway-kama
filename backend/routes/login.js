@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 
                 await transporter.sendMail({
                     from: "Confirmacion de Registro",
-                    to: "javanhmalpro@gmail.com",//req.body.email,
+                    to: req.body.email,//req.body.email,
                     subject: "Confirmacion de Registro", // Subject line
                     html: "<b>Se ha ingresado a tu cuenta</b>", // html body
                 });
